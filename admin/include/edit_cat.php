@@ -1,0 +1,32 @@
+ 
+      <form action="" method="post">
+          <?php  
+          if(isset($_GET['edit'])){
+              $cat_id=$_GET['edit'];
+              $query="SELECT * FROM category WHERE cat_id={$cat_id}";
+              $edit_query=mysqli_query($connection,$query);
+               if(!$edit_query){
+        die("query failed" .mysqli_error($connection));                
+        }
+              while($row=mysqli_fetch_assoc($edit_query)){
+                  $title=$row['cat_title'];
+                  $cat_id=$row['cat_id'];
+              }
+              ?>
+             <input value="<?php if(isset($title)){echo $title;} ?>" style="padding:10px;" type="text" name="categories" placeholder="category">
+             
+         <?php }?>
+           <input style="padding:10px;" type="submit" name="edit_cat"  value="Edit Category">
+         
+          <?php
+          if(isset($_POST['edit_cat']))
+          { 
+            $title=$_POST['categories'];
+            $query="UPDATE category SET cat_title='{$title}' WHERE cat_id=$cat_id";
+            $update_query=mysqli_query($connection,$query); 
+             if(!$update_query){
+        die("query failed" .mysqli_error($connection));                
+        }
+          }
+            ?>
+         </form>
