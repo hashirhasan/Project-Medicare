@@ -87,7 +87,12 @@
                 <li><a href="posts.php?source=add_post">add posts</a></li>
                </ul>
        </li>
-         <li><a href=""></a></li>
+         <li><a href="">Users</a>
+        <ul>
+         <li><a href="users.php">view users</a></li><br>
+                <li><a href="users.php?source=add_user">add user</a></li>
+               </ul>
+        </li>
           <li><a href=""></a></li>
         </ul>
     </div><br>  

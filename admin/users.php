@@ -128,20 +128,20 @@
                     }
                     switch($source)
                     {
-                        case 'add_post': 
+                        case 'add_user': 
                             
-                            include"include/add_post.php";
+                            include"include/add_user.php";
                             break;
                             
-                             case 'edit_post':
-                            include"include/edit_post.php";
+                             case 'edit_user':
+                            include"include/edit_user.php";
                             break;
                             
                              case '200':
                             echo"nicer";
                             break;
                         default:
-                            include"include/view_post.php";
+                            include"include/view_users.php";
                                 break;
                             
                             
