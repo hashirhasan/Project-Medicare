@@ -31,9 +31,7 @@
                         default:
                             include"include/view_users.php";
                                 break;
-                            
-                            
-                    }
+                      }
                     
                     ?>
                 

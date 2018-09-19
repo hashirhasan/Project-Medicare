@@ -58,7 +58,7 @@
        <input class="form" value="<?php echo $user_password;?>" type="password" name="user_password">  
     </div><br><br>
     <div>
-    <input class="form"  style="background-color:blue;"type="submit" name="update_user" value="Update">
+    <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_user" value="Update">
     </div>
 
 </form>

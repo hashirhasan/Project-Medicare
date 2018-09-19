@@ -22,6 +22,8 @@ if(isset($_POST['login_user']))
 {
     $enter_username=$_POST['username'];
     $enter_password=$_POST['user_password'];
+    $enter_username=mysqli_real_escape_string($connection,$enter_username);
+    $enter_password=mysqli_real_escape_string($connection,$enter_password);
     $query="SELECT * FROM users";
     $result=mysqli_query($connection,$query);
     while($row=mysqli_fetch_assoc($result))
@@ -33,8 +35,8 @@ if(isset($_POST['login_user']))
         $user_lastname=$row['user_lastname'];
         $user_email=$row['user_email'];
         $user_role=$row['user_role'];   
- 
-    
+   
+        
   if($enter_username===$username && $enter_password===$user_password)
   {
       $_SESSION['username']= $enter_username;

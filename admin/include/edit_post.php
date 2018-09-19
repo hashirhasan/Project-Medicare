@@ -42,7 +42,7 @@
     <h2><label for="tags" >Post_Tags</label></h1><br>
        <input class="form" value="<?php echo $post_tags;?>" type="text" name="tag">  
     </div><br><br>
-   
+   <div>
     <input class="form"  style="background-color:blue;"type="submit" name="update_post" value="Update">
     </div>
 

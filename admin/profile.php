@@ -20,7 +20,30 @@
             $user_password=$row['user_password'];
             }
         }
-     ?>
+
+if(isset($_POST['update_profile'])){
+   
+    $username=$_POST['username'];
+    $user_role=$_POST['user_role'];
+   $user_firstname=$_POST['user_firstname'];
+   $user_lastname=$_POST['user_lastname'];
+   $user_email=$_POST['user_email'];
+   $user_password=$_POST['user_password'];
+    $query="UPDATE users SET ";
+    $query .="username='$username', ";
+    $query .="user_role='$user_role', ";
+    $query .="user_firstname='$user_firstname', ";
+    $query .="user_lastname='$user_lastname', ";
+    $query .="user_email='$user_email',";
+    $query .="user_password='$user_password' ";
+    $query .="WHERE username='$username'";
+    $result=mysqli_query($connection,$query);
+    if(!$result){
+    die("query failed" .mysqli_error($connection));
+    }
+ 
+}
+ ?>
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-6">
@@ -48,7 +71,7 @@
         </select></div><br><br>
    
     <h2><label for="firstname" >Firstname</label></h1><br>
-     <input class="form" value="<?php echo $user_lastname;?>" type="text" name="user_firstname">  
+     <input class="form" value="<?php echo $user_firsttname;?>" type="text" name="user_firstname">  
 
     <div>
     <h2><label for="lastname" >Lastname</label></h1><br>
@@ -68,30 +91,7 @@
 
 </form>
                     
-<?php   
-if(isset($_POST['update_profile'])){
-   
-    $username=$_POST['username'];
-    $user_role=$_POST['user_role'];
-   $user_firstname=$_POST['user_firstname'];
-   $user_lastname=$_POST['user_lastname'];
-   $user_email=$_POST['user_email'];
-   $user_password=$_POST['user_password'];
-    $query="UPDATE users SET ";
-    $query .="username='$username', ";
-    $query .="user_role='$user_role', ";
-    $query .="user_firstname='$user_firstname', ";
-    $query .="user_lastname='$user_lastname', ";
-    $query .="user_email='$user_email',";
-    $query .="user_password='$user_password' ";
-    $query .="WHERE username='$username'";
-    $result=mysqli_query($connection,$query);
-    if(!$result){
-    die("query failed" .mysqli_error($connection));
-    }
- 
-}
-                    ?>
+
                 
                 
                  </div>

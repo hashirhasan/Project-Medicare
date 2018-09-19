@@ -1,6 +1,9 @@
+
+<?php include "connect.php" ?>
 <?php
-if(isset($_POST['create_user']))
-{ 
+    
+if(isset($_POST['create_user'])){
+//   echo "Successfully Registered";
    $username=$_POST['username'];
     $user_role=$_POST['user_role'];
    $user_firstname=$_POST['user_firstname'];
@@ -8,20 +11,30 @@ if(isset($_POST['create_user']))
      $user_email=$_POST['user_email'];
      $user_password=$_POST['user_password'];
   $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password) "; 
-  $query .="VALUES('$username','$user_role','$user_firstname','$user_lastname','$user_email','$user_
-  password')";
+  $query .="VALUES('$username','$user_role','$user_firstname','$user_lastname','$user_email','$user_password')";
     $result=mysqli_query($connection,$query);
     if(!$result){
         die("query failed". mysqli_error($connection));
     }
+    header("location:login.php");
 }
-
-
 
 ?>
 
 
-<form action="" method="post" enctype="multipart/form-data">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+</head>
+<body>
+    
+<form action="register.php" method="post" enctype="multipart/form-data">
      <div>
     <h2><label for="username" >Username</label></h1><br>
        <input class="form" type="text" name="username" required>  
@@ -53,7 +66,8 @@ if(isset($_POST['create_user']))
     </div><br><br>
    
         <div>
-    <input class="form"  style="background-color:blue;"type="submit" name="create_user" value="Add User">
+    <input class="form"  style="background-color:blue;"type="submit" name="create_user" value="Register">
     </div>
-
-</form>
+    </form>
+</body>
+</html>
