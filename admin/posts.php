@@ -1,9 +1,6 @@
 <?php include "include/adminheader.php"?>
-    <div class="admin" >
-         <div class="outline">
-    <h1 style="text-align:center;">WELCOME TO ADMIN</h1><br>
-               <hr style="width:700px; position:absolute; margin-left:400px;">
-             <br>
+
+   
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-6">

@@ -1,26 +1,31 @@
-
+<?php include "include/adminheader.php" ?>
+  
 <?php
-  if(isset($_GET['user_id'])){
-      $user_id=$_GET['user_id'];
-    $query="SELECT * FROM users WHERE user_id=$user_id";
-    $result=mysqli_query($connection,$query);
-   if(!$result){
-       die("query failed". mysqli_error($connection));
-   }
-    while($row=mysqli_fetch_assoc($result))
-    {   
-       
-    $username=$row['username'];
-    $user_role=$row['user_role'];
-    $user_firstname=$row['user_firstname'];
-    $user_lastname=$row['user_lastname'];
-    $user_email=$row['user_email'];
-    $user_password=$row['user_password'];
-    }
-}
-?>
-
-<form action="" method="post" enctype="multipart/form-data">
+       if(isset($_SESSION['username']))
+        {
+            $username=$_SESSION['username'];
+            $query="SELECT * FROM users WHERE username ='{$username}'";
+             $result=mysqli_query($connection,$query);
+           if(!$result){
+               die("query failed". mysqli_error($connection));
+           }
+            while($row=mysqli_fetch_assoc($result))
+            {   
+             $user_id=$row['user_id'];
+            $username=$row['username'];
+            $user_role=$row['user_role'];
+            $user_firstname=$row['user_firstname'];
+            $user_lastname=$row['user_lastname'];
+            $user_email=$row['user_email'];
+            $user_password=$row['user_password'];
+            }
+        }
+     ?>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+             
+                   <form action="" method="post" enctype="multipart/form-data">
     <div>
     <h2><label for="username" >Username</label></h1><br>
     <input class="form"value="<?php echo $username;?>" type="text" name="username">
@@ -43,7 +48,7 @@
         </select></div><br><br>
    
     <h2><label for="firstname" >Firstname</label></h1><br>
-     <input class="form" value="<?php echo $user_firstname;?>" type="text" name="user_firstname">  
+     <input class="form" value="<?php echo $user_lastname;?>" type="text" name="user_firstname">  
 
     <div>
     <h2><label for="lastname" >Lastname</label></h1><br>
@@ -58,13 +63,13 @@
        <input class="form" value="<?php echo $user_password;?>" type="password" name="user_password">  
     </div><br><br>
     <div>
-    <input class="form"  style="background-color:blue;"type="submit" name="update_user" value="Update">
+    <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_profile" value="Update Profile">
     </div>
 
 </form>
-
+                    
 <?php   
-if(isset($_POST['update_user'])){
+if(isset($_POST['update_profile'])){
    
     $username=$_POST['username'];
     $user_role=$_POST['user_role'];
@@ -79,13 +84,20 @@ if(isset($_POST['update_user'])){
     $query .="user_lastname='$user_lastname', ";
     $query .="user_email='$user_email',";
     $query .="user_password='$user_password' ";
-    $query .="WHERE user_id=$user_id";
+    $query .="WHERE username='$username'";
     $result=mysqli_query($connection,$query);
     if(!$result){
     die("query failed" .mysqli_error($connection));
     }
- header("Location:users.php?source=edit_user&user_id={$user_id}");
+ 
 }
-?>
-
-
+                    ?>
+                
+                
+                 </div>
+                <div class="col-3"></div>
+             </div>
+    </div>
+    </div>
+</body>
+</html>

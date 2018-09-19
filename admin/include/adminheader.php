@@ -49,10 +49,12 @@ else if(!isset($_SESSION['user_role']))
        display: block;
       }
    .admin{
-            padding-top: 50px;
+    
+       padding: 50px 50px 0px 50px;
            
         } 
   .outline{
+      
          border:2px solid blue;
     
         }
@@ -114,10 +116,16 @@ else if(!isset($_SESSION['user_role']))
                 <li><a href="users.php?source=add_user">add user</a></li>
                </ul>
         </li>
-          <li style="margin-left:800px;" ><a href=""><?php echo $_SESSION['username']; ?></a>
+         <li><a href="profile.php">Profile</a>
+          <li style="margin-left:700px;" ><a href="index.php"><?php echo $_SESSION['username']; ?></a>
               <ul>
              <li><a href="">Profile</a></li><br>
                 <li><a href="include/logout.php">Logout</a></li>
                </ul>
         </li>
         </ul></div><br>
+     <div class="admin" >
+        <div class="outline">
+   <h1 style="text-align:center;">WELCOME TO ADMIN <small style="color:blue;">  <?php echo $_SESSION['username']; ?></small></h1><br>
+            <hr style="width:700px; position:absolute; margin-left:400px;">
+             <br>
