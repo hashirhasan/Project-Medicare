@@ -7,7 +7,7 @@
             if(isset($_POST['submit']))
                 {
                     $search=$_POST['search'];
-                $query1="SELECT * FROM posts WHERE post_tags LIKE '%$search%' ";
+                $query1="SELECT * FROM posts WHERE post_category='fitness'and post_tags LIKE '%$search%' ";
                  $result1=mysqli_query($connection,$query1);
                  if(!$result1){
                      die("query failed ". mysqli_error($connection));
@@ -34,14 +34,23 @@
             }?>
     
         </div>
+        <?php
+         if(isset($_SESSION['user_role']))
+{
+ ?>
     <div class="col-4">
-        <form action="search.php" method="post">
+        <form action="fitness_search.php" method="post">
             <input type="text" name="search" placeholder="search">
           <input type="submit" name="submit" value="search">
         </form>
         </div>
    
-    
+   <?php
+}
+        else{?>
+           <script>alert('first login');</script> 
+     <?php   }
+        ?>
     	
     </div>
 </body>

@@ -1,5 +1,12 @@
 <?php include "connect.php" ?>
 <?php session_start();?>
+<?php  
+if(isset($_SESSION['user_role']))
+{
+   header("Location:home.php");
+    
+}
+    ?>
 <br>
 <form action="" method="post" enctype="multipart/form-data">
     <br>
@@ -24,7 +31,8 @@ if(isset($_POST['login_user']))
     $enter_password=$_POST['user_password'];
     $enter_username=mysqli_real_escape_string($connection,$enter_username);
     $enter_password=mysqli_real_escape_string($connection,$enter_password);
-    $query="SELECT * FROM users";
+    
+    $query="SELECT * FROM users WHERE username='$enter_username'";
     $result=mysqli_query($connection,$query);
     while($row=mysqli_fetch_assoc($result))
     {
@@ -35,20 +43,22 @@ if(isset($_POST['login_user']))
         $user_lastname=$row['user_lastname'];
         $user_email=$row['user_email'];
         $user_role=$row['user_role'];   
-   
-        
+    }
+ 
+  $enter_password=md5($enter_password);
+
   if($enter_username===$username && $enter_password===$user_password)
-  {
+  { 
       $_SESSION['username']= $enter_username;
       $_SESSION['user_password']= $enter_password;
       $_SESSION['user_role']= $user_role;
-   header("Location:admin");   
+      header("Location:admin");   
   }
-    else
-   {
-       header("Location:home.php");   
-    }
+else{
+    header("Location:home.php");
+   
 }
+ 
 }
     
     

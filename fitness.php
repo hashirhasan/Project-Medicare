@@ -1,13 +1,13 @@
 <?php include "include/header.php" ?>
     <div class="row">
     <div style="padding-left: 30px"><br>
-        <?php
+         <?php
      if(isset($_SESSION['user_role']))
 {
     ?>
         <div class="col-8">
     <?php 
-       $query1="SELECT * FROM posts WHERE post_category='yoga'";
+    $query1="SELECT * FROM posts WHERE post_category='fitness'";
     $result1=mysqli_query($connection,$query1);
     while($post=mysqli_fetch_assoc($result1))
     {
@@ -22,17 +22,18 @@
     
         </div>
     <div class="col-4">
-        <form action="yoga_search.php" method="post">
+        <form action="fitness_search.php" method="post">
             <input type="text" name="search" placeholder="search">
             <input type="submit" name="submit" value="search">
         </form>
         </div>
- <?php
+   <?php
 }
         else{?>
-           <script>alert('first login');</script> 
+           <script>alert('first login ');</script> 
      <?php   }
         ?>
+    
     	
     </div>
 </body>

@@ -13,15 +13,30 @@
 }
 		.navbar ul{
 			list-style: none ;
+           
 		}
-        
-      ul li a{
-      	background-color: grey;
-      	width:200px;
+      ul li {
+      	 background-color: grey;
+      	width:120px;
       	float: left;
       	padding: 10px;
+        text-align: center; 
+     
+      }
+        ul ul{
+            position: absolute;
+            display: none;
+            margin-left:-10px; 
+        }
+        ul li:hover>ul{
+            display: block;
+        }
+         ul li a{
+             width:120px;
        text-decoration: none;
        color: white;
+       display: block;
+             width: 120px;
       }
         
         
@@ -63,13 +78,21 @@
 echo "<li><a href='{$cat_link}'>{$sub}</a></li>";
             
         }
-        ?>
-        <?php
+      
         if(isset($_SESSION['user_role']))
 {
  if($_SESSION['user_role']==='admin')
        echo" <li><a href='admin'>Admin</a></li>";
 }
-    ?>
+         ?>
+          <li style="margin-left:600px;" ><?php if(isset($_SESSION['user_role'])){echo"<a href='home.php'>{$_SESSION['username']}</a>";} else{echo "<a href='login.php'>Login</a>";} ?>
+              <ul>
+            <?php  if(isset($_SESSION['user_role']))
+{echo "<li><a href=''>Profile</a></li>";} ?><br>
+               <?php  if(isset($_SESSION['user_role']))
+{ echo "<li><a href='admin/include/logout.php'>Logout</a></li>";} ?>
+               </ul>
+        </li>
+   
     </ul>
     </div><br>

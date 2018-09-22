@@ -71,7 +71,7 @@
                        <?php echo" <td>{$cat_id}</td>"; ?>
                         <?php echo"<td>{$cat_title}</td>"; 
                          echo"<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";         
-                        echo"<td><a href='categories.php?delete={$cat_id}'>Delete</a></td>";    
+                        echo"<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this category?');\" href='categories.php?delete={$cat_id}'>Delete</a></td>";    
                             
                             ?>
                             
@@ -85,15 +85,21 @@
                        <?php  
                         if(isset($_GET['delete']))
                         {
+                             if(isset($_SESSION['user_role']))
+                                {
+                                    if($_SESSION['user_role']==='admin')
+                                    {
                             $cat_id=$_GET['delete'];
                                $query="DELETE FROM category ";
                                 $query .="WHERE cat_id=$cat_id";   
                                 $result=mysqli_query($connection,$query);
                                 if(!$result){
-                                    die("query failed" .mysqli_error($connection));
-                                }
+                                             die("query failed" .mysqli_error($connection));
+                                            }
                             header("Location:categories.php");
                             
+                                   }
+                                }
                         }
                         ?>
       

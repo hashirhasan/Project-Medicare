@@ -6,6 +6,7 @@ if(isset($_SESSION['user_role']))
 {
  if($_SESSION['user_role']!=='admin')
    header("Location:../home.php");
+    
 }
 else if(!isset($_SESSION['user_role']))
 {

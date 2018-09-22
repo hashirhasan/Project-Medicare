@@ -18,6 +18,7 @@
             $user_lastname=$row['user_lastname'];
             $user_email=$row['user_email'];
             $user_password=$row['user_password'];
+                $previous_password=$row['user_password'];
             }
         }
 
@@ -29,6 +30,10 @@ if(isset($_POST['update_profile'])){
    $user_lastname=$_POST['user_lastname'];
    $user_email=$_POST['user_email'];
    $user_password=$_POST['user_password'];
+    if($user_password!==$previous_password)
+    {
+   $user_password=md5($user_password);
+    }
     $query="UPDATE users SET ";
     $query .="username='$username', ";
     $query .="user_role='$user_role', ";
@@ -58,11 +63,11 @@ if(isset($_POST['update_profile'])){
       
             <option><?php echo $user_role;?></option>
         <?php    
-            if($user_role="admin")
+            if($user_role=="admin")
             {
                 echo"<option>subscriber</option>";
             }  
-            else if($user_role="subscriber")
+            else if($user_role=="subscriber")
             {
                 echo"<option>admin</option>";
             }  
@@ -71,7 +76,7 @@ if(isset($_POST['update_profile'])){
         </select></div><br><br>
    
     <h2><label for="firstname" >Firstname</label></h1><br>
-     <input class="form" value="<?php echo $user_firsttname;?>" type="text" name="user_firstname">  
+     <input class="form" value="<?php echo $user_firstname;?>" type="text" name="user_firstname">  
 
     <div>
     <h2><label for="lastname" >Lastname</label></h1><br>

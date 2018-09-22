@@ -7,9 +7,9 @@ if(isset($_POST['create_user']))
    $user_lastname=$_POST['user_lastname'];
      $user_email=$_POST['user_email'];
      $user_password=$_POST['user_password'];
+      $user_password=md5($user_password);
   $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password) "; 
-  $query .="VALUES('$username','$user_role','$user_firstname','$user_lastname','$user_email','$user_
-  password')";
+  $query .="VALUES('$username','$user_role','$user_firstname','$user_lastname','$user_email','$user_password')";
     $result=mysqli_query($connection,$query);
     if(!$result){
         die("query failed". mysqli_error($connection));

@@ -4,17 +4,31 @@
     
 if(isset($_POST['create_user'])){
 //   echo "Successfully Registered";
-   $username=$_POST['username'];
+    $username=$_POST['username'];
     $user_role=$_POST['user_role'];
-   $user_firstname=$_POST['user_firstname'];
-   $user_lastname=$_POST['user_lastname'];
-     $user_email=$_POST['user_email'];
-     $user_password=$_POST['user_password'];
-  $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password) "; 
-  $query .="VALUES('$username','$user_role','$user_firstname','$user_lastname','$user_email','$user_password')";
+    $user_firstname=$_POST['user_firstname'];
+    $user_lastname=$_POST['user_lastname'];
+    $user_email=$_POST['user_email'];
+    $user_password=$_POST['user_password'];
+    $username=mysqli_real_escape_string($connection,$username);
+    $user_password=mysqli_real_escape_string($connection,$user_password);
+    $user_firstname=mysqli_real_escape_string($connection,$user_firstname);
+    $user_lastname=mysqli_real_escape_string($connection,$user_lastname);
+    $user_role=mysqli_real_escape_string($connection,$user_role);
+//    $salt_query="SELECT randsalt FROM users";
+//    $salt_result=mysqli_query($connection,$salt_query);
+//     if(!$salt_result){
+//    die("query failed". mysqli_error($connection));
+//    }
+//    $row=mysqli_fetch_assoc($salt_result);
+//    $randsalt=$row['randsalt'];
+//    $user_password=crypt($user_password,$randsalt);
+    $user_password=md5($user_password);
+    $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password) "; 
+    $query .="VALUES('$username','subscriber','$user_firstname','$user_lastname','$user_email','$user_password')";
     $result=mysqli_query($connection,$query);
     if(!$result){
-        die("query failed". mysqli_error($connection));
+    die("query failed". mysqli_error($connection));
     }
     header("location:login.php");
 }
@@ -39,14 +53,7 @@ if(isset($_POST['create_user'])){
     <h2><label for="username" >Username</label></h1><br>
        <input class="form" type="text" name="username" required>  
     </div><br><br>
-    <div>
-         <select name="user_role">
-        <option value="subscriber">Select Options</option>
-            <option value="admin">Admin</option>
-        <option value="subscriber">Subscriber</option>
-        
-        </select>
-    </div><br><br>
+    
     <div>
     <h2><label for="firstname" >Firstname</label></h1><br>
     <input class="form" type="text" name="user_firstname">
