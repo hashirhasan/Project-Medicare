@@ -1,5 +1,9 @@
 body{
 	background-color: #3DA2F8;
+	background-image: url("tb1.jpg");
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
 }
 .container{
 	width:360px;
@@ -13,7 +17,7 @@ body{
 	width: 80%;
 	height: 380px;
 	margin: 0 auto 100px;
-	background-color: white;
+	background-color: transparent;
 	padding: 10px 45px 55px 45px;
 	text-align: center;
 	
@@ -23,11 +27,11 @@ body{
 	display: inline-block;
 	padding: 10px 40px 0px 40px;
 	position: relative;
-	
+	font-size: 18px;	
 }
 .signup h4 a{
 	text-decoration: none;
-	color: grey;
+	color: white;
 }
 .signup h4 a:hover{
 	color: #F97C76;
@@ -36,10 +40,10 @@ body{
 }
 .signup input{
 	font-family: arial;
-	background: #f2f2f2;
+	background: white;
 	width: 100%;
 	border: 0;
-	margin: 0 0 15px;
+	margin: 0 5px 15px;
 	padding: 14px;
 	box-sizing: border-box;
 	font-size: 14px;
