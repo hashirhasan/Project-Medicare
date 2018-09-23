@@ -5,7 +5,7 @@
 if(isset($_POST['create_user'])){
 //   echo "Successfully Registered";
     $username=$_POST['username'];
-    $user_role=$_POST['user_role'];
+   
     $user_firstname=$_POST['user_firstname'];
     $user_lastname=$_POST['user_lastname'];
     $user_email=$_POST['user_email'];
@@ -14,7 +14,47 @@ if(isset($_POST['create_user'])){
     $user_password=mysqli_real_escape_string($connection,$user_password);
     $user_firstname=mysqli_real_escape_string($connection,$user_firstname);
     $user_lastname=mysqli_real_escape_string($connection,$user_lastname);
-    $user_role=mysqli_real_escape_string($connection,$user_role);
+    
+    
+    
+    require ('PHPMailer\PHPMailerAutoload.php');
+//require ("PHPMailer/class.phpmailer.php");
+
+$mail = new PHPMailer;
+$mail->isSMTP();  // Set mailer to use SMTP
+
+$mail->SMTPDebug = 0;                               // Enable verbose debug output
+
+                                 
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'hasanhashir1314@gmail.com';                 // SMTP username
+$mail->Password = '0551harry0551';                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;                                    // TCP port to connect to
+
+$mail->SetFrom('hasanhashir1314@gmail.com');
+$mail->AddAddress($user_email, $username);  
+// Add a recipient
+            
+
+$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->Subject = 'VERIFICATION E-MAIL';
+$mail->Body    = $user_firstname." "."ur password is ".$user_password;
+
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
+}
+    
+    
+    
+    
+    
+    
 //    $salt_query="SELECT randsalt FROM users";
 //    $salt_result=mysqli_query($connection,$salt_query);
 //     if(!$salt_result){
@@ -30,7 +70,7 @@ if(isset($_POST['create_user'])){
     if(!$result){
     die("query failed". mysqli_error($connection));
     }
-    header("location:login.php");
+//    header("location:login.php");
 }
 
 ?>
