@@ -53,7 +53,7 @@ if(isset($_POST['create_user']))
     </div><br><br>
    
         <div>
-    <input class="form"  style="background-color:blue;"type="submit" name="create_user" value="Add User">
+    <input class="form"  style="background-color:blue; color:white;"type="submit" name="create_user" value="Add User">
     </div>
 
 </form>

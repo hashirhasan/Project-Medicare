@@ -17,48 +17,57 @@ else if(!isset($_SESSION['user_role']))
 <html>
 <head>
 	<title>index</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<style type="text/css">
           *{
                 padding:0;
                 margin:0;
               box-sizing: border-box;
             }
-        
+            body {
+            background:#083D77;
+            font-family: arial;
+            padding: 10px;
+            }
 		.navbar ul{
 			list-style: none ;
            
 		}
       ul li {
-      	 background-color: grey;
-      	width:120px;
+      	 background-color:#2F2F2F;
+      	width:10.7vw;
       	float: left;
-      	padding: 10px;
+      	padding: 0.625vw;
         text-align: center; 
+          
      
       }
-        ul ul{
+        ul li ul{
             position: absolute;
             display: none;
-            margin-left:-10px; 
+            margin-left:-10px;
+            margin-top:10px; 
         }
         ul li:hover>ul{
             display: block;
+            
         }
+        ul li a:hover{
+            color:#DA4167;
+        }
+      
          ul li a{
        text-decoration: none;
        color: white;
        display: block;
+             text-transform: uppercase;
       }
    .admin{
     
        padding: 50px 50px 0px 50px;
            
         } 
-  .outline{
-      
-         border:2px solid blue;
-    
-        }
+ 
         
         
     .row::after {
@@ -87,6 +96,7 @@ else if(!isset($_SESSION['user_role']))
     table, th,td {
         border: 1px solid black;
          border-collapse: collapse;
+       
     }
     th, td {
         padding: 15px;
@@ -95,6 +105,13 @@ else if(!isset($_SESSION['user_role']))
             padding:10px;
             width:500px;
         }
+        
+.para{
+ 
+    background-color: white;
+    margin:5% 120px 0px 130px;
+    border: 2px solid black;
+}
 
 
 
@@ -105,28 +122,28 @@ else if(!isset($_SESSION['user_role']))
     <ul>
         <li><a href="../home.php">Home</a></li>
         <li><a href="categories.php">Categories</a></li>
-         <li><a href="">Posts</a>
+         <li><a href="">Posts <i class="fas fa-paste"></i> <i class="fas fa-caret-down"></i></a>
             <ul>
-             <li><a href="posts.php">view posts</a></li><br>
-                <li><a href="posts.php?source=add_post">add posts</a></li>
+             <li><a href="posts.php">view posts <i class="fas fa-eye"></i></a></li><br>
+                <li><a href="posts.php?source=add_post">add posts <i class="fas fa-plus"></i></a></li>
                </ul>
        </li>
-          <li><a href="">Users</a>
+          <li><a href="">Users <i class="fas fa-users"></i>  <i class="fas fa-caret-down"></i></a>
         <ul>
-         <li><a href="users.php">view users</a></li><br>
-                <li><a href="users.php?source=add_user">add user</a></li>
+         <li><a href="users.php">view users <i class="fas fa-street-view"></i></a></li><br>
+                <li><a href="users.php?source=add_user">add user <i class="fas fa-user-edit"></i></a></li>
                </ul>
         </li>
-         <li><a href="profile.php">Profile</a>
-          <li style="margin-left:700px;" ><a href="index.php"><?php echo $_SESSION['username']; ?></a>
+         <li><a href="profile.php">Admin Profile <i class="fas fa-user"></i></a>
+          <li style="margin-left:28.125vw;"> <a href="index.php"><?php echo $_SESSION['username']; ?> <i class="fas fa-unlock-alt"></i> <i style=" margin-left:10px;"class="fas fa-caret-down"></i></a>
               <ul>
-             <li><a href="">Profile</a></li><br>
-                <li><a href="include/logout.php">Logout</a></li>
+                <li><a href="include/logout.php">Logout <i class="fas fa-lock"></i></a></li>
                </ul>
         </li>
-        </ul></div><br>
+        </ul></div>
+    <div class="para">
      <div class="admin" >
-        <div class="outline">
-   <h1 style="text-align:center;">WELCOME TO ADMIN <small style="color:blue;">  <?php echo $_SESSION['username']; ?></small></h1><br>
-            <hr style="width:700px; position:absolute; margin-left:400px;">
+ 
+   <h1 style="text-align:center;">WELCOME TO ADMIN <small style="color:red;">  <?php echo $_SESSION['username']; ?></small></h1><br>
+            <hr style="width:43.75vw;background-color:blue; position:absolute; margin-left:14.37vw;">
              <br>

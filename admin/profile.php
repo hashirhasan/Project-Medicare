@@ -74,10 +74,10 @@ if(isset($_POST['update_profile'])){
             ?>
             
         </select></div><br><br>
-   
+   <div>
     <h2><label for="firstname" >Firstname</label></h1><br>
      <input class="form" value="<?php echo $user_firstname;?>" type="text" name="user_firstname">  
-
+ </div><br><br>
     <div>
     <h2><label for="lastname" >Lastname</label></h1><br>
        <input class="form" value="<?php echo $user_lastname;?>" type="text" name="user_lastname">  

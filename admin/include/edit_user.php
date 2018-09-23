@@ -39,10 +39,10 @@
             ?>
             
         </select></div><br><br>
-   
+   <div>
     <h2><label for="firstname" >Firstname</label></h1><br>
      <input class="form" value="<?php echo $user_firstname;?>" type="text" name="user_firstname">  
-
+   </div><br><br>
     <div>
     <h2><label for="lastname" >Lastname</label></h1><br>
        <input class="form" value="<?php echo $user_lastname;?>" type="text" name="user_lastname">  
@@ -52,11 +52,7 @@
        <input class="form" value="<?php echo $user_email;?>" type="text" name="user_email">  
     </div><br><br>
     <div>
-         <h2><label for="password" >Password</label></h1><br>
-       <input class="form" type="password" name="user_password">  
-    </div><br><br>
-    <div>
-    <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_user" value="Update">
+    <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_user" value="Update User">
     </div>
 </form>
 <?php   
