@@ -46,7 +46,7 @@ else if(!isset($_SESSION['user_role']))
             position: absolute;
             display: none;
             margin-left:-10px;
-            margin-top:10px; 
+            margin-top:9.99px; 
         }
         ul li:hover>ul{
             display: block;

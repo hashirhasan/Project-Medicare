@@ -7,22 +7,34 @@ if(isset($_SESSION['user_role']))
     
 }
     ?>
-<br>
-<form action="" method="post" enctype="multipart/form-data">
-    <br>
-    <div>
-    <h2><label for="username" >Username</label></h1><br>
-       <input class="form" type="text" name="username"  placeholder="Enter Username" >  
-    </div><br><br>
- <h2><label for="password" >Password</label></h1><br>
-       <input class="form"  type="password" name="user_password" plaeholder="Enter Password">  
-    </div><br><br>
-    <div>
 
-    <input class="form"  style="background-color:blue;" type="submit" name="login_user" value="Login">
-    </div>
 
-</form>
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <title>login</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="login_signup.css">
+        </head>
+        <body>
+        <div class="container">
+        <div class="signup">
+        <h4><a href="login.php" class="line">Login</a></h4>
+        <h4><a href="signup.php" class="line">Sign Up</a></h4>
+        <form action="" method="post" enctype="multipart/form-data">
+        <input class="form" type="text" name="username"  placeholder="Username" >  
+        <input class="form"  type="password" name="user_password" placeholder="Password">  
+        <button class="button" type="submit" name="login_user"><span>LOG IN</span></button>
+        <h5>OR</h5>
+        <button class="button" style="background-color: #B71515"><span>Connect with Google</span></button>
+        </form>
+
+        </div>
+        </div>
+        </body>
+        </html>
+   
+
 
 <?php
 if(isset($_POST['login_user']))
@@ -61,6 +73,32 @@ else{
  
 }
     
-    
-    
     ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -80,41 +80,32 @@ if(!$mail->send()) {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>register</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+	<title>login</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="login_signup.css">
 </head>
 <body>
+	<div class="container">
+	      <div class="signup">
+	      	<h4><a href="signup.php" class="line">Sign Up</a></h4>
+	      	<h4><a href="login.php" class="line">Login</a></h4>
     
-<form action="register.php" method="post" enctype="multipart/form-data">
-     <div>
-    <h2><label for="username" >Username</label></h1><br>
-       <input class="form" type="text" name="username" required>  
-    </div><br><br>
+<form action="signup.php" method="post" enctype="multipart/form-data">
     
-    <div>
-    <h2><label for="firstname" >Firstname</label></h1><br>
-    <input class="form" type="text" name="user_firstname">
-    </div><br><br>
-    <div>
-    <h2><label for="lastname" >Lastname</label></h1><br>
-       <input class="form" type="text" name="user_lastname">  
-   </div><br><br>
-       
-   <div>
-    <h2><label for="e-mail" >E-mail</label></h1><br>
-       <input class="form" type="text" name="user_email" required>  
-    </div><br><br>
-    <div>
-    <h2><label for="password" >Password</label></h1><br>
-       <input class="form" type="password" name="user_password">  
-    </div><br><br>
+       <input class="form" type="text" name="username"  placeholder="Username" required>  
+ 
+    <input class="form" type="text" name="user_firstname"  placeholder="First Name" required>
+ 
+       <input class="form" type="text" name="user_lastname" placeholder="Last Name" required>  
+
+       <input class="form" type="text" name="user_email" placeholder="Email" required>  
    
-        <div>
-    <input class="form"  style="background-color:blue;"type="submit" name="create_user" value="Register">
-    </div>
+       <input class="form" type="password" name="user_password" placeholder="Password" required>
+    <button class="button" type="submit" name="create_user"><span>SIGN UP</span></button>
+	      		<h5>OR</h5>
+    <button class="button" style="background-color: #B71515"><span>Connect with Google</span></button>
     </form>
+        </div>
+    </div>
 </body>
 </html>
