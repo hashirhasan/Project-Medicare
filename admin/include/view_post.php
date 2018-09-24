@@ -3,6 +3,7 @@
                     <tr>
                         <th>post_title</th>
                         <th>post_date</th>
+                        <th>post_category</th>
                         <th>post_image</th>
                         <th>post_content</th>
                         <th>post_tags</th>
@@ -19,6 +20,7 @@
                         while($row=mysqli_fetch_assoc($result))
                         {   
                             $post_id=$row['post_id'];
+                            $post_category=$row['post_category'];
                             $post_title=$row['post_title'];
                             $post_date=$row['post_date'];
                             $post_image=$row['post_image'];
@@ -27,6 +29,7 @@
                          echo"<tr>";
                             echo"<td>{$post_title}</td>";
                             echo"<td>{$post_date}</td>";
+                            echo"<td>{$post_category}</td>";
                             echo"<td><img style='width:100px;'src='../image/$post_image'></td>";
                             echo"<td>{$post_content}</td>";
                             echo"<td>{$post_tags}</td>";

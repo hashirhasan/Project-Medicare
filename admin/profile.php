@@ -14,6 +14,7 @@
              $user_id=$row['user_id'];
             $username=$row['username'];
             $user_role=$row['user_role'];
+                $user_image=$row['user_image'];
             $user_firstname=$row['user_firstname'];
             $user_lastname=$row['user_lastname'];
             $user_email=$row['user_email'];
@@ -26,6 +27,8 @@ if(isset($_POST['update_profile'])){
    
     $username=$_POST['username'];
     $user_role=$_POST['user_role'];
+     $user_image=$_FILES['image']['name'];
+   $image_temp=$_FILES['image']['tmp_name'];
    $user_firstname=$_POST['user_firstname'];
    $user_lastname=$_POST['user_lastname'];
    $user_email=$_POST['user_email'];
@@ -34,9 +37,25 @@ if(isset($_POST['update_profile'])){
     {
    $user_password=md5($user_password);
     }
+     move_uploaded_file($image_temp,"../image/$user_image"); 
+    if(empty($user_image))
+    {
+        $query="SELECT * FROM users WHERE username=$username";
+        $result=mysqli_query($connection,$query);
+        if(!result){
+
+        die("query failed" .mysqli_error($connection));
+                        
+        }
+        while($row=mysqli_fetch_assoc($result)){
+            $image=$row['user_image'];
+        }
+        
+    }
     $query="UPDATE users SET ";
     $query .="username='$username', ";
     $query .="user_role='$user_role', ";
+     $query .="user_image='$user_image', ";
     $query .="user_firstname='$user_firstname', ";
     $query .="user_lastname='$user_lastname', ";
     $query .="user_email='$user_email',";
@@ -50,10 +69,14 @@ if(isset($_POST['update_profile'])){
 }
  ?>
             <div class="row">
-                <div class="col-3"></div>
+                 <form action="" method="post" enctype="multipart/form-data">
+                <div class="col-3">
+                     <img style="width:200px;" src="../image/<?php echo $user_image?>"><br>
+        <input class="form" type="file" name="image">
+                     </div>
                 <div class="col-6">
              
-                   <form action="" method="post" enctype="multipart/form-data">
+                  
     <div>
     <h2><label for="username" >Username</label></h1><br>
     <input class="form"value="<?php echo $username;?>" type="text" name="username">
@@ -94,13 +117,14 @@ if(isset($_POST['update_profile'])){
     <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_profile" value="Update Profile">
     </div>
 
-</form>
+
                     
 
                 
                 
                  </div>
                 <div class="col-3"></div>
+                     </form>
              </div>
     </div>
     </div>

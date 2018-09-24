@@ -2,6 +2,7 @@
                     <thead>
                     <tr>
                         <th>Id</th>
+                         <th>User Image</th>
                         <th>Username</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
@@ -20,6 +21,7 @@
                         while($row=mysqli_fetch_assoc($result))
                         {   
                             $user_id=$row['user_id'];
+                            $user_image=$row['user_image'];
                             $username=$row['username'];
                             $user_firstname=$row['user_firstname'];
                             $user_lastname=$row['user_lastname'];
@@ -27,6 +29,7 @@
                             $user_role=$row['user_role'];
                          echo"<tr>";
                             echo"<td>{$user_id}</td>";
+                              echo"<td><img style='width:100px;'src='../image/$user_image'></td>";
                             echo"<td>{$username}</td>";
                             echo"<td>{$user_firstname}</td>";
                             echo"<td>{$user_lastname}</td>";

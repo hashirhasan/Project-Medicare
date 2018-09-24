@@ -26,8 +26,17 @@ if(isset($_POST['create_post']))
     <input class="form" type="text" name="title">
     </div><br><br>
     <div>
-    <h2><label for="category" >Post_Category</label></h1><br>
-    <input class="form" type="text" name="category">
+    <select required>
+        <option>select category</option>
+        <?php
+    $cat_query="SELECT * FROM category";
+     $cat_query_result=mysqli_query($connection,$cat_query);   
+    while($row=mysqli_fetch_assoc($cat_query_result))
+    { 
+    
+       echo "<option>{$row['cat_title']}</option>";
+  }?>
+    </select>
     </div><br><br>
     <div>
     <h2><label for="image" >Post_image</label></h1><br>

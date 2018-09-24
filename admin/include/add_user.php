@@ -19,8 +19,9 @@ if(isset($_POST['create_user']))
 
 
 ?>
-
-
+<div class="row">
+<div class="col-4"></div>
+    <div class="col-7">
 <form action="" method="post" enctype="multipart/form-data">
      <div>
     <h2><label for="username" >Username</label></h1><br>
@@ -57,3 +58,6 @@ if(isset($_POST['create_user']))
     </div>
 
 </form>
+    </div>
+    <div class="col-1"></div>
+</div>

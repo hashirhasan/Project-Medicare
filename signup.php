@@ -5,18 +5,27 @@
 if(isset($_POST['create_user'])){
 //   echo "Successfully Registered";
     $username=$_POST['username'];
-   
     $user_firstname=$_POST['user_firstname'];
     $user_lastname=$_POST['user_lastname'];
     $user_email=$_POST['user_email'];
     $user_password=$_POST['user_password'];
+    $username_query="SELECT * FROM users WHERE username='$username'";
+    $pass_strlen=strlen($user_password);
     $username=mysqli_real_escape_string($connection,$username);
     $user_password=mysqli_real_escape_string($connection,$user_password);
     $user_firstname=mysqli_real_escape_string($connection,$user_firstname);
     $user_lastname=mysqli_real_escape_string($connection,$user_lastname);
-    
-    
-    
+    $username_result=mysqli_query($connection,$username_query);
+    if(mysqli_num_rows($username_result)>0)
+    {
+        echo"<h2>username already exists</h2>";
+    }
+    else
+    {
+    if(filter_var($user_email,FILTER_VALIDATE_EMAIL))
+    {
+        if($pass_strlen>5)
+        {
     require ('PHPMailer\PHPMailerAutoload.php');
 //require ("PHPMailer/class.phpmailer.php");
 
@@ -63,6 +72,7 @@ if(!$mail->send()) {
 //    $row=mysqli_fetch_assoc($salt_result);
 //    $randsalt=$row['randsalt'];
 //    $user_password=crypt($user_password,$randsalt);
+    
     $user_password=md5($user_password);
     $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password) "; 
     $query .="VALUES('$username','subscriber','$user_firstname','$user_lastname','$user_email','$user_password')";
@@ -72,7 +82,15 @@ if(!$mail->send()) {
     }
 //    header("location:login.php");
 }
-
+        else{
+            echo"password length is short make it more than 5 units";
+        }
+    }
+    else{
+        echo"wrong email";
+    }
+    }
+}
 ?>
 
 

@@ -6,7 +6,7 @@
                 <div class="col-4">
                 <form action="categories.php" method="post">
      <input style="padding:10px;" type="text" name="categories" placeholder="category">
-        <input style="padding:10px;" type="submit" name="submit"  value="Add Category"> 
+                    <button style="padding:10px; color:white; background-color:blue; border:1px solid black;" type="submit" name="submit" >Add Category</button>
         </form><br><br>
                     
                     <?php 

@@ -1,8 +1,8 @@
 <?php include "include/adminheader.php" ?>
    
             <div class="row">
-                <div class="col-1"></div>
-                <div class="col-6">
+              
+                <div class="col-7">
                <?php  
                     
                     if(isset($_GET['source']))

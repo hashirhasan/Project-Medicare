@@ -11,6 +11,7 @@
     {   
        
         $post_title=$row['post_title'];
+        $post_category=$row['post_category'];
         $post_date=$row['post_date'];
         $post_image=$row['post_image'];
         $post_content=$row['post_content'];
@@ -25,10 +26,17 @@
     <input class="form"value="<?php echo $post_title;?>" type="text" name="title">
     </div><br><br>
     <div>
-        <select>
+        <select name="category">
         <?php 
-            echo"<option>{$post_id}</option>";
-            ?>
+            echo"<option>{$post_category}</option>";
+            $cat_query="SELECT * FROM category";
+     $cat_query_result=mysqli_query($connection,$cat_query);   
+    while($row=mysqli_fetch_assoc($cat_query_result))
+    { if($row['cat_title']!==$post_category)
+    {
+        echo "<option>{$row['cat_title']}</option>";
+    }
+    }  ?>
   
         </select></div><br><br>
     <div>
@@ -51,6 +59,7 @@
 if(isset($_POST['update_post'])){
     
      $title=$_POST['title'];
+     $category=$_POST['category'];
      $image=$_FILES['image']['name'];
    $image_temp=$_FILES['image']['tmp_name'];
     $content=$_POST['content'];
@@ -73,6 +82,7 @@ if(isset($_POST['update_post'])){
     
     $query="UPDATE posts SET ";
     $query .="post_title='$title', ";
+    $query .="post_category='$category', ";
     $query .="post_date=now(), ";
     $query .="post_image='$image', ";
     $query .="post_content='$content', ";
