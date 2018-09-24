@@ -1,6 +1,100 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
 body{
 	background-color: #3DA2F8;
+  background-image: url("moun1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+
+header{
+height:98px;
+width: 100%;
+background-color: #3DA2F8;
+box-shadow: 0px 8px 5px 0 rgba(0,0,0,0.5);
+}
+.logo{
+    padding: 3px 0px 0px 8px; 
+    height: 90px;
+    width: 180px;
+
+}
+/*nav{
+    position: absolute;
+    height: 50px;
+    margin-top: 0px;
+    margin-left: 100px;
+    width: 85%;
+     padding: 40px 150px 20px 60px; 
+    background-color: #00569F;
+}*/ 
+header ul{
+  display: inline;
+  float: left;
+    position: absolute;
+    height: 10px;
+    width: 75%;
+    margin-top: 3%;
+    margin-left: 0%;
+    padding: 10px 0px 20px 0px; 
+    background-color: #00569F;
+    border-radius: 15px 0 0 15px;
+}
+header ul li{
+  display: inline;
+  list-style-type: none;
+    margin-left: 52px;
+    margin-right: 25px ;
+}
+header ul li a{
+  color:white ;
+  text-decoration: none;
+  font-family:Arial, sans-serif;
+  font-size: 15px;
+    font-weight: 10px;
+
+}
+
+header ul li a:hover{
+    color: #F97C76;
+    transition: all 0.1s ease-in;
+        }
+
+.login-button{
+    position: absolute;
+    top: 3%;
+    left: 94%;
+    transform:translate(-50%, -50%);
+    background: #00569F;
+    color:white;
+    font-weight: 10px;
+    width: 130px;
+    height: 40px;
+    border: 2px solid #1C65A4;
+    /*border-radius: 12px;*/
+    font-size: 20px;
+    margin-top: 3%;
+    border-radius: 0 15px 15px 0; 
+    
+}
+
+
+
+.login-button:hover{
+    background:white ;
+    color: red;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+
 
 
 .container{
@@ -11,16 +105,32 @@ body{
 }
 .card{
 	position: absolute;
-	width: 140%;
-	height: 90%;
+	width: 120%;
+	height: 80%;
 	transform-style: preserve-3d;
 	transition: all 0.5s ease-in;
 	/*padding: 50px 0px 0px 50px;*/
-	margin-left: 110%;
-	margin-top: 50%;
+	margin-left: 42%;
+	margin-top: 38%;
 	margin-bottom: 40px;
    
 }
+
+.card2{
+  position: absolute;
+  width: 180%;
+  height: 80%;
+  /*transform-style: preserve-3d;
+  transition: all 0.5s ease-in;*/
+  /*padding: 50px 0px 0px 50px;*/
+  margin-left: 165%;
+  margin-top: 38%;
+  margin-bottom: 40px;
+  outline: none;
+   
+}
+
+
 .card h4{
 	font-family: arial;
 	font-size: 20px;
@@ -35,10 +145,36 @@ body{
 	height: 100%;
 	backface-visibility: hidden;
     background: #2E294E;
-    border-radius: 18px;	
+    border-radius: 25px 0 0 25px;	
 }
+
+.front2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #2E294E;
+    border-radius:0 25px 25px 0;
+    outline: none;  
+}
+
+.front2 h1{
+  text-align: center;
+  color: white;
+  font-family: arial;
+  margin-top: 2%;
+}
+.front2 p{
+  font-family: arial;
+  margin-top: 5%;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+
 .back{
-	border-radius: 18px;
+	border-radius: 25px 0 0 25px;
      position: absolute;
 	 width: 100%;
 	 height: 100%;
@@ -46,13 +182,17 @@ body{
      background: #FC7753;
      transform:rotateY(180deg);	
 }
+.back h4{
+  margin-top: 4%;
+}
+/*on flip*/
 .searchbtn{
 border: 0px;
   width: 210px;
   height: 65px;
   border-radius: 50px;
-  margin-top: 40%;
-  margin-left: 30%;
+  margin-top: 48%;
+  margin-left: 25%;
   font-size: 15px;
   font-weight: 4px;
 }
@@ -63,34 +203,38 @@ border: 0px;
     transition: 0.6s;
 }
 
-
+/*on top*/
 .search-area{
 	position: absolute;
-	margin-top:8%; 
-	margin-left: 31%;
+	margin-top:4%; 
+	margin-left: 33%;
   width: 250px;
   border: 3px solid #fff;
   background: transparent;
   padding: 10px 25px;
-  border-radius: 50px;
+  border-radius: 50px 0 0 50px;
   outline: none;
   font-size: 18px;
   color: #fff;
 }
 .search-button{
 	position: absolute;
-	margin-top:8%; 
-	margin-left: 54%;
+	margin-top:4%; 
+	margin-left: 56.3%;
 	border: 0px;
   width: 110px;
-  height: 45px;
-  border-radius: 50px;
+  height: 46px;
+  border-radius: 0 50px 50px 0;
   font-size: 15px;
+  background-color: #00569F;
+  color: white;
+  font-size: 17px;
 }
 
 .search-button:hover{
-    background:#1C65A4 ;
-    color: white;
+    background:white ;
+    color: red;
     cursor: pointer;
-    transition: 0.8s;
+    transition: 0.2s;
+    font-size: 19px;
 }
