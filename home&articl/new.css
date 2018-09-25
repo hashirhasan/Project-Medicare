@@ -1,0 +1,252 @@
+html {
+  scroll-behavior: smooth;
+
+}
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+.bkg-img{
+  position: absolute;
+  margin-bottom: -850px;
+    background-image: url("cover25-100.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 800px;
+
+    }
+header{
+height:98px;
+width: 100%;
+background-color: #3DA2F8;
+box-shadow: 0px 8px 5px 0 rgba(0,0,0,0.5);
+}
+.logo{
+    padding: 3px 0px 0px 8px; 
+    height: 90px;
+    width: 180px;
+
+}
+/*nav{
+    position: absolute;
+    height: 50px;
+    margin-top: 0px;
+    margin-left: 100px;
+    width: 85%;
+     padding: 40px 150px 20px 60px; 
+    background-color: #00569F;
+}*/
+header ul{
+	display: inline;
+	float: left;
+    position: absolute;
+    height: 10px;
+    width: 63%;
+    margin-top: 3%;
+    margin-left: 2%;
+    padding: 1.5vh 0 1.4vw 0; 
+    background-color: #00569F;
+    border-radius: 15px 0 0 15px;
+}
+header ul li{
+	display: inline;
+	list-style-type: none;
+    margin-left: 7.9vh;
+    margin-right: 3.8vh;
+}
+header ul li a{
+	color:white ;
+	text-decoration: none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 15px;
+    font-weight: 10px;
+
+} 
+
+header ul li a:hover{
+    color: #F97C76;
+    transition: all 0.1s ease-in;
+        }
+.search{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    
+}
+.search-box{
+    width: 100%;
+    outline: none;
+    position: relative;
+}
+.search-area{
+    float: left;
+    width: 150%;
+    outline: none;
+
+    border: 3px solid  #1C65A4;
+    border-radius: 15px;
+    padding: 11px 70px 11px 11px;
+    font-size: 16px;
+}
+/*.menu-type{
+    list-style: none;
+    width: 75%;
+    height: 100px;
+    margin: 0px auto;
+}
+.menu-type ul li {
+    list-style: none;
+    background-color: white;
+    width: 8%;
+    position: absolute;
+    top:40%;
+    left: 30%;
+    padding: 11px 70px 11px 11px;
+    border: 3px solid  #1C65A4;
+}
+.menu-type ul ul li{
+    list-style: none;
+    position: relative;
+    top:50%;
+    left: 30%;
+    
+}
+.menu-type ul{
+    
+}*/
+.search-button{
+    position: absolute;
+    top: 13.6vh;
+    left: 18.6vw;
+    transform:translate(-50%, -50%);
+    background: #00569F;
+    color:white;
+    font-weight: 10px;
+    width: 130px;
+    height: 48px;
+    border: 2px solid #1C65A4;
+    border-radius: 12px;
+    font-size: 20px;
+    outline: none;
+    
+}
+.search-button:hover{
+    background:white ;
+    color: red;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.login-button{
+    position: absolute;
+    top: 3%;
+    left: 87%;
+    transform:translate(-50%, -50%);
+    background:  #00569F;
+    color:white;
+    font-weight: 4px;
+    width: 20%;
+    height: 40px;
+    border: 2px solid #1C65A4;
+    /*border-radius: 12px;*/
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-top: 3%;
+    border-radius: 0 15px 15px 0; 
+    outline: none;
+    
+}
+
+
+
+.login-button:hover{
+    background:white ;
+    color: red;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+/*.sub-opt{
+	position: absolute;
+	top: 15%;
+	left: 82%;
+	width: 10%;
+  height: 150px;
+  background: #444759;
+  border-top: 1px solid #3d3f50;
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.sub-opt li {
+  color: white;
+  font-size: 18px;
+  width: 100%;
+  padding: 15px 0;
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+}
+
+.sub-opt li:hover {
+  color: #ea3b50;
+}
+
+input:hover ul{
+  visibility: visible;
+  opacity: 1;
+}*/
+
+
+nav ul li{position: absolute;
+	font-size: 30px;
+	left: 83%;
+	top: 5%;
+	list-style-type: none;
+	text-decoration: none;
+	padding: 0 0 40px 0 ;
+	cursor: pointer;
+  color:  #00569F;
+}
+
+nav ul li:hover{
+  color: white;
+}
+
+
+nav ul li ul.sub-nav {
+  position: fixed;
+  top: 15%;
+  left: 80%;
+  width: 15%;
+  height: 110px;
+  background: #444759;
+  border-top: 1px solid #3d3f50;
+  visibility: hidden;
+  opacity: 0;
+}
+
+nav ul li ul.sub-nav li {
+	position: relative;
+  color: white;
+  font-size: 14px;
+  width: 100%;
+  padding: 15px 0;
+  left: 0;
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+}
+
+nav ul li ul.sub-nav li:hover {
+  color: #ea3b50;
+  cursor: pointer;
+}
+
+nav ul li:hover ul.sub-nav {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.9s;
+}
