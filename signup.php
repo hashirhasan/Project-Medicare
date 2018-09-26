@@ -1,8 +1,16 @@
 
 <?php include "connect.php" ?>
 <?php
-    
-if(isset($_POST['create_user'])){
+  $error_username=NULL; 
+  $error_pass=NULL;
+  $error_user_email=NULL;
+  $error_email_wrong=NULL;
+  $message=NULL;
+  $message_error=NULL;
+   $error_lastname=NULL;
+  $error_firstname=NULL;
+if(isset($_POST['create_user']))
+{
 //   echo "Successfully Registered";
     $username=$_POST['username'];
     $user_firstname=$_POST['user_firstname'];
@@ -10,23 +18,55 @@ if(isset($_POST['create_user'])){
     $user_email=$_POST['user_email'];
     $user_password=$_POST['user_password'];
     $username_query="SELECT * FROM users WHERE username='$username'";
-    $pass_strlen=strlen($user_password);
+     $user_email_query="SELECT * FROM users WHERE user_email='$user_email'";
+
+    $username_result=mysqli_query($connection,$username_query);
+    $user_email_result=mysqli_query($connection,$user_email_query);
+     if(mysqli_num_rows($username_result)>0)
+    {
+        $error_username="<h4 style='color:red;font-size:17px;'>username already exists</h4>";
+    }
+   
+
+    if(!preg_match("/^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/",$user_email))
+    {
+       $error_email_wrong="<h4 style='color:red;font-size:17px;'>Invalid email</h4>";
+    }
+        
+        if(mysqli_num_rows($user_email_result)>0)
+        {
+           $error_user_email="<h4 style='color:red;font-size:17px;'>user email already exists</h4>";  
+        }
+       
+    
+        if(!preg_match("/^(?=.*[a-z])(?=.*\d)(?=.*[@_#$^&*()+<,>!]).{5,13}$/",$user_password))
+        {
+           $error_pass="<h4 style='color:red;font-size:17px;'>Your password is too common</h4>";
+        }
+        
+      
+      if(!preg_match("/^[A-z ]+$/",$user_firstname))
+      {
+          $error_firstname="<h4 style='color:red;font-size:17px;'>Invalid firstname</h4>";
+      }
+    
+       
+      if(!preg_match("/^[A-z ]+$/",$user_lastname))
+      {
+          $error_lastname="<h4 style='color:red;font-size:17px;'>Invalid lastname</h4>";
+      }  
+    
+    
     $username=mysqli_real_escape_string($connection,$username);
     $user_password=mysqli_real_escape_string($connection,$user_password);
     $user_firstname=mysqli_real_escape_string($connection,$user_firstname);
     $user_lastname=mysqli_real_escape_string($connection,$user_lastname);
-    $username_result=mysqli_query($connection,$username_query);
-    if(mysqli_num_rows($username_result)>0)
-    {
-        echo"<h2>username already exists</h2>";
-    }
-    else
-    {
-    if(filter_var($user_email,FILTER_VALIDATE_EMAIL))
-    {
-        if($pass_strlen>5)
-        {
-    require ('PHPMailer\PHPMailerAutoload.php');
+    
+    
+      if(preg_match("/^(?=.*[a-z])(?=.*\d)(?=.*[@_#$^&*()+<,>!]).{5,13}$/",$user_password) and preg_match("/^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/",$user_email) and preg_match("/^[A-z ]+$/",$user_firstname) and preg_match("/^[A-z ]+$/",$user_lastname) and mysqli_num_rows($username_result)==0 and mysqli_num_rows($user_email_result)==0)
+    {  
+
+  require ('PHPMailer\PHPMailerAutoload.php');
 //require ("PHPMailer/class.phpmailer.php");
 
 $mail = new PHPMailer;
@@ -44,7 +84,7 @@ $mail->Port = 587;                                    // TCP port to connect to
 
 $mail->SetFrom('hasanhashir1314@gmail.com');
 $mail->AddAddress($user_email, $username);  
-// Add a recipient
+
             
 
 $mail->isHTML(true);                                  // Set email format to HTML
@@ -53,44 +93,30 @@ $mail->Subject = 'VERIFICATION E-MAIL';
 $mail->Body    = $user_firstname." "."ur password is ".$user_password;
 
 if(!$mail->send()) {
-    echo 'Message could not be sent.';
+    $message_error= 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    echo 'Message has been sent';
+    $message= "<h2 style='color:red;text-shadow: 1px 1px white;'>Message has been sent</h2>";
 }
+
+   
+
+
     
-    
-    
-    
-    
-    
-//    $salt_query="SELECT randsalt FROM users";
-//    $salt_result=mysqli_query($connection,$salt_query);
-//     if(!$salt_result){
-//    die("query failed". mysqli_error($connection));
-//    }
-//    $row=mysqli_fetch_assoc($salt_result);
-//    $randsalt=$row['randsalt'];
-//    $user_password=crypt($user_password,$randsalt);
-    
-    $user_password=md5($user_password);
+      $user_password=md5($user_password);
     $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password) "; 
     $query .="VALUES('$username','subscriber','$user_firstname','$user_lastname','$user_email','$user_password')";
     $result=mysqli_query($connection,$query);
     if(!$result){
     die("query failed". mysqli_error($connection));
     }
-//    header("location:login.php");
+
+    
 }
-        else{
-            echo"password length is short make it more than 5 units";
-        }
-    }
-    else{
-        echo"wrong email";
-    }
-    }
+    
+   
 }
+ 
 ?>
 
 
@@ -105,20 +131,24 @@ if(!$mail->send()) {
 <body>
 	<div class="container">
 	      <div class="signup">
+               <?php if(isset( $message)){echo  $message;}  ?>
+               <?php if(isset( $message_error)){echo  $message_error;}  ?>
 	      	<h4><a href="signup.php" class="line">Sign Up</a></h4>
 	      	<h4><a href="login.php" class="line">Login</a></h4>
     
 <form action="signup.php" method="post" enctype="multipart/form-data">
     
        <input class="form" type="text" name="username"  placeholder="Username" required>  
- 
+ <?php if(isset( $error_username)){echo  $error_username;} ?>
     <input class="form" type="text" name="user_firstname"  placeholder="First Name" required>
- 
+  <?php if(isset($error_firstname)){echo $error_firstname;} ?>
        <input class="form" type="text" name="user_lastname" placeholder="Last Name" required>  
-
+     <?php if(isset($error_lastname)){echo $error_lastname;} ?>
        <input class="form" type="text" name="user_email" placeholder="Email" required>  
-   
-       <input class="form" type="password" name="user_password" placeholder="Password" required>
+    <?php if(isset($error_user_email)){echo $error_user_email;}  ?>
+    <?php if(isset($error_email_wrong)){echo $error_email_wrong;}  ?>
+       <input class="form" type="password" name="user_password" placeholder="Password" required  title="special characters and numbers are required">
+     <?php if(isset($error_pass)){echo $error_pass;}  ?>
     <button class="button" type="submit" name="create_user"><span>SIGN UP</span></button>
 	      		<h5>OR</h5>
     <button class="button" style="background-color: #B71515"><span>Connect with Google</span></button>

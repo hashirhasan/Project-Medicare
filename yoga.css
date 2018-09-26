@@ -1,0 +1,154 @@
+<style type="text/css">
+    
+     body{
+	background-color: #3DA2F8;
+  background-image: url("moun1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+        
+.container{
+	position: relative;
+	width: 350px;
+	height: 500px; 
+	/*display: flex;*/
+}
+.card{
+	position: absolute;
+	width: 120%;
+	height: 80%;
+	transform-style: preserve-3d;
+	transition: all 0.5s ease-in;
+	/*padding: 50px 0px 0px 50px;*/
+	margin-left: 42%;
+	margin-top: 38%;
+	margin-bottom: 40px;
+   
+}
+
+.card2{
+  position: absolute;
+  width: 180%;
+  height: 80%;
+  /*transform-style: preserve-3d;
+  transition: all 0.5s ease-in;*/
+  /*padding: 50px 0px 0px 50px;*/
+  margin-left: 165%;
+  margin-top: 38%;
+  margin-bottom: 40px;
+  outline: none;
+   
+}
+
+
+.card h4{
+	font-family: arial;
+	font-size: 20px;
+	text-align: center;
+}
+.card:hover{
+	transform:rotateY(180deg);
+}
+.front{
+    position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+    background: #2E294E;
+    border-radius: 25px 0 0 25px;	
+}
+
+.front2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #2E294E;
+    border-radius:0 25px 25px 0;
+    outline: none;  
+}
+
+.front2 h1{
+  text-align: center;
+  color: white;
+  font-family: arial;
+  margin-top: 2%;
+}
+.front2 p{
+  font-family: arial;
+  margin-top: 5%;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+
+.back{
+	border-radius: 25px 0 0 25px;
+     position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 backface-visibility: hidden;
+     background: #FC7753;
+     transform:rotateY(180deg);	
+}
+.back h4{
+  margin-top: 4%;
+}
+/*on flip*/
+.searchbtn{
+border: 0px;
+  width: 210px;
+  height: 65px;
+  border-radius: 50px;
+  margin-top: 48%;
+  margin-left: 35%;
+  font-size: 15px;
+  font-weight: 4px;
+}
+.searchbtn:hover{
+    background:#1C65A4 ;
+    color: white;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+/*on top*/
+.search-area{
+	position: absolute;
+	margin-top:4%; 
+	margin-left: 33%;
+  width: 250px;
+  border: 3px solid #fff;
+  background: transparent;
+  padding: 10px 25px;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+}
+.search-button{
+	position: absolute;
+	margin-top:5.2%; 
+	margin-left: 38.8%;
+	border: 0px;
+  width: 110px;
+  height: 46px;
+  border-radius: 0 50px 50px 0;
+  font-size: 15px;
+  background-color: #00569F;
+  color: white;
+  font-size: 17px;
+}
+
+.search-button:hover{
+    background:white ;
+    color: red;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 19px;
+}   
+    </style>
+        
