@@ -27,6 +27,7 @@
              if(!$update_query){
         die("query failed" .mysqli_error($connection));                
         }
+              header("location:categories.php");
           }
             ?>
          </form>

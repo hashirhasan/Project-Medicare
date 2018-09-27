@@ -212,11 +212,12 @@ nav ul li ul.sub-nav {
   top: 13%;
   left: 82%;
   width: 12%;
-  height: 110px;
+  height: 50px;
   background:  #00569F;
   border-top: 1px solid #3d3f50;
   visibility: hidden;
   opacity: 0;
+    box-shadow: 0px 8px 5px 0 rgba(0,0,0,0.5);
 }
 
 nav ul li ul.sub-nav li {
@@ -265,8 +266,15 @@ echo "<li><a  href='{$cat_link}'>{$sub}</a></li>";
          if(isset($_SESSION['user_role']))
 {
  if($_SESSION['user_role']==='admin')
-       echo" <li><a href='admin'>Admin</a></li>";
+ {
+     echo" <li><a href='admin'>Admin</a></li>";
+ }
+     if($_SESSION['user_role']==='subscriber'){
+              echo "<li><a href='user_profile.php'>Profile</li>"; 
+           }
+    
 }
+          
       ?>
        </ul>
           </header>
@@ -277,7 +285,7 @@ echo "<li><a  href='{$cat_link}'>{$sub}</a></li>";
      echo"<li><a style='text-decoration:none;color:white' href='home.php'>{$_SESSION['username']}</a>";
        echo"<ul class='sub-nav'>";
         	echo"<a style='text-decoration: none;' href='fb.com'>";
-          echo"<li>Profile</li></a>";
+//          echo"<li>Profile</li></a>";
            echo"<a style='text-decoration: none;' href='admin/include/logout.php'>";
            echo"<li>Logout</li></a>";
           echo"</ul>";

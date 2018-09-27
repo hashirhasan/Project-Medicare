@@ -54,12 +54,13 @@ if(isset($_POST['login_user']))
         $user_firstname=$row['user_firstname'];
         $user_lastname=$row['user_lastname'];
         $user_email=$row['user_email'];
-        $user_role=$row['user_role'];   
+        $user_role=$row['user_role'];
+        $user_cmpass=$row['user_cmpass'];
     }
  
   $enter_password=md5($enter_password);
 
-  if($enter_username===$username && $enter_password===$user_password)
+  if($enter_username===$username and $enter_password===$user_password and $user_cmpass>0)
   { 
       $_SESSION['username']= $enter_username;
       $_SESSION['user_password']= $enter_password;

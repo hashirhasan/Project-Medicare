@@ -5,20 +5,20 @@
 if(isset($_SESSION['user_role']))
 {
     ?>
-<div class="srch-btn">
+ <div class="srch-btn">
       <form action="yoga_search.php" method="post">
-			<input type="text"  name="search" class="search-area"  placeholder="YOGA NAME" onkeyup="stoppedTyping()">
-               <input type="submit"  name="submit" class="search-button" value="Search" id="start_button" >
+			<input type="text" id="mytext"  name="search" class="search-area"  placeholder="YOGA NAME" onkeyup="enabled()" >
+          <button type="submit"  name="submit" class="search-button"  id="start_button"  disabled>Search</button>
            </form>
 	    </div>
- 
- 
-    <script>
-    function stoppedTyping(){
-        if(this.value.length > 0) { 
-            document.getElementById('start_button').disabled = false; 
+
+<script type="text/javascript">
+    function enabled(){
+        if(document.getElementById("mytext").value==="") { 
+            //console.log(document.getElementById("mytext").value);
+            document.getElementById('start_button').disabled = true; 
         } else { 
-            document.getElementById('start_button').disabled = true;
+            document.getElementById('start_button').disabled = false;
         }
     }
 </script>

@@ -9,6 +9,7 @@
   $message_error=NULL;
    $error_lastname=NULL;
   $error_firstname=NULL;
+//$error_username_valid=null;
 if(isset($_POST['create_user']))
 {
 //   echo "Successfully Registered";
@@ -26,11 +27,14 @@ if(isset($_POST['create_user']))
     {
         $error_username="<h4 style='color:red;font-size:17px;'>username already exists</h4>";
     }
-   
+     if(!preg_match("/^[A-z0-9@#$%^&*()+?_!-]{3,}$/",$username))
+    {
+       $error_username_valid="<h4 style='color:red;font-size:17px;'>Invalid Username</h4>";
+    }
 
     if(!preg_match("/^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/",$user_email))
     {
-       $error_email_wrong="<h4 style='color:red;font-size:17px;'>Invalid email</h4>";
+       $error_email_wrong="<h4 style='color:red;font-size:17px;'>Invalid Email</h4>";
     }
         
         if(mysqli_num_rows($user_email_result)>0)
@@ -45,13 +49,13 @@ if(isset($_POST['create_user']))
         }
         
       
-      if(!preg_match("/^[A-z ]+$/",$user_firstname))
+      if(!preg_match("/^[A-z]+[\s]{0,1}[A-z]{2,15}$/",$user_firstname))
       {
           $error_firstname="<h4 style='color:red;font-size:17px;'>Invalid firstname</h4>";
       }
     
        
-      if(!preg_match("/^[A-z ]+$/",$user_lastname))
+      if(!preg_match("/^[A-z]+[\s]{0,1}[A-z]{2,15}$/",$user_lastname))
       {
           $error_lastname="<h4 style='color:red;font-size:17px;'>Invalid lastname</h4>";
       }  
@@ -63,9 +67,14 @@ if(isset($_POST['create_user']))
     $user_lastname=mysqli_real_escape_string($connection,$user_lastname);
     
     
-      if(preg_match("/^(?=.*[a-z])(?=.*\d)(?=.*[@_#$^&*()+<,>!]).{5,13}$/",$user_password) and preg_match("/^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/",$user_email) and preg_match("/^[A-z ]+$/",$user_firstname) and preg_match("/^[A-z ]+$/",$user_lastname) and mysqli_num_rows($username_result)==0 and mysqli_num_rows($user_email_result)==0)
+      if(preg_match("/^[A-z0-9@#$%^&*()+?_!-]{3,}$/",$username) and preg_match("/^(?=.*[a-z])(?=.*\d)(?=.*[@_#$^&*()+<,>!]).{5,13}$/",$user_password) and preg_match("/^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/",$user_email) and preg_match("/^[A-z]+[\s]{0,1}[A-z]{2,15}$/",$user_firstname) and preg_match("/^[A-z]+[\s]{0,1}[A-z]{2,15}$/",$user_lastname) and mysqli_num_rows($username_result)==0 and mysqli_num_rows($user_email_result)==0)
     {  
 
+          $token='asdfghjklqwertyphgkvbmnQWERTFGHJKLMBVCXD123456789';
+    $token= str_shuffle($token);
+    $token= substr($token,0,10);
+  
+    
   require ('PHPMailer\PHPMailerAutoload.php');
 //require ("PHPMailer/class.phpmailer.php");
 
@@ -90,31 +99,32 @@ $mail->AddAddress($user_email, $username);
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'VERIFICATION E-MAIL';
-$mail->Body    = $user_firstname." "."ur password is ".$user_password;
-
-if(!$mail->send()) {
-    $message_error= 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    $message= "<h2 style='color:red;text-shadow: 1px 1px white;'>Message has been sent</h2>";
-}
-
-   
-
-
+$mail->Body    = $user_firstname." "."ur password is ".$user_password." "."<br> 
+        
+        click on the verification link below:<br>
+        
+        <a href='localhost/Project-Medicare/verify.php?user_email=$user_email&token=$token'>Verification Link</a>
+ 
+        ";
     
-      $user_password=md5($user_password);
-    $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password) "; 
-    $query .="VALUES('$username','subscriber','$user_firstname','$user_lastname','$user_email','$user_password')";
+if(!$mail->send()) {
+    $message_error= "<h2 style='color:red;text-shadow: 1px 1px white;'>Message could not be sent.</h2>";
+} else {
+    $message= "<h2 style='color:red;'>Message has been sent</h2>";
+}
+        
+        
+          $user_password=md5($user_password);
+    $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password,token) "; 
+    $query .="VALUES('$username','subscriber','$user_firstname','$user_lastname','$user_email','$user_password','$token')";
     $result=mysqli_query($connection,$query);
     if(!$result){
     die("query failed". mysqli_error($connection));
     }
 
-    
+ 
 }
-    
-   
+      
 }
  
 ?>
@@ -138,8 +148,9 @@ if(!$mail->send()) {
     
 <form action="signup.php" method="post" enctype="multipart/form-data">
     
-       <input class="form" type="text" name="username"  placeholder="Username" required>  
+       <input class="form" type="text" name="username"  placeholder="Username" title="Avoid spaces" required>  
  <?php if(isset( $error_username)){echo  $error_username;} ?>
+     <?php if(isset( $error_username_valid)){echo  $error_username_valid;} ?>
     <input class="form" type="text" name="user_firstname"  placeholder="First Name" required>
   <?php if(isset($error_firstname)){echo $error_firstname;} ?>
        <input class="form" type="text" name="user_lastname" placeholder="Last Name" required>  
