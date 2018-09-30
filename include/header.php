@@ -13,6 +13,11 @@
   box-sizing: border-box;
 }
  
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+
+}
         
 .row::after {
   content: "";
@@ -69,11 +74,11 @@ header ul{
 	display: inline;
 	float: left;
     position: absolute;
-    height: 15px;
+    height: 17px;
     width: ;
     margin-top: 3%;
     margin-left: 2%;
-    padding: 1.5vh 10px 1.67vw 0; 
+    padding: 1.5vh 10px 1.7vw 0; 
     background-color: #00569F;
     border-radius: 15px 0 0 15px;
     border: 2px solid #1C65A4;
@@ -97,18 +102,27 @@ header ul li a:hover{
     color: #F97C76;
     transition: all 0.1s ease-in;
         }
-.search{
+.home-search{
     position: absolute;
     top: 40%;
     left: 35%;
     
 }
-.search-box{
+ @media(max-width: 800px){
+  .home-search{
+    position: absolute;
+    top: 40%;
+    left: 15%;
+  }
+}
+
+/*.home-search-box{
     width: 100%;
 
     position: relative;
 }
-.search-area{
+        */
+.home-search-area{
     float: left;
     width: 150%;
 
@@ -116,6 +130,60 @@ header ul li a:hover{
     border-radius: 15px;
     padding: 11px 70px 11px 11px;
     font-size: 16px;
+}
+        
+@media screen and (max-width: 1100px){
+  .home-search-area{
+    width: 90%
+    outline:none;
+    border: 3px solid  #1C65A4;
+        border-radius: 10px;
+
+  }
+}
+
+
+@media(max-width: 1000px){
+  .home-search-area{
+    width: 70%
+    outline:none;
+    border: 3px solid  #1C65A4;
+        border-radius: 10px;
+
+  }
+}
+
+
+@media(max-width: 800px){
+  .home-search-area{
+    width: 40%
+    outline:none;
+    border: 3px solid  #1C65A4;
+        border-radius: 10px;
+
+  }
+}
+
+
+@media(max-width: 600px){
+  .home-search-area{
+    width: 20%
+    outline:none;
+    border: 3px solid  #1C65A4;
+        border-radius: 10px;
+
+  }
+}
+
+
+@media screen and (max-width: 400px){
+  .home-search-area{
+    width: 10%
+    outline:none;
+    border: 3px solid  #1C65A4;
+        border-radius: 10px;
+
+  }
 }
 /*.menu-type{
     list-style: none;
@@ -143,7 +211,7 @@ header ul li a:hover{
 .menu-type ul{
     
 }*/
-.search-button{
+.home-search-button{
     position: absolute;
     top: 13.6vh;
     left: 14.3vw;
@@ -156,9 +224,26 @@ header ul li a:hover{
     border: 2px solid #1C65A4;
     border-radius: 12px;
     font-size: 20px;
-    
+    outline: none;
 }
-.search-button:hover{
+@media(max-width: 1100px){
+  .home-search-button{
+    position: absolute;
+    top: 14.6vh;
+    transform:translate(-50%, -50%);
+    background: #00569F;
+    color:white;
+    font-weight: 10px;
+    width: 130px;
+    height: 48px;
+    border: 2px solid #1C65A4;
+    border-radius: 12px;
+    font-size: 20px;
+    outline: none;
+  }
+}        
+        
+.home-search-button:hover{
     background:white ;
     color: red;
     cursor: pointer;
@@ -204,7 +289,24 @@ nav ul li{position: absolute;
 	cursor: pointer;
 /*    background:  #00569F;*/
 }
+  @media(max-width: 500px){
+  nav ul li{
+  position:absolute;
+  font-size: 30px;
+  left: 53%;
+  top: 4%;
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0 0 40px 0 ;
+  cursor: pointer;
+  color:  #00569F;
+}
+}
 
+
+nav ul li:hover{
+  color: white;
+}
 
 
 nav ul li ul.sub-nav {
@@ -240,21 +342,126 @@ nav ul li ul.sub-nav li:hover {
 nav ul li:hover ul.sub-nav {
   visibility: visible;
   opacity: 1;
+    transition: 0.9s;
 }
+ 
         
-        
-    
-        
+
+.typewriter{
+  position: absolute;
+  top: 64%;
+  left: 28%; 
+}
+
+
+.typewriter h1 {
+  color: #fff;
+  font-family: 'Cabin', sans-serif;
+  font-size: 35px;
+  color: #00569F;
+  overflow: hidden;
+  /*border-right: .15em solid orange;*/ /*cursor*/
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: 
+    typing 3.5s steps(30, end), /*30frames and come to end*/
+    blink-caret .5s step-end;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+#top{
+  font-size:50px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  color: #00569F;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+
+
+
+
+
+
+ svg{
+    position: relative;
+    width:25px;
+    height: 25px;
+    margin-top: 2%;
+    left: 5%;
+    background-attachment: fixed;
+    border-radius: 4px;
+ }
+
+.side-nav{
+  height:100%;
+  width:0;
+  position:fixed;
+  z-index:1;
+  top:0;
+  left:0;
+  background-color:#1C65A4;
+  opacity:0.9;
+  overflow-x:hidden;
+  padding-top:60px;
+  transition:0.5s;
+}
+
+.side-nav a{
+  padding:10px 10px 10px 30px;
+  text-decoration:none;
+  font-size:22px;
+  color:white;
+  display:block;
+  transition:0.3s;
+}
+
+.side-nav a:hover{
+  color:#F97C76;
+}
+
+.side-nav .btn-close{
+  position:absolute;
+  top:0;
+  right:22px;
+  font-size:36px;
+  margin-left:50px;
+}
+
+
+@media(max-width:1350px){
+  .navbar-nav{display:none;}
+  header ul{display: none;}
+}
+
+@media(min-width:1299px){
+  .open-slide{display:none}
+  
+}    
        </style>
 </head>
-<body>
+<body class="bkg-img">
    <header class="header">
         <img class="logo" src="image/medi4.svg">
         
     <ul>
         <li><a  href="home.php">Home</a></li>
         <?php 
-        $query="SELECT * FROM category";
+        $query="SELECT * FROM category ORDER BY cat_id ASC";
         $result=mysqli_query($connection,$query);
         while($row=mysqli_fetch_assoc($result))
         {
@@ -263,11 +470,16 @@ nav ul li:hover ul.sub-nav {
 echo "<li><a  href='{$cat_link}'>{$sub}</a></li>";
             
         }
+        
+    ?>
+        
+ <li><a  href="home.php">Consult to Doctors</a></li>
+        <?php
          if(isset($_SESSION['user_role']))
 {
  if($_SESSION['user_role']==='admin')
  {
-     echo" <li><a href='admin'>Admin</a></li>";
+     echo "<li><a href='admin'>Admin</a></li>";
  }
      if($_SESSION['user_role']==='subscriber'){
               echo "<li><a href='user_profile.php'>Profile</li>"; 
@@ -277,10 +489,69 @@ echo "<li><a  href='{$cat_link}'>{$sub}</a></li>";
           
       ?>
        </ul>
+        <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg >
+            <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+    </nav>
+       <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+           
+           
+            <a  href="home.php">Home</a>
+        <?php 
+        $query="SELECT * FROM `category` ORDER BY `cat_id` ASC";
+        $result=mysqli_query($connection,$query);
+        while($row=mysqli_fetch_assoc($result))
+        {
+            $sub=$row['cat_title'];
+            $cat_link=$row['cat_link'];
+echo "<a  href='{$cat_link}'>{$sub}</a>";
+            
+        }
+        
+    ?>
+        
+ <a  href="home.php">Consult to Doctors</a>
+        <?php
+         if(isset($_SESSION['user_role']))
+{
+ if($_SESSION['user_role']==='admin')
+ {
+     echo "<a href='admin'>Admin</a>";
+ }
+     if($_SESSION['user_role']==='subscriber'){
+              echo "<a href='user_profile.php'>Profile</a>"; 
+           }
+    
+}
+           
+ ?>  
+       </div>
+      <script>
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>     
+           
+           
           </header>
     
     <?php  
-       if(isset($_SESSION['user_role'])){echo"<nav>";
+       if(isset($_SESSION['user_role'])){
+    echo"<nav>";
     echo"<ul>";
      echo"<li><a style='text-decoration:none;color:white' href='home.php'>{$_SESSION['username']}</a>";
        echo"<ul class='sub-nav'>";

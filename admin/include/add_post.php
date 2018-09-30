@@ -9,8 +9,8 @@ if(isset($_POST['create_post']))
     $tags=$_POST['tag'];
     $category=$_POST['category'];
     
-    move_uploaded_file($image_temp,"../image/$image"); 
-  $query="INSERT INTO posts(post_title,post_category,post_date,post_image,post_content,post_tags) "; 
+    move_uploaded_file($image_temp,"../yoga/image/$image"); 
+  $query="INSERT INTO posts(post_title,cat_title,post_date,post_image,post_content,post_tags) "; 
   $query .="VALUES(' $title','$category',now(),'$image','$content','$tags')";
     $result=mysqli_query($connection,$query);
 }
@@ -18,15 +18,15 @@ if(isset($_POST['create_post']))
 
 
 ?>
-
-
+<div class="col-2"></div>
+<div class="col-10">
 <form action="" method="post" enctype="multipart/form-data">
     <div>
-    <h2><label for="title" >Post_Title</label></h1><br>
+    <h2><label for="title" >Post Title</label></h1><br>
     <input class="form" type="text" name="title">
     </div><br><br>
     <div>
-    <select required>
+    <select name="category" required>
         <option>select category</option>
         <?php
     $cat_query="SELECT * FROM category";
@@ -39,21 +39,22 @@ if(isset($_POST['create_post']))
     </select>
     </div><br><br>
     <div>
-    <h2><label for="image" >Post_image</label></h1><br>
+    <h2><label for="image" >Post Image</label></h1><br>
     <input class="form" type="file" name="image">
     </div><br><br>
     <div>
-    <h2><label for="content" >Post_content</label></h1><br>
+    <h2><label for="content" >Post Content</label></h1><br>
         <textarea class="form" cols='30' rows='10' name="content"></textarea>
    </div><br><br>
     <div>
-    <h2><label for="tags" >Post_Tags</label></h1><br>
+    <h2><label for="tags" >Post Tags</label></h1><br>
        <input class="form" type="text" name="tag">  
     </div><br><br>
    
-    <input class="form"  style="background-color:blue;"type="submit" name="create_post" value="submit">
+    <input class="form"  style="background-color:blue; color:white;" type="submit" name="create_post" value="submit">
     </div>
 
 
 
 </form>
+</div>

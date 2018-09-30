@@ -1,6 +1,8 @@
 <?php session_start()?>
-<?php include"connect.php" ?>
+<?php include"include/connect.php" ?>
 <?php
+    if(($_SESSION['user_role']==='admin'))
+    {
        if(isset($_SESSION['username']))
         {
             $username=$_SESSION['username'];
@@ -29,12 +31,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<a href="home.php"><img class="logo" src="image/medi4.svg"></a>
+	<a href="../admin"><img class="logo" src="../image/medi4.svg"></a>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Profile</title>
-	<link rel="stylesheet" href="user_profile.css">
+	<link rel="stylesheet" href="../user_profile.css">
 </head>
 <body>
 	<div class="myprofile"><h1>MY PROFILE</h1></div>
@@ -42,7 +44,7 @@
     
     <div class="profile">
 		<div class="container">
-			<img src="image/<?php echo $user_image?>">
+			<img src="../image/<?php echo $user_image?>">
         
 			</div>
 		</div>
@@ -57,11 +59,13 @@
                 
 	</div>
   
-    <a  href="edit_user_profile.php" ><button style="position:absolute; margin-left:9.5vw; margin-top:-10vh; padding:20px; width:180px; color:white; text-decoration:none;" class="sav-button"  name="update_profile"  >Edit Profile</button></a>
-
-
+    <a  href="edit_Admin_profile.php" ><button style="position:absolute; margin-left:9.5vw;margin-top:-10vh; padding:20px; width:180px; color:white; text-decoration:none;" class="sav-button"  name="update_profile"  >Edit Profile</button></a>
+<?php }
+    else{
+    header("location:../home.php");
+    }
+?>
 </body>
 </html>
-                
-                
-                
+
+           

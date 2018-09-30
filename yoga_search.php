@@ -32,7 +32,7 @@ else{ ?>
             if(isset($_POST['submit']))
                 {
                     $search=$_POST['search'];
-                $query1="SELECT * FROM posts WHERE post_category='yoga'and post_tags LIKE '%$search%' ";
+                $query1="SELECT * FROM posts WHERE cat_title='Yoga Aasans'and post_tags LIKE '%$search%' ";
                  $result1=mysqli_query($connection,$query1);
                  if(!$result1){
                      die("query failed ". mysqli_error($connection));
@@ -49,7 +49,7 @@ else{ ?>
         ?>
 <div class="container">
 	<div class="card">
-		<div class="front"><img src="image/<?php echo"{$row['post_image']}"; ?> " style="border-radius: 25px 0 0 25px;height: 100%; width: 100%;"></div>
+		<div class="front"><img src="image/yoga/<?php echo"{$row['post_image']}"; ?> " style="border-radius: 25px 0 0 25px;height: 100%; width: 100%;"></div>
 		<div class="back"><?php echo"<h4>{$row['post_title']}</h4>";?><button class="searchbtn">CLICK TO KNOW MORE</button>
 	</div>
 	</div>
@@ -57,7 +57,7 @@ else{ ?>
 	<div class="card2">
 		<div class="front2"><h1>Benefits</h1>
 			
-          <?php echo"<p>{$row['post_content']}</p> ";?> 
+          <?php echo"<p>{$row['post_content']}</p>";?> 
 		</div>
 
 	</div>

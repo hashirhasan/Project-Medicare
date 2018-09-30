@@ -7,7 +7,7 @@
             if(isset($_POST['submit']))
                 {
                     $search=$_POST['search'];
-                $query1="SELECT * FROM posts WHERE post_category='fitness'and post_tags LIKE '%$search%' ";
+                $query1="SELECT * FROM posts WHERE cat_title='Fitness Tips'and post_tags LIKE '%$search%' ";
                  $result1=mysqli_query($connection,$query1);
                  if(!$result1){
                      die("query failed ". mysqli_error($connection));

@@ -92,6 +92,10 @@ else if(!isset($_SESSION['user_role']))
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+    
+        table{
+            
+        }
         
     table, th,td {
         border: 1px solid black;
@@ -100,7 +104,28 @@ else if(!isset($_SESSION['user_role']))
     }
     th, td {
         padding: 15px;
+        overflow:hidden;
+        text-overflow: ellipsis; 
         }
+        
+        table th {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+	color:#FFFFFF;
+	background-color: #5A94CE; /*#66CCFF*/
+	
+}
+/*
+        #appadd {
+  white-space: nowrap;
+overflow: hidden;
+width: 180px;
+height: 30px;
+text-overflow: ellipsis; 
+}
+*/
+        
         .form{
             padding:10px;
             width:500px;
@@ -109,7 +134,7 @@ else if(!isset($_SESSION['user_role']))
 .para{
  
     background-color: white;
-    margin:5% 120px 0px 130px;
+    margin:5% 100px 0px 130px;
     border: 2px solid black;
 }
 
@@ -134,7 +159,7 @@ else if(!isset($_SESSION['user_role']))
                 <li><a href="users.php?source=add_user">add user <i class="fas fa-user-edit"></i></a></li>
                </ul>
         </li>
-         <li><a href="profile.php">Admin Profile <i class="fas fa-user"></i></a>
+         <li><a href="admin_profile.php">Admin Profile <i class="fas fa-user"></i></a>
           <li style="margin-left:28.125vw;"> <a href="index.php"><?php echo $_SESSION['username']; ?> <i class="fas fa-unlock-alt"></i> <i style=" margin-left:10px;"class="fas fa-caret-down"></i></a>
               <ul>
                 <li><a href="include/logout.php">Logout <i class="fas fa-lock"></i></a></li>

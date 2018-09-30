@@ -2,8 +2,8 @@
 
    
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-6">
+                <div class="col-1"></div>
+                <div class="col-8">
                <?php  
                     
                     if(isset($_GET['source']))
@@ -26,9 +26,6 @@
                             include"include/edit_post.php";
                             break;
                             
-                             case '200':
-                            echo"nicer";
-                            break;
                         default:
                             include"include/view_post.php";
                                 break;
@@ -39,7 +36,7 @@
                     ?>
                 
                  </div>
-                <div class="col-4"></div>
+                <div class="col-3"></div>
              </div>
     </div>
     </div>

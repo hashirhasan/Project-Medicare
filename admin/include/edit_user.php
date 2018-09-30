@@ -17,7 +17,8 @@
     }
 }
 ?>
-
+<div class="col-4"></div>
+<div class="col-8">
 <form action="" method="post" enctype="multipart/form-data">
     <div>
     <h2><label for="username" >Username</label></h1><br>
@@ -39,6 +40,7 @@
             ?>
             
         </select></div><br><br>
+   
    <div>
     <h2><label for="firstname" >Firstname</label></h1><br>
      <input class="form" value="<?php echo $user_firstname;?>" type="text" name="user_firstname">  
@@ -55,6 +57,7 @@
     <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_user" value="Update User">
     </div>
 </form>
+    </div>
 <?php   
 if(isset($_POST['update_user'])){
    
@@ -75,7 +78,7 @@ if(isset($_POST['update_user'])){
     if(!$result){
     die("query failed" .mysqli_error($connection));
     }
- header("Location:users.php?source=edit_user&user_id={$user_id}");
+ header("Location:users.php");
 }
 ?>
 

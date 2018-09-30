@@ -46,7 +46,7 @@
                 <div class="col-6">
                     
              <?php   
-                        $query="SELECT * FROM category";
+                        $query="SELECT * FROM category ORDER BY `category`.`cat_id` ASC";
                         $select_categories=mysqli_query($connection,$query);
               ?>
                     <table style="width:100%;">
@@ -55,6 +55,8 @@
                     <tr>
                         <th>Category_Id</th>
                         <th>Category_name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                         </tr>
                             </thead>
                         <tbody>

@@ -65,6 +65,7 @@ if(isset($_POST['login_user']))
       $_SESSION['username']= $enter_username;
       $_SESSION['user_password']= $enter_password;
       $_SESSION['user_role']= $user_role;
+      $_SESSION['user_id']= $user_id;
       header("Location:admin");   
   }
 else{

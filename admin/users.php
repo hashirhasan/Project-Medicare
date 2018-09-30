@@ -25,9 +25,6 @@
                             include"include/edit_user.php";
                             break;
                             
-                             case '200':
-                            echo"nicer";
-                            break;
                         default:
                             include"include/view_users.php";
                                 break;

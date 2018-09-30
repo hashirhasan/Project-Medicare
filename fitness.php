@@ -7,15 +7,14 @@
     ?>
         <div class="col-8">
     <?php 
-    $query1="SELECT * FROM posts WHERE post_category='fitness'";
+    $query1="SELECT * FROM posts WHERE cat_title='Fitness Tips'";
     $result1=mysqli_query($connection,$query1);
     while($post=mysqli_fetch_assoc($result1))
     {
-        
-        ?>
+     ?>
       <?php echo"<h1>{$post['post_title']}</h1>";?>
     	  <?php echo"<h2>{$post['post_date']}</h2><br>";?>
-    	<img style="width:50%;" src="image/<?php echo"{$post['post_image']}"; ?>">
+    	<img style="width:50%;" src="image/<?php echo"{$post['post_image']}";?>">
     	  <?php echo"<p>{$post['post_content']}</p> ";?> 
         
   <?php  } ?>

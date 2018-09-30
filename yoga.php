@@ -23,13 +23,13 @@ if(isset($_SESSION['user_role']))
     }
 </script>
  <?php 
-       $query1="SELECT * FROM posts WHERE post_category='yoga'";
+       $query1="SELECT * FROM posts WHERE cat_title='Yoga Aasans'";
     $result1=mysqli_query($connection,$query1);
     while($row=mysqli_fetch_assoc($result1))
     {  ?>
 <div class="container">
 	<div class="card">
-		<div class="front"><img src="image/<?php echo"{$row['post_image']}"; ?> " style="border-radius: 25px 0 0 25px;height: 100%; width: 100%;"></div>
+		<div class="front"><img src="image/yoga/<?php echo"{$row['post_image']}"; ?> " style="border-radius: 25px 0 0 25px;height: 100%; width: 100%;"></div>
 		<div class="back"><?php echo"<h4>{$row['post_title']}</h4>";?><button class="searchbtn">CLICK TO KNOW MORE</button>
 	</div>
 	</div>
@@ -47,11 +47,15 @@ if(isset($_SESSION['user_role']))
   <?php  } 
 
 }
-else{ ?>
+else{
+
+?>
 
       <script>alert('first login ');</script> 
     
-<?php  }?>
+<?php
+
+    }?>
 </body>
 </html>
 

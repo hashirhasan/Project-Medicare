@@ -68,52 +68,12 @@ if(isset($_POST['create_user']))
     
     
       if(preg_match("/^[A-z0-9@#$%^&*()+?_!-]{3,}$/",$username) and preg_match("/^(?=.*[a-z])(?=.*\d)(?=.*[@_#$^&*()+<,>!]).{5,13}$/",$user_password) and preg_match("/^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/",$user_email) and preg_match("/^[A-z]+[\s]{0,1}[A-z]{2,15}$/",$user_firstname) and preg_match("/^[A-z]+[\s]{0,1}[A-z]{2,15}$/",$user_lastname) and mysqli_num_rows($username_result)==0 and mysqli_num_rows($user_email_result)==0)
-    {  
+    { 
+        ?>
 
-          $token='asdfghjklqwertyphgkvbmnQWERTFGHJKLMBVCXD123456789';
-    $token= str_shuffle($token);
-    $token= substr($token,0,10);
-  
-    
-  require ('PHPMailer\PHPMailerAutoload.php');
-//require ("PHPMailer/class.phpmailer.php");
+<?php include"send_mail.php"?>
 
-$mail = new PHPMailer;
-$mail->isSMTP();  // Set mailer to use SMTP
-
-$mail->SMTPDebug = 0;                               // Enable verbose debug output
-
-                                 
-$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'hasanhashir1314@gmail.com';                 // SMTP username
-$mail->Password = '0551harry0551';                           // SMTP password
-$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 587;                                    // TCP port to connect to
-
-$mail->SetFrom('hasanhashir1314@gmail.com');
-$mail->AddAddress($user_email, $username);  
-
-            
-
-$mail->isHTML(true);                                  // Set email format to HTML
-
-$mail->Subject = 'VERIFICATION E-MAIL';
-$mail->Body    = $user_firstname." "."ur password is ".$user_password." "."<br> 
-        
-        click on the verification link below:<br>
-        
-        <a href='localhost/Project-Medicare/verify.php?user_email=$user_email&token=$token'>Verification Link</a>
- 
-        ";
-    
-if(!$mail->send()) {
-    $message_error= "<h2 style='color:red;text-shadow: 1px 1px white;'>Message could not be sent.</h2>";
-} else {
-    $message= "<h2 style='color:red;'>Message has been sent</h2>";
-}
-        
-        
+<?php
           $user_password=md5($user_password);
     $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password,token) "; 
     $query .="VALUES('$username','subscriber','$user_firstname','$user_lastname','$user_email','$user_password','$token')";
