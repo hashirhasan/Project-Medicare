@@ -100,12 +100,11 @@ else if(!isset($_SESSION['user_role']))
     table, th,td {
         border: 1px solid black;
          border-collapse: collapse;
-       
+      
     }
     th, td {
         padding: 15px;
-        overflow:hidden;
-        text-overflow: ellipsis; 
+      
         }
         
         table th {

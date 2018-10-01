@@ -29,7 +29,7 @@ if(isset($_SESSION['user_role']))
     {  ?>
 <div class="container">
 	<div class="card">
-		<div class="front"><img src="image/yoga/<?php echo"{$row['post_image']}"; ?> " style="border-radius: 25px 0 0 25px;height: 100%; width: 100%;"></div>
+		<div class="front"><img src="image/<?php echo"{$row['post_image']}"; ?> " style="border-radius: 25px 0 0 25px;height: 100%; width: 100%;"></div>
 		<div class="back"><?php echo"<h4>{$row['post_title']}</h4>";?><button class="searchbtn">CLICK TO KNOW MORE</button>
 	</div>
 	</div>

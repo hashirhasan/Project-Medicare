@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['create_post']))
-{ 
+{ $message_update="<h3 style='color:blue'>Post added!!</h3>";
    $title=$_POST['title'];
     $date=date('y-m-d');
     $image=$_FILES['image']['name'];
@@ -9,7 +9,7 @@ if(isset($_POST['create_post']))
     $tags=$_POST['tag'];
     $category=$_POST['category'];
     
-    move_uploaded_file($image_temp,"../yoga/image/$image"); 
+    move_uploaded_file($image_temp,"../image/$image"); 
   $query="INSERT INTO posts(post_title,cat_title,post_date,post_image,post_content,post_tags) "; 
   $query .="VALUES(' $title','$category',now(),'$image','$content','$tags')";
     $result=mysqli_query($connection,$query);
@@ -20,8 +20,10 @@ if(isset($_POST['create_post']))
 ?>
 <div class="col-2"></div>
 <div class="col-10">
+     <?php if(!empty($_POST['category'])) {if(isset($message_update)){echo $message_update;}}?>
 <form action="" method="post" enctype="multipart/form-data">
     <div>
+      
     <h2><label for="title" >Post Title</label></h1><br>
     <input class="form" type="text" name="title">
     </div><br><br>

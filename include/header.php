@@ -52,8 +52,12 @@ body{
 header{
 height:98px;
 width: 100%;
+    margin: 0;
+    top: 0;
 background-color: #3DA2F8;
 box-shadow: 0px 8px 5px 0 rgba(0,0,0,0.5);
+    
+   
 }
 .logo{
     padding: 3px 0px 0px 8px; 
@@ -75,10 +79,10 @@ header ul{
 	float: left;
     position: absolute;
     height: 17px;
-    width: ;
+    
     margin-top: 3%;
-    margin-left: 2%;
-    padding: 1.5vh 10px 1.7vw 0; 
+    margin-left: %;
+    padding: 1.5vh 0.8vw 1.7vw 0; 
     background-color: #00569F;
     border-radius: 15px 0 0 15px;
     border: 2px solid #1C65A4;
@@ -473,7 +477,7 @@ echo "<li><a  href='{$cat_link}'>{$sub}</a></li>";
         
     ?>
         
- <li><a  href="home.php">Consult to Doctors</a></li>
+ <li><a  href="doctors.php">Consult to Doctors</a></li>
         <?php
          if(isset($_SESSION['user_role']))
 {
@@ -482,7 +486,7 @@ echo "<li><a  href='{$cat_link}'>{$sub}</a></li>";
      echo "<li><a href='admin'>Admin</a></li>";
  }
      if($_SESSION['user_role']==='subscriber'){
-              echo "<li><a href='user_profile.php'>Profile</li>"; 
+              echo "<li><a href='user_profile.php'>Profile</a></li>"; 
            }
     
 }
@@ -518,13 +522,13 @@ echo "<a  href='{$cat_link}'>{$sub}</a>";
         
     ?>
         
- <a  href="home.php">Consult to Doctors</a>
+ <a  href="doctors.php">Consult to Doctors</a>
         <?php
          if(isset($_SESSION['user_role']))
 {
  if($_SESSION['user_role']==='admin')
  {
-     echo "<a href='admin'>Admin</a>";
+     echo "<a href='admin/index.php'>Admin</a>";
  }
      if($_SESSION['user_role']==='subscriber'){
               echo "<a href='user_profile.php'>Profile</a>"; 
@@ -555,8 +559,7 @@ echo "<a  href='{$cat_link}'>{$sub}</a>";
     echo"<ul>";
      echo"<li><a style='text-decoration:none;color:white' href='home.php'>{$_SESSION['username']}</a>";
        echo"<ul class='sub-nav'>";
-        	echo"<a style='text-decoration: none;' href='fb.com'>";
-//          echo"<li>Profile</li></a>";
+        	
            echo"<a style='text-decoration: none;' href='admin/include/logout.php'>";
            echo"<li>Logout</li></a>";
           echo"</ul>";

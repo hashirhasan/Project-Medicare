@@ -5,7 +5,7 @@
         <div class="home-search">
             <div class="home-seach-box">
                 <form action="medicine.php" onsubmit="return check()" method="POST" enctype="multipart/form-data">
-                <input class="home-search-area" id="search" type="text" placeholder="What are you looking for?" name="search">
+                <input class="home-search-area" id="search" type="text" placeholder="Medicines/Disease" name="search">
                 <div id="List"></div>
                <input type="SUBMIT" class="home-search-button" value="Search">
                </form>

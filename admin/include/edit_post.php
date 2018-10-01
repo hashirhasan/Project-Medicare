@@ -20,41 +20,7 @@
   }
 ?>
 
-<form action="" method="post" enctype="multipart/form-data">
-    <div>
-    <h2><label for="title" >Post Title</label></h1><br>
-    <input class="form"value="<?php echo $post_title;?>" type="text" name="title">
-    </div><br><br>
-    <div>
-        <select name="category">
-        <?php 
-            echo"<option>{$cat_title}</option>";
-            $cat_query="SELECT * FROM category";
-     $cat_query_result=mysqli_query($connection,$cat_query);   
-    while($row=mysqli_fetch_assoc($cat_query_result))
-    { if($row['cat_title']!==$cat_title)
-    {
-        echo "<option>{$row['cat_title']}</option>";
-    }
-    }  ?>
-  
-        </select></div><br><br>
-    <div>
-    <img style="width:100px;" src="../image/yoga/<?php echo $post_image?>"><br>
-        <input class="form" type="file" name="image">
-    </div><br><br>
-    <div>
-    <h2><label for="content" >Post Content</label></h1><br>
-        <textarea class="form"  type="text" cols='30' rows='10' name="content"><?php echo $post_content;?></textarea>
-    <div>
-    <h2><label for="tags" >Post Tags</label></h1><br>
-       <input class="form" value="<?php echo $post_tags;?>" type="text" name="tag">  
-    </div><br><br>
-   <div>
-    <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_post" value="Update">
-    </div>
 
-</form>
 <?php   
 if(isset($_POST['update_post'])){
     
@@ -64,12 +30,12 @@ if(isset($_POST['update_post'])){
    $image_temp=$_FILES['image']['tmp_name'];
     $content=$_POST['content'];
     $tags=$_POST['tag']; 
-    move_uploaded_file($image_temp,"../yoga/image/$image"); 
+    move_uploaded_file($image_temp,"../image/$image"); 
     if(empty($image))
     {
         $query="SELECT * FROM posts WHERE post_id=$post_id";
         $result=mysqli_query($connection,$query);
-        if(!result){
+        if(!$result){
 
         die("query failed" .mysqli_error($connection));
                         
@@ -92,9 +58,48 @@ if(isset($_POST['update_post'])){
     if(!$result){
     die("query failed" .mysqli_error($connection));
     }
- header("Location:posts.php?source=edit_post&p_id=$post_id");
+// header("Location:posts.php?source=edit_post&p_id=$post_id");
+    $message_update="<h3 style='color:blue'>Post updated!!</h3>";
 }
 
 
 ?>
+<div class="col-2"></div>
+<div class="col-10">
+<form action="" method="post" enctype="multipart/form-data">
+    <?php if(isset($message_update)){echo $message_update;}?>
+    <div>
+    <h2><label for="title" >Post Title</label></h1><br>
+    <input class="form"value="<?php echo $post_title;?>" type="text" name="title">
+    </div><br><br>
+    <div>
+        <select name="category">
+        <?php 
+            echo"<option>{$cat_title}</option>";
+            $cat_query="SELECT * FROM category";
+     $cat_query_result=mysqli_query($connection,$cat_query);   
+    while($row=mysqli_fetch_assoc($cat_query_result))
+    { if($row['cat_title']!==$cat_title)
+    {
+        echo "<option>{$row['cat_title']}</option>";
+    }
+    }  ?>
+  
+        </select></div><br><br>
+    <div>
+    <img style="width:100px;" src="../image/<?php echo $post_image?>"><br>
+        <input class="form" type="file" name="image">
+    </div><br><br>
+    <div>
+    <h2><label for="content" >Post Content</label></h1><br>
+        <textarea class="form"  type="text" cols='30' rows='10' name="content"><?php echo $post_content;?></textarea>
+    <div>
+    <h2><label for="tags" >Post Tags</label></h1><br>
+       <input class="form" value="<?php echo $post_tags;?>" type="text" name="tag">  
+    </div><br><br>
+   <div>
+    <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_post" value="Update">
+    </div>
 
+</form>
+</div>

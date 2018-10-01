@@ -20,7 +20,7 @@ if(isset($_GET['user_email']))
     if(!$query_result){
         die("query failed".mysqli_error($connection));
     }
-    echo "<h2 style='margin:200px 0px 0px 400px;color:blue;'>Your Email Has Been Verified!!</h2>";
+    echo "<h2 style='margin:200px 0px 0px 400px;color:blue;'>Your Email Has Been Verified!!</h2><h3><a href='login.php'>click here to login</a></h3>";
 }
     else
     {
