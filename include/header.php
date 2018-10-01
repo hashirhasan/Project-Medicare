@@ -81,7 +81,7 @@ header ul{
     height: 17px;
     
     margin-top: 3%;
-    margin-left: %;
+   
     padding: 1.5vh 0.8vw 1.7vw 0; 
     background-color: #00569F;
     border-radius: 15px 0 0 15px;
