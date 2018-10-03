@@ -63,7 +63,7 @@ while ($rows= $showdata->fetch_assoc()) {?>
 
     </div>
 
-            <a class="use-btn" type="button" href="#popup2">CONTACT</a>
+            <a class="use-btn" type="button" href="contactpage.php">CONTACT</a>
 
             <!-- <input class="use-btn" type="button" value="Use In"> -->
 

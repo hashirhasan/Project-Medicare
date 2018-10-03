@@ -26,8 +26,7 @@ if(isset($_SESSION['user_role']))
         <input class="form"  type="password" name="user_password" placeholder="Password"> 
            
         <button class="button" type="submit" name="login_user"><span>LOG IN</span></button><span> <a href = "forgot_password.php?table=participants">forgot password ?</a></span>
-        <h5>OR</h5>
-        <button class="button" style="background-color: #B71515"><span>Connect with Google</span></button>
+        
         </form>
 
         </div>
