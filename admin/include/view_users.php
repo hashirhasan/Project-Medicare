@@ -23,7 +23,7 @@
                        if(!$result){
                            die("query failed". mysqli_error());
                        }
-                        while($row=mysqli_fetch_assoc($result))
+                        while($row=mysqli_fetch_assoc($result))                         //for viewing all the users in the database
                         {   
                             $user_id=$row['user_id'];
                             $user_image=$row['user_image'];
@@ -47,13 +47,13 @@
                                      echo  "<a href='users.php?change_role_to_subscriber={$user_id}'>Subscriber</a>";
                                        }
                                        echo"</td>";
-                            echo"<td><a href='users.php?source=edit_user&user_id={$user_id}'>Edit</a></td>";
+                            echo"<td><a href='users.php?source=edit_user&user_id={$user_id}'>Edit</a></td>";// link for editing the details of the user
                           
                         
                             echo"<td>";
                              if($_SESSION['user_id']!==$user_id)
                                    {
-                                     echo  "<a onClick=\"javascript: return confirm('Are you sure you want to delete this user?');\" href='users.php?delete={$user_id}'>Delete</a>";
+                                     echo  "<a onClick=\"javascript: return confirm('Are you sure you want to delete this user?');\" href='users.php?delete={$user_id}'>Delete</a>";// link for deletion 
                                        }
                                        echo"</td>";
                           
@@ -84,7 +84,7 @@
                         }
 
 
-                   if(isset($_GET['change_role_to_admin']))
+                   if(isset($_GET['change_role_to_admin']))                                  //link to change the subscriber to admin
                         {
                             $user_id=$_GET['change_role_to_admin'];
                                $query="UPDATE users SET ";
@@ -98,7 +98,7 @@
                             
                         }
 
-                    if(isset($_GET['change_role_to_subscriber']))
+                    if(isset($_GET['change_role_to_subscriber']))         //link to change the  admin  to subscriber
                         {
                             $user_id=$_GET['change_role_to_subscriber'];
                                $query="UPDATE users SET ";

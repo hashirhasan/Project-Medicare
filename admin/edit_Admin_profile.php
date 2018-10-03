@@ -11,7 +11,7 @@
            if(!$result){
                die("query failed". mysqli_error($connection));
            }
-            while($row=mysqli_fetch_assoc($result))
+            while($row=mysqli_fetch_assoc($result))        //for diplaying the details of the user
             {   
              $user_id=$row['user_id'];
             $username=$row['username'];
@@ -52,7 +52,7 @@ if(isset($_POST['update_profile'])){
         }
         
     }
-    $query="UPDATE users SET ";
+    $query="UPDATE users SET ";                                 //for updating profile of the admin
     $query .="username='$username', ";
      $query .="user_image='$user_image', ";
     $query .="user_firstname='$user_firstname', ";

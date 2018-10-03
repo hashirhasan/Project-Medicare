@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['create_post']))
+if(isset($_POST['create_post']))                          //used for adding the post 
 { 
    $title=$_POST['title'];
     $date=date('y-m-d');
@@ -11,7 +11,7 @@ if(isset($_POST['create_post']))
     $file_ext=explode('.',$image);
   $ext=strtolower(end($file_ext));
  
- $act_ext=array('jpg','jpeg','png');
+ $act_ext=array('jpg','jpeg','png');                                 //for adding the files which includes only these extensions
  if(in_array($ext,$act_ext)){
      $message_update="<h3 style='color:blue'>Post added!!</h3>";
     move_uploaded_file($image_temp,"../image/$image");

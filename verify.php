@@ -1,6 +1,6 @@
 <?php include"connect.php"?>
-<?php 
-if(isset($_GET['user_email']))
+<?php                                                                     //verification page
+if(isset($_GET['user_email']))                                       
 {
     $user_cmpass=1;
     $token_key='';

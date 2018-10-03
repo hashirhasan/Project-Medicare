@@ -11,7 +11,7 @@
            if(!$result){
                die("query failed". mysqli_error($connection));
            }
-            while($row=mysqli_fetch_assoc($result))
+            while($row=mysqli_fetch_assoc($result))               //for displaying the profile of the admin
             {   
              $user_id=$row['user_id'];
             $username=$row['username'];

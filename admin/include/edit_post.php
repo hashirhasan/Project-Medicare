@@ -5,9 +5,9 @@
     $query="SELECT * FROM posts WHERE post_id=$post_id";
     $result=mysqli_query($connection,$query);
    if(!$result){
-       die("query failed". mysqli_error());
+       die("query failed". mysqli_error()); 
    }
-    while($row=mysqli_fetch_assoc($result))
+    while($row=mysqli_fetch_assoc($result))          // for dsplaying the content of the post for editing
     {   
        
         $post_title=$row['post_title'];
@@ -22,7 +22,7 @@
 
 
 <?php   
-if(isset($_POST['update_post'])){
+if(isset($_POST['update_post'])){                        
     
      $title=$_POST['title'];
      $category=$_POST['category'];
@@ -70,7 +70,7 @@ if(isset($_POST['update_post'])){
     
    
     
-    $query="UPDATE posts SET ";
+    $query="UPDATE posts SET ";                                    //for updating the posts
     $query .="post_title='$title', ";
     $query .="cat_title='$category', ";
     $query .="post_date=now(), ";

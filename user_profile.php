@@ -9,7 +9,7 @@
            if(!$result){
                die("query failed". mysqli_error($connection));
            }
-            while($row=mysqli_fetch_assoc($result))
+            while($row=mysqli_fetch_assoc($result))                                   // used for displaying the details of the user
             {   
              $user_id=$row['user_id'];
             $username=$row['username'];

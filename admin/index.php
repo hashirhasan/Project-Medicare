@@ -1,4 +1,4 @@
-<?php include "include/adminheader.php"?>
+ <?php include "include/adminheader.php"?>    <!--navbar of the admin page  -->
     
     </div>
 </body>

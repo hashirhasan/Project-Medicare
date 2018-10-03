@@ -1,14 +1,14 @@
  
       <form action="" method="post">
           <?php  
-          if(isset($_GET['edit'])){
+          if(isset($_GET['edit'])){                                             
               $cat_id=$_GET['edit'];
               $query="SELECT * FROM category WHERE cat_id={$cat_id}";
               $edit_query=mysqli_query($connection,$query);
                if(!$edit_query){
         die("query failed" .mysqli_error($connection));                
         }
-              while($row=mysqli_fetch_assoc($edit_query)){
+              while($row=mysqli_fetch_assoc($edit_query)){          //for displaying the category for editing
                   $title=$row['cat_title'];
                   $cat_id=$row['cat_id'];
               }
@@ -22,7 +22,7 @@
           if(isset($_POST['edit_cat']))
           { 
             $title=$_POST['categories'];
-            $query="UPDATE category SET cat_title='{$title}' WHERE cat_id=$cat_id";
+            $query="UPDATE category SET cat_title='{$title}' WHERE cat_id=$cat_id";            //for editing a paricular category
             $update_query=mysqli_query($connection,$query); 
              if(!$update_query){
         die("query failed" .mysqli_error($connection));                

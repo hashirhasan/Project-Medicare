@@ -13,7 +13,7 @@
                     
                     if(isset($_GET['edit'])){
                         $cat_id=$_GET['edit'];
-                        include "include/edit_cat.php";
+                        include "include/edit_cat.php";        //for editing a particular category
                     }
                     
                     
@@ -29,7 +29,7 @@
                         else
                         {
                         
-                        $query="INSERT INTO category(cat_title)";
+                        $query="INSERT INTO category(cat_title)";          //adding new categories in the database
                         $query .="VALUES('$cat_title')";
                         $insert_category=mysqli_query($connection,$query);
                          if(!$insert_category){
@@ -63,7 +63,7 @@
   
                         <?php
                      
-                            while($row=mysqli_fetch_assoc($select_categories))
+                            while($row=mysqli_fetch_assoc($select_categories))   //displaying  all categories
                             
                             {
                            $cat_id=$row['cat_id'];
@@ -72,8 +72,8 @@
                         <tr>  
                        <?php echo" <td>{$cat_id}</td>"; ?>
                         <?php echo"<td>{$cat_title}</td>"; 
-                         echo"<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";         
-                        echo"<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this category?');\" href='categories.php?delete={$cat_id}'>Delete</a></td>";    
+                         echo"<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";  //link for editing       
+                        echo"<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this category?');\" href='categories.php?delete={$cat_id}'>Delete</a></td>";    // link for deletion
                             
                             ?>
                             
@@ -85,14 +85,14 @@
                             ?>   
                         </tbody>
                        <?php  
-                        if(isset($_GET['delete']))
+                        if(isset($_GET['delete']))          
                         {
                              if(isset($_SESSION['user_role']))
                                 {
                                     if($_SESSION['user_role']==='admin')
                                     {
                             $cat_id=$_GET['delete'];
-                               $query="DELETE FROM category ";
+                               $query="DELETE FROM category ";                     //deleting the categories
                                 $query .="WHERE cat_id=$cat_id";   
                                 $result=mysqli_query($connection,$query);
                                 if(!$result){

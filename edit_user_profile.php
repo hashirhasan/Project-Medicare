@@ -9,7 +9,7 @@
            if(!$result){
                die("query failed". mysqli_error($connection));
            }
-            while($row=mysqli_fetch_assoc($result))
+            while($row=mysqli_fetch_assoc($result))               //for displaying the  details for editing
             {   
              $user_id=$row['user_id'];
             $username=$row['username'];
@@ -50,7 +50,7 @@ if(isset($_POST['update_profile'])){
         }
         
     }
-    $query="UPDATE users SET ";
+    $query="UPDATE users SET ";                        //  updating the profile of the user
     $query .="username='$username', ";
      $query .="user_image='$user_image', ";
     $query .="user_firstname='$user_firstname', ";

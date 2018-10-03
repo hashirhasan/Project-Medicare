@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['create_user']))
+if(isset($_POST['create_user']))                           // used for adding the user in the database by the user
 { 
    $username=$_POST['username'];
     $user_role=$_POST['user_role'];

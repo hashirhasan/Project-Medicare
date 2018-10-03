@@ -1,6 +1,6 @@
-<?php include"include/connect.php" ?>
+ <?php include"include/connect.php" ?>     <!--for making connection with database -->
 <?php ob_start(); ?>
-<?php session_start(); ?>
+<?php session_start(); ?>                           <!-- //starting the session  --->
 <?php 
 if(isset($_SESSION['user_role']))
 {

@@ -18,15 +18,15 @@
                     {
                         case 'add_user': 
                             
-                            include"include/add_user.php";
+                            include"include/add_user.php";           // used for adding the users by admin
                             break;
                             
                              case 'edit_user':
-                            include"include/edit_user.php";
+                            include"include/edit_user.php";           // used for editing the details of users by admin
                             break;
                             
                         default:
-                            include"include/view_users.php";
+                            include"include/view_users.php";            //used for viewing the details of users
                                 break;
                       }
                     

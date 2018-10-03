@@ -7,7 +7,7 @@
    if(!$result){
        die("query failed". mysqli_error($connection));
    }
-    while($row=mysqli_fetch_assoc($result))
+    while($row=mysqli_fetch_assoc($result))                // used for showing the details of the users
     {    
     $username=$row['username'];
     $user_role=$row['user_role'];
@@ -27,9 +27,9 @@
     <div>
         <select name="user_role">
       
-            <option><?php echo $user_role;?></option>
-        <?php    
-            if($user_role=="admin")
+            <option><?php echo $user_role;?></option>                          // dropdown for editing the role of the users
+        <?php                                               
+            if($user_role=="admin")                              
             {
                 echo"<option>subscriber</option>";
             }  
@@ -67,7 +67,7 @@ if(isset($_POST['update_user'])){
    $user_lastname=$_POST['user_lastname'];
    $user_email=$_POST['user_email'];
     
-    $query="UPDATE users SET ";
+    $query="UPDATE users SET ";                              // used for updating the details of th users
     $query .="username='$username', ";
     $query .="user_role='$user_role', ";
     $query .="user_firstname='$user_firstname', ";
@@ -78,7 +78,7 @@ if(isset($_POST['update_user'])){
     if(!$result){
     die("query failed" .mysqli_error($connection));
     }
- header("Location:users.php");
+ header("Location:users.php");                         //updating the location of the page
 }
 ?>
 

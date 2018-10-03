@@ -11,6 +11,10 @@ if(isset($_SESSION['user_role']))
            </form>
 	    </div>
 
+
+        <!--javacript for enabling the button "search"-->
+
+        
 <script type="text/javascript">
     function enabled(){
         if(document.getElementById("mytext").value==="") { 
@@ -25,6 +29,8 @@ if(isset($_SESSION['user_role']))
 else{ ?>
 
       <script>alert('first login ');</script> 
+
+       <!--selecting only  searched posts of yoga and displaying them-->
     
 <?php  }
 

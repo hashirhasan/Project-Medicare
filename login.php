@@ -14,17 +14,18 @@ if(isset($_SESSION['user_role']))
         <head>
         <title>login</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="login_signup.css">
+        <link rel="stylesheet" type="text/css" href="login-signup.css">
         </head>
         <body>
         <div class="container">
         <div class="signup">
-        <h4><a href="login.php" class="line">Login</a></h4>
+        <h4><a style="display: inline-block; color: red; border-radius: 5px;" href="login.php" class="line">Login</a></h4>
         <h4><a href="signup.php" class="line">Sign Up</a></h4>
         <form action="" method="post" enctype="multipart/form-data">
         <input class="form" type="text" name="username"  placeholder="Username" >  
-        <input class="form"  type="password" name="user_password" placeholder="Password">  
-        <button class="button" type="submit" name="login_user"><span>LOG IN</span></button>
+        <input class="form"  type="password" name="user_password" placeholder="Password"> 
+           
+        <button class="button" type="submit" name="login_user"><span>LOG IN</span></button><span> <a href = "forgot_password.php?table=participants">forgot password ?</a></span>
         <h5>OR</h5>
         <button class="button" style="background-color: #B71515"><span>Connect with Google</span></button>
         </form>
