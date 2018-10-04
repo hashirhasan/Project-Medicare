@@ -1,6 +1,9 @@
 <?php include "include/header.php" ?>
 <?php include "doctor_css.php" ?>
-
+<?php	
+if(isset($_SESSION['user_role']))
+{
+  ?>
   <div class="yoga-srch-btn">
 <form action="" method="POST" >
             <input id="mytext" type="TEXT" class="search-area"  placeholder="Doctors / Disease Name" name="search"  onkeyup="enabled()">
@@ -61,7 +64,7 @@ while ($rows = $resultSet->fetch_assoc())
 
 ?>
     <div class="container">
-            <div class="doc-pic"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $rows['image']) . '" />';?></div>
+            <div class="doc-pic"><img src="image/<?php echo $rows['image'];?>"></div>
 
             <div class="doc-price"><h1><?php echo $rows['doctorName']; ?></h1><br/>
                 <p>
@@ -163,7 +166,7 @@ while ($rows = $resultSet->fetch_assoc())
 
 ?>
     <div class="container">
-            <div class="doc-pic"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $rows['image']) . '" />';?></div>
+            <div class="doc-pic"><img src="image/<?php echo $rows['image'];?>"></div>
 
             <div class="doc-price"><h1><?php echo $rows['doctorName']; ?></h1><br/>
                 <p>
@@ -184,7 +187,7 @@ while ($rows = $resultSet->fetch_assoc())
 
             <h2>Availbility</h2><br/><br/>
 
-            <a class="close" href="#">&times;</a>
+            <a class="close">&times;</a>
 
             <div class="content">
                  <h3>Address</h3>
@@ -210,7 +213,7 @@ while ($rows = $resultSet->fetch_assoc())
             <div class="popup">
 
            
-            <a class="close" href="#">&times;</a>
+            <a class="close">&times;</a>
 
             <div class="content">
                       
@@ -242,4 +245,11 @@ while ($rows = $resultSet->fetch_assoc())
 else{
     echo "<h1 style='postion:absolute;margin-top:10vh;margin-left:30vw;'>NO Result Found!!!</h1>";
 }
-}?>
+} 
+}
+else
+{  ?>
+    <script>alert("first login");</script>
+
+<?php  }
+?>

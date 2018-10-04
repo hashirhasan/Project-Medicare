@@ -171,7 +171,7 @@ $subtitute = $mysqli->query("SELECT subtitutes.sub_name AS subname
                                     WHERE medicines.medi_id = '$medi_id' AND medicines.medi_id = medidisease.medi_id AND diseases.disease_id = medidisease.disease_id");
  ?>
  <div class="container">
-    <div class="medi-pic"><img src="../medicine/<?php echo $rows['mediimg'];?>"></div>
+    <div class="medi-pic"><img src="image/<?php echo $rows['mediimg'];?>"></div>
         <div class="medi-price"><h2><?php echo $rows['mediName'];?></h2><p><?php echo $rows['medidetails'];?></p>
         <a class="alt-btn" type="button" href="#popup1">Alternative</a>
         <div class="box"></div>

@@ -10,9 +10,9 @@ body{
 
 .container{
 	background-color: white;
-	opacity: 0.8;
+	opacity: 1;
 	width: 80% ;
-	height: 220px auto;
+	height: 20px auto;
 	box-shadow: 0px 8px 5px 0 rgba(0,0,0,0.5);
 	display: flex;
 	margin-left:9%;
@@ -21,6 +21,7 @@ body{
   border-radius: 10px;
 z-index: 3;
     padding: 15px;
+    padding-top: 20px;
 }
 
 .medi-pic{
@@ -29,9 +30,10 @@ z-index: 3;
 
 }
 .medi-pic img{
-	width: 80%;
-	height: 70%;
+	width: 240px;
+	height: 90%;
 	padding: 7px;
+    margin-left: 9%;
 }
 .medi-name{
 	flex: 2;
@@ -60,7 +62,7 @@ font-family: arial;
 	position: relative;
 	text-decoration: none;
 	padding: 10px;
-    top: 10px;
+    top: 17px;
     left: 150px;
     /*transform:translate(-50%, -50%);*/
     background: #1C65A4;
@@ -144,7 +146,7 @@ position:relative;
    position: relative;
    text-decoration: none;
    padding: 10px;
-    bottom: 13px;
+    bottom: 8px;
     left: 0px;
     /*transform:translate(-50%, -50%);*/
     background: #1C65A4;

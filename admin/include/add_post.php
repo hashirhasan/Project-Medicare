@@ -58,7 +58,7 @@ if(isset($_POST['create_post']))                          //used for adding the 
     
     <div>
     <h2><label for="content" >Post Content</label></h1><br>
-        <textarea class="form" cols='30' rows='10' name="content"></textarea>
+        <textarea class="form" cols='40' rows='20' name="content"></textarea>
    </div><br><br>
     <div>
     <h2><label for="tags" >Post Tags</label></h1><br>

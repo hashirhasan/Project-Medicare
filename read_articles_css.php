@@ -1,6 +1,6 @@
 <style>
 
-.bkg-image{
+body{
 	background-image:url("image/artic3.jpg");
 	background-attachment: fixed;
 	background-size: cover;

@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:900');
+
+
+
+
+
+
+body{
+	margin: 0;
+	padding: 0;
+	background-image: url("image/mar1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+.health-product{
+	background-image: url(image/health2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 700px auto;
+    width: 800px auto;
+    clip-path: polygon(0 0, 100% 0%, 100% 94%, 0 100%);
+}
+
+
+.container{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 10% 1% 10% 0%;
+	margin: auto;
+	margin-left: 3%;
+}
+
+@media(max-width: 1200px){
+	.container{
+		display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 5% 0% 1% 1%;
+	}
+}
+
+@media(max-width: 800px){
+	.container{
+		display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 5% 0% 1% 1%;
+	}
+}
+
+.container div{
+	background-color: #eee;
+	padding: 1em;
+	width: 80%;
+	border-radius: 10px;
+
+}
+
+
+.hp h2{
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	margin-top: 5%;
+	letter-spacing: 4px;
+	font-size: 50px;
+	color: white;
+	transition: 0.5s;
+}
+
+.hp h2:hover{
+	letter-spacing: 18px;
+	transition: 0.5s;
+	transition-delay: 0.5s;
+}
+
+
+.container div h4{
+	font-family: arial;
+	margin-left:10% ;
+	margin-top: 1%;
+	
+}
+
+
+.container div h3{
+	color: black ;
+	word-break: break-all;
+	margin-left:10% ;
+	font-family: arial;
+
+}
+
+.container div img{
+	margin-left: 18%;
+	height: 100px;
+	width: 160px;
+	margin-top: 4px;
+}
+
+.buybtn{
+	border-radius: 8px;
+  background-color:#1C65A4;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  height: 38px;
+  outline: none;
+  left: 29%;
+  position: relative;
+}
+
+.buybtn:hover{
+	color:white;
+	font-size: 16px;
+	background-color: #F15025;
+}
+
+.health-supplements{
+	background-image: url(image/suple2.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 700px auto;
+    width: 100vw;
+    clip-path: polygon(0 5%, 100% 0%, 100% 94%, 0 100%);
+    margin-top: -3%;
+}
+
+
+.supplements-container{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 10% 1% 10% 0%;
+	margin: auto;
+	margin-left: 3%;
+}
+
+@media(max-width: 1200px){
+	.supplements-container{
+		display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 5% 0% 1% 1%;
+	}
+}
+
+@media(max-width: 800px){
+	.supplements-container{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 5% 0% 1% 1%;
+	}
+}
+
+.supplements-container div{
+	background-color: #eee;
+	padding: 1em;
+	width: 80%;
+	border-radius: 10px;
+
+}
+
+.supplements-container div h3{
+	color: black;
+	word-break: break-all;
+	margin-left:10% ;
+	font-family: arial;
+
+}
+
+
+.supplements-container div h4{
+	font-family: arial;
+	margin-left:10%;
+	margin-top: 1%;
+}
+
+.supplements-container div img{
+	margin-left: 18%;
+	height: 100px;
+	width: 160px;
+	margin-top: 4px;
+}
+
+.hs h2{
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	margin-top: 1%;
+	letter-spacing: 4px;
+	font-size: 50px;
+	transform: rotate(-2.8deg);
+	color: #124E78;
+	transition: 0.5s;
+}
+
+/*.hs h2:hover{
+	letter-spacing: 18px;
+	
+	transition-delay: 0.5s;
+}*/
+
+
+.health-videos{
+	background-image: url(image/work2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 700px auto;
+    width: 100vw;
+    clip-path: polygon(0 9%, 100% 0%, 100% 100%, 0 100%);
+    margin-top: -5%;
+}
+
+.hv h2{
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	margin-top: 1%;
+	letter-spacing: 4px;
+	font-size: 50px;
+	transform: rotate(-2.8deg);
+	color: #F0F0C9;
+	transition: 0.5s;
+}
+
+/*.hv h2:hover{
+	letter-spacing: 18px;
+	transition-delay: .5s;
+	
+}*/
+
+.video-container{
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	grid-gap: 1em;
+	padding: 12% 0% 8% 1%;
+	margin: auto;
+
+}
+
+@media(max-width: 800px){
+	.video-container{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-gap: 1em;
+	padding: 6% 0% 1% 1%;
+
+}
+}
+
+
+.video-container div{
+	background-color: #eee;
+	padding: 1em;
+	width: 80%;
+	height: 90% auto;
+
+}
+
+
+.video-container div h4{
+	text-align:center;
+	font-family: arial;
+	margin-right:7% auto;
+	margin-top: 1%;
+}
+
+
+
+
+.video-container div iframe{
+	margin-left: 10%;
+	height: 200px;
+	width: 280px;
+	margin-top: 4px;
+}
+
+
+@media(max-width: 1200px){
+	.video-container div iframe{
+	margin-left: 10%;
+	height: 160px;
+	width: 200px;
+	margin-top: 4px;
+}
+}
+
+
+@media(max-width: 800px){
+	.video-container div iframe{
+	margin-left: 10%;
+	height: 160px;
+	width: 200px;
+	margin-top: 4px;
+}
+}
+
+
+.video-container div p{
+	text-align: center;
+	font-family: arial;
+	font-size: 16px;
+	word-break: break-all;
+}

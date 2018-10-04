@@ -2,7 +2,7 @@
     
      body{
 	background-color: #3DA2F8;
-  background-image: url("moun1.jpg");
+  background-image: url("image/yogabkg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -119,7 +119,7 @@ border: 0px;
 .search-area{
 	position: absolute;
 	margin-top:4%; 
-	margin-left: 33%;
+	margin-left: 50%;
   width: 250px;
   border: 3px solid #fff;
   background: transparent;
@@ -132,7 +132,7 @@ border: 0px;
 .search-button{
 	position: absolute;
 	margin-top:4%; 
-	margin-left: 49.8%;
+	margin-left:66.8%;
 	border: 0px;
   width: 110px;
   height: 46px;

@@ -15,23 +15,23 @@
 </fieldset>
 
 <fieldset>
-<input placeholder="Your Phone Number" type="text" tabindex="2" name="phone" value="<?= $phone?>" required>
+<input placeholder="Your Phone Number" type="text" tabindex="2" name="phone" value="<?= $phone?>">
 <span class="error" ><?= $phone_error ?></span>
 </fieldset>
   
 <fieldset>
-<input placeholder="Your Email Address" type="text" tabindex="3" name="email" value="<?= $email?>" autocomplete="off" required>
+<input placeholder="Your Email Address" type="text" tabindex="3" name="email" value="<?= $email?>" autocomplete="off" >
 <span class="error" ><?= $email_error ?></span>
 </fieldset>
     
 <fieldset>
-<textarea placeholder="Type your Message Here...."  type="text" name="message" value="<?= $message?>" tabindex="6" required></textarea>
+<textarea placeholder="Type your Message Here...."  type="text" name="message" value="<?= $message?>" tabindex="6" ></textarea>
 </fieldset>
       
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-    
+      <button id="contact-submit" data-submit="...Sending"><a style="text-decoration:none;" href="doctors.php">back</a></button>
    
     <div class="success"><?= $success; ?></div>
   </form>
-    <button id="contact-submit"><a  href="doctors.php">back</a></button>
+  
 </div>

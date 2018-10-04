@@ -47,6 +47,7 @@ body{
     background-image: url("image/cover25-100.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+   
 
     }
 header{

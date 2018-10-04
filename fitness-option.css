@@ -1,0 +1,92 @@
+body{
+	background-image: url("image/work6.jpg");
+	background-size: cover;
+
+
+}
+
+
+.container{
+	position: absolute;
+	width: 250px;
+	height: 350px; 
+	/*display: flex;*/
+	left: 15%;
+
+}
+.card1{
+	position: relative;
+	width: 140%;
+	height: 120%;
+	transform-style: preserve-3d;
+	transition: all 0.5s ease-in;
+	top: 35%;
+	left: 22%;
+	background: #011936;
+    border-radius: 18px;
+}
+
+
+.card1:hover{
+	transform:scale(1.03);
+	letter-spacing: 7px;
+	background-color:#F15025;
+}
+
+.card1 h2{
+	position: relative;
+top: 3%;
+text-align: center;
+font-family: arial;
+color: #F15025;
+}
+
+.card1 img{
+	width: 350px;
+	height: 356px;
+	border-radius: 0 0 18px 18px;
+	margin-top: 5%;
+
+}
+
+.card2{
+	position:relative;
+	width: 140%;
+	height: 120%;
+	transform-style: preserve-3d;
+	transition: all 0.5s ease-in;
+	bottom: 90%;
+	left: 202%;
+	background: #011936;
+    border-radius: 18px;
+}
+.card2:hover{
+	transform:scale(1.03);
+	letter-spacing: 7px;
+	background-color:#F15025; 
+}
+
+.card2 h2{
+	position: relative;
+top: 3%;
+text-align: center;
+font-family: arial;
+color: #F15025;
+}
+
+.card2 img{
+	width: 350px;
+	height: 356px;
+	border-radius: 0 0 18px 18px;
+	margin-top: 5%;
+
+}
+
+
+
+
+
+
+
+
+

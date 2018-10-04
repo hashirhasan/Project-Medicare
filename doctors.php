@@ -1,6 +1,9 @@
 <?php include "include/header.php" ?>
 <?php include "doctor_css.php" ?>
-
+<?php	
+if(isset($_SESSION['user_role']))
+{
+  ?>
   <div class="yoga-srch-btn">
 <form action="doctors_search.php" method="POST" >
             <input id="mytext" type="TEXT" class="search-area"  placeholder="Doctors / Disease Name" name="search"  onkeyup="enabled()">
@@ -27,7 +30,7 @@ $showdata = $mysqli->query("SELECT * FROM doctors,specialization,doctor_speciali
 
 while ($rows= $showdata->fetch_assoc()) {?>
     <div class="container">
-            <div class="doc-pic"><img src="../doctors/<?php echo $rows['doc_img'];?>"></div>
+            <div class="doc-pic"><img src="image/<?php echo $rows['doc_img'];?>"></div>
 
             <div class="doc-price"><h1><?php echo $rows['doc_name']; ?></h1><br/>
                 <p>
@@ -98,9 +101,14 @@ while ($rows= $showdata->fetch_assoc()) {?>
 
     </div>
 <?php
-}?>
+}
+}
+else
+{
+?>
 
-
+<script>alert("first login");</script>
+<?php } ?>
     </body>
 
     </html>

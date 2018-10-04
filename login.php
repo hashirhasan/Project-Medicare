@@ -9,36 +9,12 @@ if(isset($_SESSION['user_role']))
     ?>
 
 
-        <!DOCTYPE html>
-        <html>
-        <head>
-        <title>login</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="login-signup.css">
-        </head>
-        <body>
-        <div class="container">
-        <div class="signup">
-        <h4><a style="display: inline-block; color: red; border-radius: 5px;" href="login.php" class="line">Login</a></h4>
-        <h4><a href="signup.php" class="line">Sign Up</a></h4>
-        <form action="" method="post" enctype="multipart/form-data">
-        <input class="form" type="text" name="username"  placeholder="Username" >  
-        <input class="form"  type="password" name="user_password" placeholder="Password"> 
-           
-        <button class="button" type="submit" name="login_user"><span>LOG IN</span></button><span> <a href = "forgot_password.php?table=participants">forgot password ?</a></span>
-        
-        </form>
-
-        </div>
-        </div>
-        </body>
-        </html>
-   
-
 
 <?php
+error_reporting(0);
 if(isset($_POST['login_user']))
 {
+    
     $enter_username=$_POST['username'];
     $enter_password=$_POST['user_password'];
     $enter_username=mysqli_real_escape_string($connection,$enter_username);
@@ -69,13 +45,46 @@ if(isset($_POST['login_user']))
       header("Location:admin");   
   }
 else{
-    header("Location:home.php");
+   $notlogin="<p style='color:red;'>Invalid Match/Password or Username Incorrect</p>";
    
 }
  
 }
     
     ?>
+
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <title>login</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="login-signup.css">
+        </head>
+        <body>
+            
+        <div class="container">
+          
+        <div class="signup">
+              
+        <h4><a style="display: inline-block; color: red; border-radius: 5px;" href="login.php" class="line">Login</a></h4>
+        <h4><a href="signup.php" class="line">Sign Up</a></h4>
+            <?php if(isset($notlogin)){echo $notlogin;}  ?>
+        <form action="" method="post" enctype="multipart/form-data">
+        <input class="form" type="text" name="username"  placeholder="Username" >  
+        <input class="form"  type="password" name="user_password" placeholder="Password"> 
+           
+        <button class="button" type="submit" name="login_user"><span>LOG IN</span></button><span> <a href = "forgot_password.php?table=participants">forgot password ?</a></span>
+        
+        </form>
+
+        </div>
+        </div>
+        </body>
+        </html>
+   
+
+
 
 
 

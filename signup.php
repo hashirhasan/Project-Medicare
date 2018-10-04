@@ -129,28 +129,29 @@ if(isset($_POST['create_user']))
     
 <form action="signup.php" method="post" onsubmit="return check()" enctype="multipart/form-data">
      <p id="cusername"></p>
-       <input class="form" type="text" name="username" id="username" placeholder="Username" title="Avoid spaces">  
+       <input class="form" type="text" onblur="check1()"  name="username" id="username" placeholder="Username" title="Avoid spaces">  
  <?php if(isset( $error_username)){echo  $error_username;} ?>
    <?php if(isset( $error_username_valid)){echo  $error_username_valid;} ?>
     <p id="cfirst"></p>
-    <input class="form" type="text" name="user_firstname" id="user_firstname"  placeholder="First Name">
+    <input class="form" type="text" name="user_firstname" onblur="check2()" id="user_firstname"  placeholder="First Name">
   <?php if(isset($error_firstname)){echo $error_firstname;} ?>
     <p id="clast"></p>
-       <input class="form" type="text" name="user_lastname" id="user_lastname" placeholder="Last Name">  
+       <input class="form" type="text" name="user_lastname" onblur="check3()" id="user_lastname" placeholder="Last Name">  
      <?php if(isset($error_lastname)){echo $error_lastname;} ?>
     <p id="cemail"></p>
-       <input class="form" type="text" name="user_email" id="user_email" placeholder="Email">  
+       <input class="form" type="text" name="user_email" onblur="check4()" id="user_email" placeholder="Email">  
     <?php if(isset($error_user_email)){echo $error_user_email;}  ?>
     <?php if(isset($error_email_wrong)){echo $error_email_wrong;}  ?>
     <p id="cpass"></p>
-       <input class="form" type="password" name="user_password"  id="user_password" placeholder="Password"  title="special characters and numbers are required">
+       <input class="form" type="password" name="user_password" onblur="check5()" id="user_password" placeholder="Password"  title="special characters and numbers are required">
      <?php if(isset($error_pass)){echo $error_pass;}  ?>
     <button class="button" type="submit"  name="create_user"><span>SIGN UP</span></button>
     </form>
         </div>
     </div>
  <script>
-    function check(){
+    function check()
+     {
     var username=document.getElementById("username");
     var user_firstname=document.getElementById("user_firstname");
      var user_lastname=document.getElementById("user_lastname");
@@ -166,9 +167,13 @@ if(isset($_POST['create_user']))
             document.getElementById("details").innerHTML="";
             document.getElementById("details").style.visibility = "hidden";
         }
-        var regex1 = /^[A-z0-9@#$%^&*()+?_!-]{3,}$/;
+     }
+       function check1(){
+            var username=document.getElementById("username");
+         var regex1 = /^[A-z0-9@#$%^&*()+?_!-]{3,}$/;
     if(username.value.length>0 && (!regex1.test(username.value)))
         {
+             document.getElementById("cusername").style.visibility = "visible";
             document.getElementById("cusername").innerHTML="invalid username";
            
         }
@@ -177,9 +182,13 @@ if(isset($_POST['create_user']))
             document.getElementById("cusername").innerHTML="";
             document.getElementById("cusername").style.visibility = "hidden";
         }
+       }
+      function check2(){
+       var user_firstname=document.getElementById("user_firstname"); 
        var regex2 = /^[A-z]+[\s]{0,1}[A-z]{2,15}$/;
     if(user_firstname.value.length>0 && (!regex2.test(user_firstname.value)))
         {
+             document.getElementById("cfirst").style.visibility = "visible";
             document.getElementById("cfirst").innerHTML="invalid firstname";
            
         }
@@ -188,9 +197,14 @@ if(isset($_POST['create_user']))
             document.getElementById("cfirst").innerHTML="";
             document.getElementById("cfirst").style.visibility = "hidden";
         }
+      }
+      function check3(){
+            var user_lastname=document.getElementById("user_lastname");
+   
       var regex3 = /^[A-z]+[\s]{0,1}[A-z]{2,15}$/;
     if(user_lastname.value.length>0 && (!regex3.test(user_lastname.value)))
         {
+             document.getElementById("clast").style.visibility = "visible";
             document.getElementById("clast").innerHTML="invalid lastname";
            
         }
@@ -199,9 +213,14 @@ if(isset($_POST['create_user']))
             document.getElementById("clast").innerHTML="";
             document.getElementById("clast").style.visibility = "hidden";
         }
+      }
+      function check4(){
+            var user_email=document.getElementById("user_email");
+    
       var regex4 = /^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/;
     if(user_email.value.length>0 && (!regex4.test(user_email.value)))
         {
+              document.getElementById("cemail").style.visibility ="visible";
             document.getElementById("cemail").innerHTML="invalid email";
             
         } 
@@ -210,9 +229,13 @@ if(isset($_POST['create_user']))
             document.getElementById("cemail").innerHTML="";
             document.getElementById("cemail").style.visibility = "hidden";
         }
+      }
+      function check5(){
+           var user_password=document.getElementById("user_password");
          var regex5 = /^(?=.*[a-z])(?=.*\d)(?=.*[@_#$^&*()+<,>!]).{5,13}$/;
     if(user_password.value.length>0 && (!regex5.test(user_password.value)))
         {
+            document.getElementById("cpass").style.visibility ="visible";
             document.getElementById("cpass").innerHTML="invalid password";
             
         }
@@ -221,13 +244,9 @@ if(isset($_POST['create_user']))
             document.getElementById("cpass").innerHTML="";
             document.getElementById("cpass").style.visibility = "hidden";
         }
-        if((!regex1.test(username.value))||(!regex2.test(user_firstname.value))||(!regex3.test(user_lastname.value))||(!regex4.test(user_email.value))||(!regex5.test(user_password.value)))
-            {
-                return false;
-            }
-    
-    }
-    
+      }
+
+
     </script>   
     
     

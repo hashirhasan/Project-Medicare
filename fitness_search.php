@@ -1,7 +1,31 @@
 <?php include "include/header.php" ?>
-    <div class="row">
-    <div style="padding-left: 30px"><br>
-        <div class="col-8">
+    
+<?php include "fitness_css.php" ?>
+
+
+      <div class="srch-btn">
+    <form action="fitness_search.php" method="post">
+     <input type="text" id="mytext"  name="search" class="search-area"  placeholder="FITNESS NAME" onkeyup="enabled()" >
+     <button type="submit"  name="submit" class="search-button"  id="start_button"  disabled>Search</button>
+   </form>
+ </div>
+
+
+        <!--javacript for enabling the button "search"-->
+
+
+
+ <script type="text/javascript">
+  function enabled(){
+    if(document.getElementById("mytext").value==="") { 
+            //console.log(document.getElementById("mytext").value);
+            document.getElementById('start_button').disabled = true; 
+          } else { 
+            document.getElementById('start_button').disabled = false;
+          }
+        }
+      </script>
+
     <?php 
             
             if(isset($_POST['submit']))
@@ -17,41 +41,27 @@
                         echo"<h1>no result</h1>";
                     }
                     else
-                    {
-    
-    while($post=mysqli_fetch_assoc($result1))
-    {
-        
-        ?>
-      <?php echo"<h1>{$post['post_title']}</h1>";?>
-    	  <?php echo"<h2>{$post['post_date']}</h2><br>";?>
-    	<img style="width:50%;" src="image/<?php echo"{$post['post_image']}"; ?>">
-    	  <?php echo"<p>{$post['post_content']}</p> ";?> 
-        
-  <?php  } 
-          
-          }
+                    {  ?>
+    <div class="bkg-image">
+<div class="container">
+    <?php
+   while($row=mysqli_fetch_assoc($result1))             //for displaying the contents of the posts related to articles
+    {  ?>
+		<div>
+		<h1><?php echo"{$row['post_title']}";?></h1>
+		
+		<img src="image/<?php echo"{$row['post_image']}"; ?> ">
+		<a href="#" class="box1">
+            <p><?php echo"{$row['post_content']}";?></p> </a>
+    </div>
+	<?php }?>
+</div>
+</div>
+       <?php   }
             }?>
     
-        </div>
-        <?php
-         if(isset($_SESSION['user_role']))
-{
- ?>
-    <div class="col-4">
-        <form action="fitness_search.php" method="post">
-            <input type="text" name="search" placeholder="search">
-          <input type="submit" name="submit" value="search">
-        </form>
-        </div>
-   
-   <?php
-}
-        else{?>
-           <script>alert('first login');</script> 
-     <?php   }
-        ?>
-    	
-    </div>
+     
+       
+    
 </body>
 </html>
