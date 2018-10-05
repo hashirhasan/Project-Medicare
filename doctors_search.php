@@ -243,13 +243,15 @@ while ($rows = $resultSet->fetch_assoc())
 }
 }
 else{
-    echo "<h1 style='postion:absolute;margin-top:10vh;margin-left:30vw;'>NO Result Found!!!</h1>";
+   ?>
+<script> swal ( "Oops" ,  "No Result Found!" ,  "error" );</script> 
+<?php
 }
 } 
 }
 else
-{  ?>
-    <script>alert("first login");</script>
+{  
+    header("location:home.php");
 
-<?php  }
+ }
 ?>

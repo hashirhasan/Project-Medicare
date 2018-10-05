@@ -36,7 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Profile</title>
-	<link rel="stylesheet" href="../user_profile.css">
+	<link rel="stylesheet" href="../user-profile.css">
 </head>
 <body>
 	<div class="myprofile"><h1>MY PROFILE</h1></div>
@@ -52,7 +52,7 @@
                <h3>Username <input type="text" placeholder="Username" value="<?php echo $username;?>" name="username" readonly></h3><br>
 	      		<h3>First Name<input type="text" placeholder="First Name"value="<?php echo $user_firstname;?>"  name="user_firstname" readonly></h3>
 	      		<h3>Last Name<input type="text" placeholder="Last Name" value="<?php echo $user_lastname;?>" name="user_lastname" readonly></h3>
-	      		<h3 style="margin-right: 3%;">Blood Group<input style="width: 264px" type="text" placeholder="Blood Group" readonly></h3>
+	      		
 	      		<h3 style="margin-left:7%;">Email<input style="width: 264px" type="text" placeholder="Email" value="<?php echo $user_email;?>" name="user_email" readonly></h3>
 	      		<!-- <input class="for-button" type="button" value="Change Password?"> -->	
                

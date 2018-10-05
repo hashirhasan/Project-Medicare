@@ -57,9 +57,19 @@ else{
         <!DOCTYPE html>
         <html>
         <head>
+            <a href="home.php"><img class="logo" src="image/medi4.svg"></a>
         <title>login</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="login-signup.css">
+             <style>
+            .logo{
+            position: absolute;
+            padding: 3px 0px 0px 8px; 
+            height: 70px;
+            width: 150px;
+            top: 3px;
+        }
+            </style>
         </head>
         <body>
             
@@ -75,7 +85,7 @@ else{
         <input class="form"  type="password" name="user_password" placeholder="Password"> 
            
         <button class="button" type="submit" name="login_user"><span>LOG IN</span></button><!--<span> <a href = "forgot_password.php?table=participants">forgot password ?</a></span>-->
-        
+        <h4 style="color:#513C35; font-faimly:arial;" >Don't Have Account!!<br>Please Signup First</h4>
         </form>
 
         </div>

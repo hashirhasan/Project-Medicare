@@ -9,7 +9,7 @@ body{
 
 
 .container{
-	background-color: white;
+	background-color: #5CA7C3;
 	opacity: 1;
 	width: 80% ;
 	height: 20px auto;
@@ -215,4 +215,32 @@ position:relative;
   max-height: 30%;
   overflow: auto;
 }
+    
+    .buynow a{
+        position: absolute;
+        text-decoration: none;
+        margin-top: 3%;
+         background: #1C65A4;
+    color:white;
+    font-weight: 10px;
+    width: 110px;
+    height: 40px;
+    border: 2px solid #1C65A4;
+    border-radius: 8px;
+    font-size: 20px;
+        text-align: center;
+        font-size: 18px;
+        font-family: arial;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </style>

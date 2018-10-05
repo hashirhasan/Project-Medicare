@@ -5,6 +5,8 @@
 <html>
 <head>
     <title>MEDICARE</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <meta charset="utf-8">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -137,6 +139,7 @@ header ul li a:hover{
     border-radius: 15px;
     padding: 11px 70px 11px 11px;
     font-size: 16px;
+    outline: none;
 }
         
 @media screen and (max-width: 1100px){
@@ -405,7 +408,7 @@ nav ul li:hover ul.sub-nav {
 
 
  svg{
-    position: relative;
+    position:relative;
     width:25px;
     height: 25px;
     margin-top: 2%;
@@ -458,7 +461,7 @@ nav ul li:hover ul.sub-nav {
 @media(min-width:1299px){
   .open-slide{display:none}
   
-}    
+}         
        </style>
 </head>
 <body class="bkg-img">

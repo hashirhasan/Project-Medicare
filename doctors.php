@@ -34,9 +34,9 @@ while ($rows= $showdata->fetch_assoc()) {?>
 
             <div class="doc-price"><h1><?php echo $rows['doc_name']; ?></h1><br/>
                 <p>
-                    <h3>EXPERIENCE:</h3><?php echo $rows['doc_exp']; ?>
-                    <h3>QUALIFICATIONS:</h3><?php echo $rows['doc_qualifications'];?>
-                    <h3>SERVICES:</h3><?php echo $rows['doc_services'];?>
+                    <h3 style="font-faimly:lato;">EXPERIENCE:</h3><p style="color:#6B2432;"><?php echo $rows['doc_exp']; ?></p>
+                    <h3 style="font-faimly:lato;">QUALIFICATIONS:</h3><p style="color:#6B2432;"><?php echo $rows['doc_qualifications'];?></p>
+                    <h3 style="font-faimly:lato;">SERVICES:</h3><p style="color:#6B2432;"><?php echo $rows['doc_services'];?></p>
                 </p>
 
             <!-- <input class="alt-btn" type="button" value="Alternative" > -->
@@ -51,7 +51,7 @@ while ($rows= $showdata->fetch_assoc()) {?>
 
             <h2>Availbility</h2><br/><br/>
 
-            <a class="close" href="#stable">&times;</a>
+            <a class="close" href="#bottom">&times;</a>
 
             <div class="content">
                  <h3>Address</h3>
@@ -77,11 +77,11 @@ while ($rows= $showdata->fetch_assoc()) {?>
             <div class="popup">
 
            
-            <a class="close" href="#">&times;</a>
+            <a class="close" href="#bottom">&times;</a>
 
             <div class="content">
                       
-         </div>
+         </div><a name="bottom"></a>
 
         </div>
 
@@ -91,15 +91,15 @@ while ($rows= $showdata->fetch_assoc()) {?>
 
             <div class="doc-alt">
 
-                <h3>Specialization:</h3> <?php echo $rows['specialist_name'];?><br/>
+                <h3>Specialization:</h3><p style="color:#6B2432;"> <?php echo $rows['specialist_name'];?></p><br/>
 
-                    <h3>Fees: </h3> <?php echo "₹".$rows['doc_fees']; ?>
+                <h3>Fees: </h3><p style="color:#6B2432;"> <?php echo "₹".$rows['doc_fees']; ?></p>
 
                 
 
                 </div>
 
-    </div><a name="stable"></a>
+    </div>
 <?php
 }
 }

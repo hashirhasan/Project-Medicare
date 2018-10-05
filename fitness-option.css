@@ -20,7 +20,7 @@ body{
 	height: 120%;
 	transform-style: preserve-3d;
 	transition: all 0.5s ease-in;
-	top: 35%;
+	top: 29%;
 	left: 22%;
 	background: #011936;
     border-radius: 18px;
@@ -30,7 +30,7 @@ body{
 .card1:hover{
 	transform:scale(1.03);
 	letter-spacing: 7px;
-	background-color:#F15025;
+	
 }
 
 .card1 h2{
@@ -45,7 +45,7 @@ color: #F15025;
 	width: 350px;
 	height: 356px;
 	border-radius: 0 0 18px 18px;
-	margin-top: 5%;
+	margin-top: 11%;
 
 }
 
@@ -63,7 +63,7 @@ color: #F15025;
 .card2:hover{
 	transform:scale(1.03);
 	letter-spacing: 7px;
-	background-color:#F15025; 
+	
 }
 
 .card2 h2{
@@ -78,7 +78,7 @@ color: #F15025;
 	width: 350px;
 	height: 356px;
 	border-radius: 0 0 18px 18px;
-	margin-top: 5%;
+	margin-top: 11%;
 
 }
 

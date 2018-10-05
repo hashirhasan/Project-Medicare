@@ -91,7 +91,7 @@ $subtitute = $mysqli->query("SELECT subtitutes.sub_name AS subname
     ?>
  <div class="container">
     <div class="medi-pic"><img src="image/<?php echo $rows['mediimg'];?>"></div>
-        <div class="medi-price"><h2><?php echo $rows['mediName'];?></h2><p><?php echo $rows['medidetails'];?></p>
+        <div class="medi-price"><h2><?php echo $rows['mediName'];?></h2><pstyle="color:#6B2432;font-size:20px;"><?php echo $rows['medidetails'];?></p>
         
         <a class="alt-btn" type="button" href="#popup1">Alternative</a>
         <div class="box"></div>
@@ -172,13 +172,13 @@ $subtitute = $mysqli->query("SELECT subtitutes.sub_name AS subname
  ?>
  <div class="container">
     <div class="medi-pic"><img src="image/<?php echo $rows['mediimg'];?>"></div>
-        <div class="medi-price"><h2><?php echo $rows['mediName'];?></h2><p><?php echo $rows['medidetails'];?></p>
+        <div class="medi-price"><h2><?php echo $rows['mediName'];?></h2><p style="color:#6B2432;font-size:20px;"><?php echo $rows['medidetails'];?></p>
         <a class="alt-btn" type="button" href="#popup1">Alternative</a>
         <div class="box"></div>
         <div id="popup1" class="overlay">
         <div class="popup">
         <h2>Alternative</h2>
-        <a class="close" href="#">&times;</a>
+        <a class="close" href="#bottom">&times;</a>
         <div class="content">
             <?php
             error_reporting(0);
@@ -199,19 +199,19 @@ $subtitute = $mysqli->query("SELECT subtitutes.sub_name AS subname
         <div id="popup2" class="overlay">
         <div class="popup">
         <h2>Use In</h2>
-        <a class="close" href="#">&times;</a>
+        <a class="close" href="#bottom">&times;</a>
         <div class="content">
                     <?php 
                     while ($rowss = $uses->fetch_assoc()) {
                     echo $rowss['diseaseName'];
                 }?>
-        </div>
+        </div><a name="bottom"></a>
     </div>
 </div>
         </div>
         <div class="medi-alt">
             <h3>Price: ₹<?php echo $rows['mediprice'];?></h3>
-           <a href="https://www.medplusmart.com/product/CALPOL-500MG-TABLET/CALP0005">BUY NOW</a>
+          <span class="buynow"><a href="https://www.medplusmart.com/product/CALPOL-500MG-TABLET/CALP0005">BUY NOW</a></span> 
             </div>
 </div>
 <?php

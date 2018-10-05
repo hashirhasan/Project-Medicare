@@ -8,7 +8,7 @@
 
 body{
    
-    background-image: url("image/doc1.jpg");
+    background-image: url("image/doc4.jpg");
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
@@ -22,7 +22,7 @@ body{
 .search-area{
   position: absolute;
   margin-top:2.5%; 
-  margin-left: 52%;
+  margin-left: 62%;
   width: 250px;
   border: 3px solid #1C65A4;
   background: transparent;
@@ -35,7 +35,7 @@ body{
 .search-button{
   position: absolute;
   margin-top:2.5%; 
-  margin-left: 69%;
+  margin-left: 79%;
   border: 0px;
   width: 110px;
   height: 45px;
@@ -56,7 +56,7 @@ body{
 
 
 .container{
-  background-color: white;
+  background-color: #5CA7C3;
 	opacity: 1;
 	width: 80% ;
 	height: 20px auto;

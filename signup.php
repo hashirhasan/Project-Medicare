@@ -5,7 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <a href="home.php"><img class="logo" src="image/medi4.svg"></a>
 	<title>login</title>
+    <style>
+    .logo{
+	position: absolute;
+    padding: 3px 0px 0px 8px; 
+    height: 70px;
+    width: 150px;
+    top: 3px;
+}</style>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="login-signup.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -140,7 +149,7 @@ if(isset($_POST['create_user']))
                <?php if(isset( $message_error)){echo  $message_error;}  ?>
 <form action="signup.php" method="post" onsubmit="return check()" enctype="multipart/form-data">
      <span style="color:red" id="cusername"></span>
-       <input class="form" type="text" onblur="check1()"  name="username" id="username" placeholder="Username" title="Avoid spaces">  
+       <input class="form" type="text" onkeyup="check1()"  name="username" id="username" placeholder="Username" title="Avoid spaces" autocomplete="off"> <span style="color:red" id="err_user"></span> 
  <?php if(isset( $error_username)){echo  $error_username;} ?>
    <?php if(isset( $error_username_valid)){echo  $error_username_valid;} ?>
     <span style="color:red" id="cfirst"></span>
@@ -199,26 +208,21 @@ if(isset($_POST['create_user']))
             let obj1=null;
                 try{
                     obj1=JSON.parse(obj.responseText);
-                    
+                 
+                    document.getElementById("err_user").innerHTML=obj1.message;
                 }
                 catch(e){
                     console.error("could not pass json");
                 }
-                if(obj1)
-                    {
-                        handleResponse(obj1);
-                    }
+            
             }
         };
            
-           
-            var requestdata={'username':username.value};
-        obj.open("post", "ajax.php", true);
-            obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        obj.send(requestdata);
-            function handleResponse(obj1){
-                console.log(obj1);
-            }
+         
+        obj.open("GET", "ajax.php?username="+username.value, true);
+//            obj.setRequestHeader("Content-type", "application/json");
+        obj.send();
+            
         }
        }
       function check2(){
@@ -266,6 +270,7 @@ if(isset($_POST['create_user']))
         {
             document.getElementById("cemail").innerHTML="";
             document.getElementById("cemail").style.visibility = "hidden";
+            
         }
       }
       function check5(){

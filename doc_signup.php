@@ -181,8 +181,7 @@ error_reporting(0);
 
     if (mysqli_query($connection, $query)) {
                $last_uid ="SELECT user_id FROM users ORDER BY user_id DESC LIMIT 1";
-      
-              }
+      }
           
     $doctor = "INSERT INTO doctors (doc_name,doc_timing,doc_address,doc_fees,doc_exp,doc_qualifications,doc_services,doc_img)"."VALUES ('$doctorname','$timing','$address','$fees','$exp','$qualifications','$services','$filename')";
 
@@ -257,9 +256,10 @@ error_reporting(0);
      <h1 style="color:#392F5A; position:absolute;top:10%;left:53%;">Join MediCare</h1>
     
     <div class="container">
-        <div>
- <input type="radio" value="user"  onclick="window.location='signup.php';" name="user">User
-            <input type="radio" value="doctor" name="user" checked><span style="font-size:20px;">Doctor</span>
+        <div style="position:absolute;margin-left:35%;margin-top:.3%;">
+ 
+            <input type="radio" value="doctor" name="user" checked><span style="font-size:20px;color:red;">Doctor</span>
+            <input type="radio" value="user"  onclick="window.location='signup.php';" name="user">User
     </div>
         
           <div class="signup">
@@ -330,7 +330,7 @@ error_reporting(0);
       <input class="form" type="text" placeholder="Qualifications" name="qualifications" required/>
 
       <input class="form" type="text" placeholder="Services" name="services" required/>
-        <h4>Upload Your Image</h4>
+        <h4 style="color:#513C35;">Upload Your Image</h4>
   
         <div class="form"><input type="file" name="photo" accept="image/*" required /></div>
         <button  type="submit" name="create_user"><span>SIGN UP</span></button>
