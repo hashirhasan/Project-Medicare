@@ -8,12 +8,12 @@ require ('PHPMailer\PHPMailerAutoload.php');
 $name_error = $email_error = $phone_error = "";
 $name = $email = $phone = $message = $success = "";
 
+$user=$_SESSION['username'];
+$mysqli = NEW MySQLI("localhost","root","","medicare1");
 
-$mysqli = NEW MySQLI("localhost","root","","medicare");
-
-$resultSet = $mysqli->query("SELECT users.user_email AS usermail
+$resultSet = $mysqli->query("SELECT user_email AS usermail
                              FROM users
-                          WHERE users.user_firstname = 'QWE'  AND users.user_lastname = 'qwe'");
+                          WHERE username ='$user' ");
 while ($rows = $resultSet->fetch_assoc()) 
 {
    $email = $rows['usermail'];

@@ -1,7 +1,14 @@
 
 <?php include "include/header.php" ?>
 <?php include "fitness_css.php" ?>
-
+<?php	
+    if(!isset($_SESSION['user_role']))
+    {
+        header("Location:home.php");
+    }
+ if(isset($_SESSION['user_role']))
+{
+  ?>
 
       <div class="srch-btn">
     <form action="fitness_search.php" method="post">
@@ -43,6 +50,7 @@
 	<?php }?>
 </div>
 </div>
-    
+    <?php    }
+?>
 </body>
 </html>

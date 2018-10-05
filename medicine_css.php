@@ -1,7 +1,7 @@
 <style>
 body{
     background-color: #3DA2F8;
-    background-image: url("image/med5.jpg");
+    background-image: url("image/pic7.jpg");
     background-size: cover;
     height: 100vh;
     background-attachment: fixed;

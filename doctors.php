@@ -51,7 +51,7 @@ while ($rows= $showdata->fetch_assoc()) {?>
 
             <h2>Availbility</h2><br/><br/>
 
-            <a class="close" href="#">&times;</a>
+            <a class="close" href="#stable">&times;</a>
 
             <div class="content">
                  <h3>Address</h3>
@@ -99,7 +99,7 @@ while ($rows= $showdata->fetch_assoc()) {?>
 
                 </div>
 
-    </div>
+    </div><a name="stable"></a>
 <?php
 }
 }
@@ -107,7 +107,7 @@ else
 {
 ?>
 
-<script>alert("first login");</script>
+ <script>swal("Medicare Says:", "First Please Login!");</script> 
 <?php } ?>
     </body>
 

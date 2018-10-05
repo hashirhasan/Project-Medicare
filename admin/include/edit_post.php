@@ -16,6 +16,8 @@
         $post_image=$row['post_image'];
         $post_content=$row['post_content'];
         $post_tags=$row['post_tags'];
+        $post_link=$row['post_link'];
+        
     }
   }
 ?>
@@ -30,6 +32,7 @@ if(isset($_POST['update_post'])){
    $image_temp=$_FILES['image']['tmp_name'];
     $content=$_POST['content'];
     $tags=$_POST['tag'];
+    $link=$_POST['link'];
       if(empty($image))
     {  
          $message_update="<h3 style='color:blue'>Post updated!!</h3>";
@@ -76,8 +79,10 @@ if(isset($_POST['update_post'])){
     $query .="post_date=now(), ";
     $query .="post_image='$image', ";
     $query .="post_content='$content', ";
-    $query .="post_tags='$tags' ";
+    $query .="post_tags='$tags',";
+    $query .="post_link='$link' ";
     $query .="WHERE post_id=$post_id";
+    
     $result=mysqli_query($connection,$query);
     if(!$result){
     die("query failed" .mysqli_error($connection));
@@ -122,8 +127,12 @@ if(isset($_POST['update_post'])){
     <h2><label for="tags" >Post Tags</label></h1><br>
        <input class="form" value="<?php echo $post_tags;?>" type="text" name="tag">  
     </div><br><br>
+         <div>
+    <h2><label for="tags" >Post link</label><small style="color:red">(optional)</small></h1><br>
+       <input class="form" value="<?php echo $post_link;?>" type="text" name="link">  
+    </div><br><br>
    <div>
-    <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_post" value="Update">
+    <input class="form"  style="background-color:blue; color:white;"type="submit" name="update_post" value="Update Post">
     </div>
 
 </form>

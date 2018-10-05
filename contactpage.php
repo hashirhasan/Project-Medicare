@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include('contact_process.php'); ?>
 
 <link rel="stylesheet" type="text/css" href="contact_css.css">

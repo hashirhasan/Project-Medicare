@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 
 
@@ -5,7 +6,7 @@
     $token= str_shuffle($token);
     $token= substr($token,0,10);
   
-    
+   error_reporting(0); 
   require ('PHPMailer\PHPMailerAutoload.php');
 //require ("PHPMailer/class.phpmailer.php");
 
@@ -18,7 +19,7 @@ $mail->SMTPDebug = 0;                               // Enable verbose debug outp
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'hasanhashir1314@gmail.com';                 // SMTP username
-$mail->Password = '0551harry0551';                           // SMTP password
+$mail->Password = '2531899@';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
@@ -41,9 +42,13 @@ $mail->Body    = "Hii..."." ".$user_firstname." "." "."<br>
 if(!$mail->send()) {
     $message_error= "<h2 style='color:red;text-shadow: 1px 1px white;'>Please check ur internet connection.</h2>";
 } else {
+    ?>
+<script>
+    window.onload = function(){swal('Registerd','you are successfully registered...please verify ur emil to login!','success');}
+ </script>
+<?php
     $message= "<h2 style='color:red;'>Verifiction Link has been sent</h2>";
+ 
 }
-        
-      
-
+ 
 ?>

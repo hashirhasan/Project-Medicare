@@ -8,6 +8,7 @@ if(isset($_POST['create_post']))                          //used for adding the 
     $content=$_POST['content'];
     $tags=$_POST['tag'];
     $category=$_POST['category'];
+    $link=$_POST['link'];
     $file_ext=explode('.',$image);
   $ext=strtolower(end($file_ext));
  
@@ -15,8 +16,8 @@ if(isset($_POST['create_post']))                          //used for adding the 
  if(in_array($ext,$act_ext)){
      $message_update="<h3 style='color:blue'>Post added!!</h3>";
     move_uploaded_file($image_temp,"../image/$image");
-      $query="INSERT INTO posts(post_title,cat_title,post_date,post_image,post_content,post_tags) "; 
-  $query .="VALUES(' $title','$category',now(),'$image','$content','$tags')";
+      $query="INSERT INTO posts(post_title,cat_title,post_date,post_image,post_content,post_tags,post_link) "; 
+  $query .="VALUES(' $title','$category',now(),'$image','$content','$tags','$link')";
     $result=mysqli_query($connection,$query);
  }
  else{
@@ -64,8 +65,12 @@ if(isset($_POST['create_post']))                          //used for adding the 
     <h2><label for="tags" >Post Tags</label></h1><br>
        <input class="form" type="text" name="tag">  
     </div><br><br>
-   
-    <input class="form"  style="background-color:blue; color:white;" type="submit" name="create_post" value="submit">
+    <div>
+   <h2><label for="tags" >Post link</label><small style="color:red">(optional)</small></h1><br>
+       <input class="form"  type="text" name="link">  
+    </div><br><br>
+    <div>
+    <input class="form"  style="background-color:blue; color:white;" type="submit" name="create_post" value="Add Post">
     </div>
 
 

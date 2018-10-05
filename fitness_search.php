@@ -38,7 +38,9 @@
                  }
                     $count=mysqli_num_rows($result1);
                     if($count==0){
-                        echo"<h1>no result</h1>";
+                       ?>
+  <script> swal ( "Oops" ,  "No Result Found!" ,  "error" );</script>  
+<?php
                     }
                     else
                     {  ?>

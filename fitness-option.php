@@ -1,3 +1,5 @@
+<?php include "include/header.php"?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +7,10 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="fitness-option.css">
 </head>
+    <?php	
+if(isset($_SESSION['user_role']))
+{
+  ?>
 <body>
 	
 <div class="container">
@@ -17,4 +23,13 @@
 </div>
 
 </body>
+<?php    }
+else
+{  ?>
+  <script>swal("Medicare Says:", "First Please Login!");</script>
+
+      <?php
+
+    }?>  
+    
 </html>

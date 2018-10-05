@@ -1,10 +1,12 @@
 <?php include "connect.php" ?>
 <?php session_start();?>
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>MEDICARE</title>
     <meta charset="utf-8">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
         *{

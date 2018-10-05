@@ -21,7 +21,7 @@ body{
 /*on top*/
 .search-area{
   position: absolute;
-  margin-top:3%; 
+  margin-top:2.5%; 
   margin-left: 52%;
   width: 250px;
   border: 3px solid #1C65A4;
@@ -34,7 +34,7 @@ body{
 }
 .search-button{
   position: absolute;
-  margin-top:3%; 
+  margin-top:2.5%; 
   margin-left: 69%;
   border: 0px;
   width: 110px;
@@ -57,17 +57,18 @@ body{
 
 .container{
   background-color: white;
-  opacity: 0.9;
-  width: 80% ;
-  height: 240px auto;
-  box-shadow: 0px 8px 5px 0 rgba(0,0,0,0.5);
-  display: flex;
-  margin-left:9%;
-  margin-top: 10%;
-  margin-bottom: 6%;
-  position: relative;
+	opacity: 1;
+	width: 80% ;
+	height: 20px auto;
+	box-shadow: 0px 8px 5px 0 rgba(0,0,0,0.5);
+	display: flex;
+	margin-left:9%;
+	margin-top: 6%;
+	margin-bottom: 6%;
   border-radius: 10px;
-  padding: 10px;
+z-index: 3;
+    padding: 15px;
+    padding-top: 20px;
   }
 
 .doc-pic{

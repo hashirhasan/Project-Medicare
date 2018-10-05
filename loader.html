@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>logo</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+    body{
+    	margin: 0;
+    	padding: 0;
+    }
+    	.bkg-img
+    	{
+    		
+    		background-image: url("image/pic1.jpg");
+    		background-repeat:no-repeat;
+    		background-size: cover;
+    		height: 100vh;
+    	}
+    </style>
+</head>
+<body style="text-align:center;">
+	<div class="bkg-img" id="loader">
+<img src="image/medi3.svg" style="margin-top: 7%;">
+    </div>
+<script>
+    (function(){
+    var loader=document.getElementById("loader");
+    var loading=0;
+    var id=setInterval(frame,64);
+    function frame(){
+        
+        if(loading==100)
+            {
+                clearInterval(id);
+                window.open("home.php","_self");
+            }
+        else{
+            loading=loading+70;
+            
+        }
+    }
+    
+    })();
+    
+    
+    </script>
+</body>
+</html>

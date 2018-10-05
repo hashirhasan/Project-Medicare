@@ -10,7 +10,8 @@ body{
 	padding: 10px;
 	margin: auto;
 	margin-left: 36%; 
-	margin-top: 8%;
+	margin-top: 8%; 
+    position:relative;
 }
 .signup{
 	position: relative;
@@ -21,7 +22,7 @@ body{
 	background-color:#CEC9C7;
 	padding: 0px 45px 55px 45px;
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 12%;
 	
 }
 .signup h4{
@@ -116,4 +117,13 @@ body{
 	width:100%;
 
 
+}
+
+
+.radiobtn{
+    
+    margin-left: 45%;
+    margin-top: 3.5%;
+    position: absolute;
+    z-index: 9;
 }

@@ -1,7 +1,12 @@
 <?php include"connect.php"?>
-<?php                                                                     //verification page
+<?php session_start();?>
+
+<?php  
+if(isset($_SESSION['user_role']))
+                                                                                                    //  verification page-->
 if(isset($_GET['user_email']))                                       
 {
+
     $user_cmpass=1;
     $token_key='';
     $query_check="SELECT * FROM users";
@@ -20,10 +25,14 @@ if(isset($_GET['user_email']))
     if(!$query_result){
         die("query failed".mysqli_error($connection));
     }
-    echo "<h2 style='margin:200px 0px 0px 400px;color:blue;'>Your Email Has Been Verified!!</h2><h3><a href='login.php'>click here to login</a></h3>";
+      ?> 
+
+<?php
+    echo "<span style='margin:200px 0px 0px 400px;color:blue;'>Your Email Has Been Verified!!</span><span><a href='login.php'>click here to login</a></span>";
 }
     else
     {
        echo "<h2 style='margin:200px 0px 0px 400px;color:blue;'>Your Link Has Been Expired!!</h2>"; 
     }
 }
+    ?>

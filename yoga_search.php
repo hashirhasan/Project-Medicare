@@ -26,13 +26,13 @@ if(isset($_SESSION['user_role']))
     }
 </script>
 <?php }
-else{ ?>
+else{ 
+ header("location:home.php");
+     
 
-      <script>alert('first login ');</script> 
-
-       <!--selecting only  searched posts of yoga and displaying them-->
+//       <!--selecting only  searched posts of yoga and displaying them-->
     
-<?php  }
+ }
 
  
             if(isset($_POST['submit']))
@@ -45,7 +45,9 @@ else{ ?>
                  }
                     $count=mysqli_num_rows($result1);
                     if($count==0){
-                        echo"<h1 style='position:absolute;margin:200px 0px 0px 600px ;'>No Result Found</h1>";
+                       ?>
+  <script> swal ( "Oops" ,  "No Result Found!" ,  "error" );</script>  
+<?php
                     }
                     else
                     {
@@ -56,7 +58,7 @@ else{ ?>
 <div class="container">
 	<div class="card">
 		<div class="front"><img src="image/<?php echo"{$row['post_image']}"; ?> " style="border-radius: 25px 0 0 25px;height: 100%; width: 100%;"></div>
-		<div class="back"><?php echo"<h4>{$row['post_title']}</h4>";?><button class="searchbtn">CLICK TO KNOW MORE</button>
+		<div class="back"><?php echo"<h4>{$row['post_title']}</h4>";?><button class="searchbtn"><a target="_blank" href="<?php echo $row['post_link']; ?>">CLICK TO KNOW MORE</a></button>
 	</div>
 	</div>
 

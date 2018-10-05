@@ -2,7 +2,10 @@
 <?php include "include/header.php" ?>
 <?php include "read_articles_css.php" ?>
 
-
+<?php	
+if(isset($_SESSION['user_role']))
+{
+  ?>
        
 <div class="bkg-image">
 <div class="container">
@@ -21,6 +24,18 @@
 	<?php }?>
 </div>
 </div>
-    
+
+      <?php  } 
+
+
+    else{
+
+      ?>
+
+      <script>swal("Medicare Says:", "First Please Login!");</script> 
+
+      <?php
+
+    }?>
 </body>
 </html>

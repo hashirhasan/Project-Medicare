@@ -1,5 +1,15 @@
 
 <?php include "connect.php" ?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="login-signup.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
 <?php
   $error_username=NULL; 
   $error_pass=NULL;
@@ -11,7 +21,8 @@
   $error_firstname=NULL;
 //$error_username_valid=null;
 if(isset($_POST['create_user']))
-{
+{ 
+
 //   echo "Successfully Registered";
     $username=$_POST['username'];
     $user_firstname=$_POST['user_firstname'];
@@ -111,38 +122,38 @@ if(isset($_POST['create_user']))
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>login</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="login-signup.css">
-</head>
 <body>
+    <div class="radiobtn">
+                     <input type="radio" value="user" name="user" checked><span style="font-size:20px; color: red;">User</span>
+       <input type="radio" value="doctor" onclick="window.location='doc_signup.php';" name="user">Doctor
+        </div>
 	<div class="container">
+        
 	      <div class="signup">
-               <h3 id="details"></h3>
-               <?php if(isset( $message)){echo  $message;}  ?>
-               <?php if(isset( $message_error)){echo  $message_error;}  ?>
+               
+               
+         
 	      	<h4><a style="display: inline-block; color: red; border-radius: 5px;" href="signup.php" class="line">Sign Up</a></h4>
 	      	<h4><a href="login.php" class="line">Login</a></h4>
-    
+              <h3 id="details"></h3>
+    <?php if(isset( $message)){echo  $message;}  ?>
+               <?php if(isset( $message_error)){echo  $message_error;}  ?>
 <form action="signup.php" method="post" onsubmit="return check()" enctype="multipart/form-data">
-     <p id="cusername"></p>
+     <span style="color:red" id="cusername"></span>
        <input class="form" type="text" onblur="check1()"  name="username" id="username" placeholder="Username" title="Avoid spaces">  
  <?php if(isset( $error_username)){echo  $error_username;} ?>
    <?php if(isset( $error_username_valid)){echo  $error_username_valid;} ?>
-    <p id="cfirst"></p>
+    <span style="color:red" id="cfirst"></span>
     <input class="form" type="text" name="user_firstname" onblur="check2()" id="user_firstname"  placeholder="First Name">
   <?php if(isset($error_firstname)){echo $error_firstname;} ?>
-    <p id="clast"></p>
+    <span style="color:red" id="clast"></span>
        <input class="form" type="text" name="user_lastname" onblur="check3()" id="user_lastname" placeholder="Last Name">  
      <?php if(isset($error_lastname)){echo $error_lastname;} ?>
-    <p id="cemail"></p>
+    <span style="color:red" id="cemail"></span>
        <input class="form" type="text" name="user_email" onblur="check4()" id="user_email" placeholder="Email">  
     <?php if(isset($error_user_email)){echo $error_user_email;}  ?>
     <?php if(isset($error_email_wrong)){echo $error_email_wrong;}  ?>
-    <p id="cpass"></p>
+    <span style="color:red" id="cpass"></span>
        <input class="form" type="password" name="user_password" onblur="check5()" id="user_password" placeholder="Password"  title="special characters and numbers are required">
      <?php if(isset($error_pass)){echo $error_pass;}  ?>
     <button class="button" type="submit"  name="create_user"><span>SIGN UP</span></button>
@@ -175,12 +186,39 @@ if(isset($_POST['create_user']))
         {
              document.getElementById("cusername").style.visibility = "visible";
             document.getElementById("cusername").innerHTML="invalid username";
-           
+         
+            
         }
          else
         {
             document.getElementById("cusername").innerHTML="";
             document.getElementById("cusername").style.visibility = "hidden";
+               var obj = new XMLHttpRequest();
+        obj.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            let obj1=null;
+                try{
+                    obj1=JSON.parse(obj.responseText);
+                    
+                }
+                catch(e){
+                    console.error("could not pass json");
+                }
+                if(obj1)
+                    {
+                        handleResponse(obj1);
+                    }
+            }
+        };
+           
+           
+            var requestdata={'username':username.value};
+        obj.open("post", "ajax.php", true);
+            obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        obj.send(requestdata);
+            function handleResponse(obj1){
+                console.log(obj1);
+            }
         }
        }
       function check2(){

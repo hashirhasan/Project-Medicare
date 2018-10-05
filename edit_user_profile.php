@@ -79,7 +79,7 @@ if(isset($_POST['update_profile'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Profile</title>
-	<link rel="stylesheet" href="user_profile.css">
+	<link rel="stylesheet" href="user-profile.css">
 </head>
 <body>
 	<div class="myprofile"><h1>MY PROFILE</h1></div>
