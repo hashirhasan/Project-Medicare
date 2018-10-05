@@ -41,23 +41,22 @@
 	<div class="line"></div>
     
     <div class="profile">
-		<div class="container">
+		<div  class="container">
 			<img src="image/<?php echo $user_image?>">
         
 			</div>
 		</div>
-			<div class="container-detail">
+			<div style="margin-top:5%" class="container-detail">
                <h3>Username <input type="text" placeholder="Username" value="<?php echo $username;?>" name="username" readonly></h3><br>
 	      		<h3>First Name<input type="text" placeholder="First Name"value="<?php echo $user_firstname;?>"  name="user_firstname" readonly></h3>
 	      		<h3>Last Name<input type="text" placeholder="Last Name" value="<?php echo $user_lastname;?>" name="user_lastname" readonly></h3>
-	      		<h3 style="margin-right: 3%;">Blood Group<input style="width: 264px" type="text" placeholder="Blood Group" readonly></h3>
 	      		<h3 style="margin-left:7%;">Email<input style="width: 264px" type="text" placeholder="Email" value="<?php echo $user_email;?>" name="user_email" readonly></h3>
 	      		<!-- <input class="for-button" type="button" value="Change Password?"> -->	
                
                 
 	</div>
   
-    <a  href="edit_user_profile.php" ><button style="position:absolute; margin-left:9.5vw; margin-top:-10vh; padding:20px; width:180px; color:white; text-decoration:none;" class="sav-button"  name="update_profile"  >Edit Profile</button></a>
+    <a  href="edit_user_profile.php" ><button style="position:absolute; margin-left:9.5vw; margin-top:-20vh; padding:20px; width:180px; color:white; text-decoration:none;" class="sav-button"  name="update_profile"  >Edit Profile</button></a>
 
 
 </body>

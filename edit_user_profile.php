@@ -55,7 +55,6 @@ if(isset($_POST['update_profile'])){
      $query .="user_image='$user_image', ";
     $query .="user_firstname='$user_firstname', ";
     $query .="user_lastname='$user_lastname', ";
-    $query .="user_email='$user_email',";
     $query .="user_password='$user_password' ";
     $query .="WHERE username='$username'";
     $result=mysqli_query($connection,$query);
@@ -93,12 +92,12 @@ if(isset($_POST['update_profile'])){
 		</div>
 			<div class="container-detail">
                <h3>Username <input type="text" placeholder="Username" value="<?php echo $username;?>" name="username" readonly></h3><br>
-                <h2 style="margin-left:10vw; color:white; width:100px">Image</h2><input style="margin-left:16.5vw"type="file" name="image" placeholder="chose profile pic">
+                <h2 style="margin-left:10vw;width:100px">Image</h2><input style="margin-left:16.5vw"type="file" name="image" placeholder="chose profile pic">
 	      		<h3>First Name<input type="text" placeholder="First Name"value="<?php echo $user_firstname;?>"  name="user_firstname"></h3>
 	      		<h3>Last Name<input type="text" placeholder="Last Name" value="<?php echo $user_lastname;?>" name="user_lastname"></h3>
 	      		<h3 style="margin-left:1%;">Password<input style="width: 264px" type="password" placeholder="Password" name="user_password" value="<?php echo $user_password;?>"></h3>
-	      		<h3 style="margin-right: 3%;">Blood Group<input style="width: 264px" type="text" placeholder="Blood Group"></h3>
-	      		<h3 style="margin-left:7%;">Email<input style="width: 264px" type="text" placeholder="Email" value="<?php echo $user_email;?>" name="user_email"></h3>
+	      		
+	      		<h3 style="margin-left:7%;">Email<input style="width: 264px" type="text" placeholder="Email" value="<?php echo $user_email;?>" name="user_email" readonly></h3>
 	      		<!-- <input class="for-button" type="button" value="Change Password?"> -->	
 	      		<input class="sav-button" type="submit" name="update_profile" value="Save">
                 

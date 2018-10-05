@@ -84,7 +84,7 @@ else{
         <input class="form" type="text" name="username"  placeholder="Username" >  
         <input class="form"  type="password" name="user_password" placeholder="Password"> 
            
-        <button class="button" type="submit" name="login_user"><span>LOG IN</span></button><!--<span> <a href = "forgot_password.php?table=participants">forgot password ?</a></span>-->
+        <button class="button" type="submit" name="login_user"><span>LOG IN</span></button><span> <a href = "forgot_mail.php">forgot password ?</a></span>
         <h4 style="color:#513C35; font-faimly:arial;" >Don't Have Account!!<br>Please Signup First</h4>
         </form>
 

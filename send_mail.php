@@ -44,7 +44,7 @@ if(!$mail->send()) {
 } else {
     ?>
 <script>
-    window.onload = function(){swal('Registerd','you are successfully registered...please verify ur emil to login!','success');}
+    window.onload = function(){swal('Registerd','you are successfully registered...please verify your email to login!','success');}
  </script>
 <?php
     $message= "<h2 style='color:red;'>Verifiction Link has been sent</h2>";

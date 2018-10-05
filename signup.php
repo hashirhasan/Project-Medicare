@@ -37,10 +37,12 @@ if(isset($_POST['create_user']))
     $user_firstname=$_POST['user_firstname'];
     $user_lastname=$_POST['user_lastname'];
     $user_email=$_POST['user_email'];
+    $user_image="abc.jpg";
+    
     $user_password=$_POST['user_password'];
     $username_query="SELECT * FROM users WHERE username='$username'";
      $user_email_query="SELECT * FROM users WHERE user_email='$user_email'";
-
+   
     $username_result=mysqli_query($connection,$username_query);
     $user_email_result=mysqli_query($connection,$user_email_query);
      if(mysqli_num_rows($username_result)>0)
@@ -115,8 +117,8 @@ if(isset($_POST['create_user']))
 
 <?php
           $user_password=md5($user_password);
-    $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_email,user_password,token) "; 
-    $query .="VALUES('$username','subscriber','$user_firstname','$user_lastname','$user_email','$user_password','$token')";
+    $query="INSERT INTO users(username,user_role,user_firstname,user_lastname,user_image,user_email,user_password,token) "; 
+    $query .="VALUES('$username','subscriber','$user_firstname','$user_lastname','$user_image','$user_email','$user_password','$token')";
     $result=mysqli_query($connection,$query);
     if(!$result){
     die("query failed". mysqli_error($connection));
