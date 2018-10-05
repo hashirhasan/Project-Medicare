@@ -31,7 +31,7 @@ body{
 .line{
 	height: 4px;
 	width: 100%;
-	background-color: white;
+	background-color: #1C65A4;
 	margin-top: 15px;
 }
 .myprofile h1{
@@ -43,12 +43,12 @@ body{
 
 }
 
-.for-button{
+/*.for-button{
 	font-family: arial;
 	font-size: 14px;
 	width: 37%;
 	border:0;
-	/*padding: 15px;*/
+	padding: 15px;
 	color: white;
 	background-color: #CB3E3E;
 	margin-top: 2%;
@@ -61,7 +61,7 @@ body{
     cursor: pointer;
     transition: 0.9s;
     font-size: 17px;
-}
+}*/
 
 .sav-button{
 	font-family: arial;
@@ -75,13 +75,16 @@ background-color:  #1C65A4;
 font-size: 15px;
 border-radius: 15px;
 position: relative;
+outline: none;
 }
 
 .sav-button:hover{
-	background:white ;
-    color: red;
+	background:#10395E;
+	font-size: 16px;
+    color: #ffff;
     cursor: pointer;
-    transition: 0.9s;
+    transition: 0.6s;
+    font-size: 16px;
 }
 
 .container-detail{
@@ -107,8 +110,9 @@ input{
 	background: white;
 	width: 40%;
 	padding: 14px;
-	box-sizing: border-box;
 	font-size: 14px;
 	margin-left: 1%;
 	margin-top: 3%;
+	border-radius: 5px;
+	outline: none;
 }
