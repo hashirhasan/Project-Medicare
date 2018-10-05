@@ -1,0 +1,114 @@
+*{
+	margin:0px;
+	padding: 0px;
+	box-sizing: border-box;
+
+}
+
+body{
+	background-image: url("pic15.jpg");
+	background-repeat:no-repeat; 
+	background-size:cover;
+}
+.container img{
+	position: absolute;
+	border-radius: 50%;
+	background-size: cover;
+	height: 50%;
+	width: 25%;
+	margin-top: 5%;
+	margin-left: 6%;
+}
+
+.logo{
+	position: absolute;
+    padding: 3px 0px 0px 8px; 
+    height: 70px;
+    width: 150px;
+    top: 3px;
+}
+
+.line{
+	height: 4px;
+	width: 100%;
+	background-color: white;
+	margin-top: 15px;
+}
+.myprofile h1{
+	margin-top: 4.5vh;
+	margin-left: 80%;
+	font-family: arial;
+	left: 20%;
+	letter-spacing: 1px;
+
+}
+
+.for-button{
+	font-family: arial;
+	font-size: 14px;
+	width: 37%;
+	border:0;
+	/*padding: 15px;*/
+	color: white;
+	background-color: #CB3E3E;
+	margin-top: 2%;
+	font-size: 15px;
+
+}
+.for-button:hover{
+	background:white ;
+    color: red;
+    cursor: pointer;
+    transition: 0.9s;
+    font-size: 17px;
+}
+
+.sav-button{
+	font-family: arial;
+	font-size: 14px;
+	width: 20%;
+	border:0;
+	/*padding: 15px;*/
+	color: white;
+	left: 61%;
+background-color:  #1C65A4;
+font-size: 15px;
+border-radius: 15px;
+position: relative;
+}
+
+.sav-button:hover{
+	background:white ;
+    color: red;
+    cursor: pointer;
+    transition: 0.9s;
+}
+
+.container-detail{
+	width:660px;
+	height: 500px;
+	margin-left: 47%; 
+	margin-top: 4%;
+
+}
+
+.container-detail h3{
+	text-align: center;
+	font-family: arial;
+	font-size: 20px;
+	color: #011936;
+}
+.container-detail h3.bld-g{
+	margin-top:5%; 
+}
+
+input{
+	font-family: arial;
+	background: white;
+	width: 40%;
+	padding: 14px;
+	box-sizing: border-box;
+	font-size: 14px;
+	margin-left: 1%;
+	margin-top: 3%;
+}
