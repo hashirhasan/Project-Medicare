@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Coda');
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body{
+  background-image: url("alt1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.container{
+	position: relative;
+	width: 350px;
+	height: 500px; 
+	/*display: flex;*/
+}
+.card{
+	position: absolute;
+	width: 150%;
+	height: 80%;
+	/*transform-style: preserve-3d;
+	transition: all 0.5s ease-in;*/
+	/*padding: 50px 0px 0px 50px;*/
+	margin-left: 35%;
+	margin-top: 38%;
+	margin-bottom: 40px;
+   
+}
+
+.card2{
+  position: absolute;
+  width: 150%;
+  height: 80%;
+  /*transform-style: preserve-3d;
+  transition: all 0.5s ease-in;*/
+  /*padding: 50px 0px 0px 50px;*/
+  margin-left: 200%;
+  margin-top: 38%;
+  margin-bottom: 40px;
+  outline: none;
+   
+}
+@media(max-width: 600px){
+  .card{
+    height: 40%;
+    width: 75%;
+  }
+  .card2{
+    height: 40%;
+    width: 75%;
+    top: 60%;
+
+  }
+}
+@media(max-width: 1200px){
+  .card2{
+    position: relative;
+    right: 166%;
+    bottom: 15%;
+  }
+  .card{
+    position: relative;
+    top: 8%;
+  }
+}
+
+
+
+.front{
+    position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+    background: transparent;
+    border-radius: 25px;	
+}
+
+.front2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: transparent;
+    border-radius:25px;
+    outline: none;  
+}
+
+.front2 h1{
+  border-bottom: 2px solid currentColor;
+  text-align: center;
+  color:brown;
+  font-family: 'Coda', cursive;
+  margin-top: 2%;
+}
+.front2 p{
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 5%;
+  text-align:justify;
+  color: black;
+  font-size: 20px;
+  line-height: 1.5;
+  background-color: rgba(205,133,63,0.4);
+  height: 80% auto;
+  width: 80% auto;
+  box-shadow: 0 8px 6px -6px black;
+}
+@media(max-height: 600px){
+  .front2 p{
+    margin-bottom: 4%;
+  }
+}
+
+.front h1{
+ border-bottom: 2px solid currentColor;
+  text-align: center;
+  color:brown;
+  font-family: 'Coda', cursive;
+  margin-top: 2%;
+}
+.front p{
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 5%;
+  text-align: justify;
+  color: black;
+  font-size: 20px;
+  line-height: 1.5;
+  background-color: rgba(205,133,63,0.4);
+  height: 80% auto;
+  width: 80% auto;
+  box-shadow: 0 8px 6px -6px black;
+
+}
+
+
+#top{
+  font-size:40px;
+  position: fixed;
+  top: 5%;
+  left: 2%;
+  color: #00569F;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+  padding: 10px 10px 8px 10px;
+}
+
+#top:hover{
+  background: #fff;
+  color: #00569F;
+  transition:0.5s;
+}
+
+/*on top*/
+/*.search-area{
+	position: absolute;
+	margin-top:4%; 
+	margin-left: 33%;
+  width: 250px;
+  border: 3px solid #fff;
+  background: transparent;
+  padding: 10px 25px;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+}
+.search-button{
+	position: absolute;
+	margin-top:4%; 
+	margin-left: 56.3%;
+	border: 0px;
+  width: 110px;
+  height: 46px;
+  border-radius: 0 50px 50px 0;
+  font-size: 15px;
+  background-color: #00569F;
+  color: white;
+  font-size: 17px;
+}
+
+.search-button:hover{
+    background:white ;
+    color: red;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 19px;
+}*/
