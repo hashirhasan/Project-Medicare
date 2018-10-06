@@ -1,5 +1,5 @@
 <style type="text/css">
-    
+    @import url('https://fonts.googleapis.com/css?family=Kodchasan');
      body{
 	background-color: #3DA2F8;
   background-image: url("image/yogabkg.jpg");
@@ -77,11 +77,13 @@
   margin-top: 2%;
 }
 .front2 p{
-  font-family: arial;
+  font-family: 'Kodchasan', sans-serif;
   margin-top: 5%;
-  text-align: center;
+  text-align:center;
   color: white;
   font-size: 20px;
+    line-height: 1.9;
+    
 }
 
 

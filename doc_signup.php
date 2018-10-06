@@ -180,13 +180,13 @@ error_reporting(0);
     $query="INSERT INTO users(username,user_role,user_email,user_password,token) "."VALUES('$username','doctor','$user_email','$user_password','$token')";
 
     if (mysqli_query($connection, $query)) {
-               $last_uid ="SELECT user_id FROM users ORDER BY user_id DESC LIMIT 1";
+               $last_uid = mysqli_insert_id($connection);
       }
           
     $doctor = "INSERT INTO doctors (doc_name,doc_timing,doc_address,doc_fees,doc_exp,doc_qualifications,doc_services,doc_img)"."VALUES ('$doctorname','$timing','$address','$fees','$exp','$qualifications','$services','$filename')";
 
                if (mysqli_query($connection, $doctor)) {
-               $last_id ="SELECT doc_id FROM doctors ORDER BY doc_id DESC LIMIT 1";
+               $last_id = mysqli_insert_id($connection);
               }
 
               $docuser = "INSERT INTO user_doctor (doc_id,user_id)";
@@ -346,7 +346,7 @@ error_reporting(0);
     function check()
      {
     var username=document.getElementById("username");
-    var user_firstname=document.getElementById("doctorname");
+    var doctorname=document.getElementById("doctorname");
      var user_email=document.getElementById("user_email");
      var user_password=document.getElementById("user_password");
     if(username.value.length<=0||doctorname.value.length<=0||user_email.value.length<=0||user_password<=0)
@@ -376,9 +376,9 @@ error_reporting(0);
         }
        }
       function check2(){
-       var user_firstname=document.getElementById("doctorname"); 
+       var doctorname=document.getElementById("doctorname"); 
        var regex2 = /^[A-z]+[\s]{0,1}[A-z]{2,15}$/;
-    if(user_firstname.value.length>0 && (!regex2.test(user_firstname.value)))
+    if(doctorname.value.length>0 && (!regex2.test(doctorname.value)))
         {
              document.getElementById("cdoc").style.visibility = "visible";
             document.getElementById("cdoc").innerHTML="invalid doctorname";

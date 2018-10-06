@@ -48,6 +48,7 @@ else{
                        ?>
   <script> swal ( "Oops" ,  "No Result Found!" ,  "error" );</script>  
 <?php
+                        echo"<h1 style='margin-top:17% ;margin-left:40%;'>NO Result Found!!</h1>";
                     }
                     else
                     {

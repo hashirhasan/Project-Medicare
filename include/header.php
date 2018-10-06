@@ -416,11 +416,11 @@ nav ul li:hover ul.sub-nav {
 
 
  svg{
-    position:relative;
+    position:absolute;
     width:25px;
     height: 25px;
-    margin-top: 2%;
-    left: 5%;
+    margin-top: -3.5%;
+    left: 82%;
     background-attachment: fixed;
     border-radius: 4px;
  }
@@ -505,6 +505,9 @@ echo "<li><a  href='{$cat_link}'>{$sub}</a></li>";
      if($_SESSION['user_role']==='subscriber'){
               echo "<li><a href='user_profile.php'>Profile</a></li>"; 
            }
+     if($_SESSION['user_role']==='doctor'){
+              echo "<li><a href='doctor_profile.php'>Profile</a></li>"; 
+           }
     
 }
           
@@ -549,6 +552,9 @@ echo "<a  href='{$cat_link}'>{$sub}</a>";
  }
      if($_SESSION['user_role']==='subscriber'){
               echo "<a href='user_profile.php'>Profile</a>"; 
+           }
+    if($_SESSION['user_role']==='doctor'){
+              echo "<a href='doctor_profile.php'>Profile</a>"; 
            }
     
 }

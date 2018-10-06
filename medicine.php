@@ -107,7 +107,7 @@ $subtitute = $mysqli->query("SELECT subtitutes.sub_name AS subname
                 $subtitutes = $rowss['subname'];
                 if(strtolower($subtitutes) != strtolower($search))
     {
-                 echo $subtitutes;
+                 echo $subtitutes."<br>";
              } 
          }
             ?>
@@ -124,7 +124,7 @@ $subtitute = $mysqli->query("SELECT subtitutes.sub_name AS subname
         <div class="content">
                     <?php 
                     while ($rowss = $uses->fetch_assoc()) {
-                    echo $rowss['diseaseName'];
+                    echo $rowss['diseaseName']."<br>";
                 }?>
         </div>
     </div>
@@ -187,7 +187,7 @@ $subtitute = $mysqli->query("SELECT subtitutes.sub_name AS subname
                 $subtitutes = $rowss['subname'];
                 if(strtolower($subtitutes) != strtolower($search))
     {
-                 echo $subtitutes;
+                 echo $subtitutes."<br>";
              } 
          }
             ?>
@@ -203,7 +203,7 @@ $subtitute = $mysqli->query("SELECT subtitutes.sub_name AS subname
         <div class="content">
                     <?php 
                     while ($rowss = $uses->fetch_assoc()) {
-                    echo $rowss['diseaseName'];
+                    echo $rowss['diseaseName']."<br>";
                 }?>
         </div><a name="bottom"></a>
     </div>

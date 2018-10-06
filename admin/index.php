@@ -11,13 +11,13 @@ $result_count_post=mysqli_query($connection,"SELECT count(*) as total from posts
     ?>
 <div class="row">
 <div class="col-4">
-<h1>Categories:<span><?php echo $data_cat['total']; ?></span></h1>
+<h1>Categories:<span  style="color:red;"><?php echo $data_cat['total']; ?></span></h1>
 </div>
 <div class="col-4">
-<h1>Total Posts:<span><?php echo $data_post['total']; ?></span></h1>
+<h1>Total Posts:<span  style="color:red;"><?php echo $data_post['total']; ?></span></h1>
 </div>
 <div class="col-4">
-<h1>Total Users:<span><?php echo $data_user['total']; ?></span></h1>
+<h1>Total Users:<span  style="color:red;"><?php echo $data_user['total']; ?></span></h1>
 </div>
 </div>
 

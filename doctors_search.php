@@ -100,7 +100,7 @@ while ($rows = $resultSet->fetch_assoc())
 
     </div>
 
-            <a class="use-btn" type="button" href="#popup2">CONTACT</a>
+            <a class="use-btn" type="button" href="contactpage.php">CONTACT</a>
 
             <!-- <input class="use-btn" type="button" value="Use In"> -->
 
@@ -187,7 +187,7 @@ while ($rows = $resultSet->fetch_assoc())
 
             <h2>Availbility</h2><br/><br/>
 
-            <a class="close">&times;</a>
+                <a class="close" href="#">&times;</a>
 
             <div class="content">
                  <h3>Address</h3>
@@ -245,7 +245,9 @@ while ($rows = $resultSet->fetch_assoc())
 else{
    ?>
 <script> swal ( "Oops" ,  "No Result Found!" ,  "error" );</script> 
+
 <?php
+    echo"<h1 style='margin-top:30% ;margin-left:25%;'>NO Result Found!!</h1>";
 }
 } 
 }
