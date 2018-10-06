@@ -57,7 +57,7 @@ if(isset($_POST['update_profile'])){
      $query .="user_image='$user_image', ";
     $query .="user_firstname='$user_firstname', ";
     $query .="user_lastname='$user_lastname', ";
-    $query .="user_email='$user_email',";
+   
     $query .="user_password='$user_password' ";
     $query .="WHERE username='$username'";
     $result=mysqli_query($connection,$query);

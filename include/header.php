@@ -110,7 +110,7 @@ header ul li a{
 
 header ul li a:hover{
     color: #F97C76;
-    transition: all 0.1s ease-in;
+    transition: all 1s ease-in;
         }
 .home-search{
     position: absolute;

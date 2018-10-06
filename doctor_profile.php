@@ -1,6 +1,8 @@
 <?php session_start()?>
+<?php ob_start();?>
 <?php include"connect.php" ?>
 <?php
+    
        if(isset($_SESSION['username']))
         {
             $username=$_SESSION['username'];
@@ -15,14 +17,14 @@
              $user_id=$row['user_id'];
             $username=$row['username'];
             $user_email=$row['user_email'];
-            }
-           $docquery="SELECT * FROM doctors,users,user_doctor WHERE  users.user_id = '$user_id' AND user_doctor.user_id = users.user_id AND user_doctor.doc_id = doctors.doc_id";
-           $result=mysqli_query($connection,$docquery);
-           if(!$result){
+            
+           $docquery="SELECT * FROM doctors,users,user_doctor WHERE  users.user_id = $user_id AND user_doctor.user_id = users.user_id AND user_doctor.doc_id = doctors.doc_id";
+           $result2=mysqli_query($connection,$docquery);
+           if(!$result2){
                die("query failed".mysqli_error($connection));
            }
-           while($row=mysqli_fetch_assoc($result)){
-               $doc_id=$row['doc_id'];
+           while($row=mysqli_fetch_assoc($result2)){
+               $docid=$row['doc_id'];
                $doctorname=$row['doc_name'];
                $timing=$row['doc_timing'];
                $address=$row['doc_address'];
@@ -31,16 +33,17 @@
                $qualifications=$row['doc_qualifications'];
                $services=$row['doc_services'];
                $image=$row['doc_img'];
-           }
            
-           $specialistquery="SELECT * FROM specialization,doctors,doctor_specialization WHERE doctor_specialization.doc_id = '$doc_id' AND doctor_specialization.doc_id = doctors.doc_id AND doctor_specialization.specialist_id = specialization.specialist_id";
-           $result=mysqli_query($connection,$specialistquery);
-           if(!$result){
+           $specialistquery="SELECT * FROM specialization,doctors,doctor_specialization WHERE doctor_specialization.doc_id ='$docid'  AND doctor_specialization.doc_id = doctors.doc_id AND doctor_specialization.specialist_id = specialization.specialist_id";
+           $result1=mysqli_query($connection,$specialistquery);
+           if(!$result1){
                die("query failed".mysqli_error($connection));
            }
-           while($row=mysqli_fetch_assoc($result)){
+           while($row=mysqli_fetch_assoc($result1)){
                $specialistname=$row['specialist_name'];
            }
+           }
+            }
         }
 ?>
 <!DOCTYPE html>

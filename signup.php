@@ -14,7 +14,8 @@
     height: 70px;
     width: 150px;
     top: 3px;
-}</style>
+    }
+    </style>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="login-signup.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -37,7 +38,7 @@ if(isset($_POST['create_user']))
     $user_firstname=$_POST['user_firstname'];
     $user_lastname=$_POST['user_lastname'];
     $user_email=$_POST['user_email'];
-    $user_image="abc.jpg";
+    $user_image="defaultprofile.jpg";
     
     $user_password=$_POST['user_password'];
     $username_query="SELECT * FROM users WHERE username='$username'";

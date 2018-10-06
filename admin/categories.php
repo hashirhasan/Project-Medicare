@@ -46,7 +46,7 @@
                 <div class="col-6">
                     
              <?php   
-                        $query="SELECT * FROM category ORDER BY `category`.`cat_id` ASC";
+                        $query="SELECT * FROM category ORDER BY category.cat_id ASC";
                         $select_categories=mysqli_query($connection,$query);
               ?>
                     <table style="width:100%;">
@@ -73,7 +73,7 @@
                        <?php echo" <td>{$cat_id}</td>"; ?>
                         <?php echo"<td>{$cat_title}</td>"; 
                          echo"<td><a href='categories.php?edit={$cat_id}&category={$cat_title}'>Edit</a></td>";  //link for editing       
-                        echo"<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this category?');\" href='categories.php?delete={$cat_id}'>Delete</a></td>";    // link for deletion
+                        echo"<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this category?');\" href='categories.php?delete={$cat_id}}&category={$cat_title}'>Delete</a></td>";    // link for deletion
                             
                             ?>
                             
@@ -91,10 +91,14 @@
                                 {
                                     if($_SESSION['user_role']==='admin')
                                     {
-                            $cat_id=$_GET['delete'];
-                               $query="DELETE FROM category ";                     //deleting the categories
-                                $query .="WHERE cat_id=$cat_id";   
-                                $result=mysqli_query($connection,$query);
+                                        $category=$_GET['category'];
+                                        $cat_id=$_GET['delete'];
+                                        $query_post="DELETE FROM posts ";
+                                        $query_post .="WHERE cat_title='$category'";
+                                         $result_post=mysqli_query($connection,$query_post);
+                                        $query="DELETE FROM category ";                     //deleting the categories
+                                        $query .="WHERE cat_id=$cat_id";   
+                                        $result=mysqli_query($connection,$query);
                                 if(!$result){
                                              die("query failed" .mysqli_error($connection));
                                             }

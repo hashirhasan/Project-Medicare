@@ -31,10 +31,5 @@ echo json_encode(
     'message'=>$error_username
 )    
 );
-//    echo "ok";
-//        if(mysqli_num_rows($user_email_result)>0)
-//        {
-//           $error_user_email="<h4 style='color:red;font-size:17px;'>user email already exists</h4>";  
-//        }
 
 ?>

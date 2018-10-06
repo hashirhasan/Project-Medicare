@@ -36,7 +36,7 @@
 <div class="bkg-image">
 <div class="container">
     <?php 
-	$query1="SELECT * FROM posts WHERE cat_title='Fitness Tips'";
+	$query1="SELECT * FROM posts WHERE cat_title='Fitness zone'";
     $result1=mysqli_query($connection,$query1);
     while($row=mysqli_fetch_assoc($result1))             //for displaying the contents of the posts related to articles
     {  ?>

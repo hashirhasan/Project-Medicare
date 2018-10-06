@@ -11,7 +11,7 @@
     <label>enter ur new password</label>
 <input type="text" name="pass">
     <input type="submit" name="submit" value="submit">
-
+                                                                    
 
 </form>
   

@@ -4,8 +4,8 @@
 
 <?php	
 if(isset($_SESSION['user_role']))
-{
-  ?>
+{                                                             //helps to search a specific yoga aasan
+  ?>                                                             
   <div class="srch-btn">
     <form action="yoga_search.php" method="post">
      <input type="text" id="mytext"  name="search" class="search-area"  placeholder="YOGA NAME" onkeyup="enabled()" >

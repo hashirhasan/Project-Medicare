@@ -1,5 +1,5 @@
  
-      <form action="" method="post">
+ <form action="" method="post">
           <?php  
           if(isset($_GET['edit'])){                                             
               $cat_id=$_GET['edit'];
@@ -23,7 +23,7 @@
           if(isset($_POST['edit_cat']))
           { 
             $title=$_POST['categories'];
-              $post_query="UPDATE posts SET cat_title='{$title}' WHERE cat_title='$category'";
+              $post_query="UPDATE posts SET cat_title='{$title}' WHERE cat_title='$category'";    //for deleting all the post related to specific                                                                                            category
                $update_post_query=mysqli_query($connection,$post_query); 
              if(!$update_post_query){
         die("query failed" .mysqli_error($connection));                
@@ -36,4 +36,4 @@
               header("location:categories.php");
           }
             ?>
-         </form>
+</form>

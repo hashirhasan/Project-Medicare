@@ -9,7 +9,7 @@
        <label>Enter Ur E-mail</label>
        <input type="text" name="mail">
         <input type="submit" name="submit" value="submit">
-   </form>
+   </form>                                                                     <!-- sending a specific token for password updation  -->
  </body>
     </html>
 

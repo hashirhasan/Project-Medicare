@@ -13,7 +13,7 @@
 $mail = new PHPMailer;
 $mail->isSMTP();  // Set mailer to use SMTP
 
-$mail->SMTPDebug = 0;                               // Enable verbose debug output
+$mail->SMTPDebug = 0;                               // Enable  debug output =0
 
                                  
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
