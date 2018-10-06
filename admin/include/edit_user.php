@@ -28,7 +28,9 @@
         <select name="user_role">
       
             <option><?php echo $user_role;?></option>                          // dropdown for editing the role of the users
-        <?php                                               
+        <?php  
+       if($_SESSION['user_id']!==$user_id)
+         {
             if($user_role=="admin")                              
             {
                 echo"<option>subscriber</option>";
@@ -36,7 +38,8 @@
             else if($user_role=="subscriber")
             {
                 echo"<option>admin</option>";
-            }  
+            } 
+         }
             ?>
             
         </select></div><br><br>

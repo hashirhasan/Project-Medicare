@@ -3,6 +3,7 @@
           <?php  
           if(isset($_GET['edit'])){                                             
               $cat_id=$_GET['edit'];
+              $category=$_GET['category'];
               $query="SELECT * FROM category WHERE cat_id={$cat_id}";
               $edit_query=mysqli_query($connection,$query);
                if(!$edit_query){
@@ -22,6 +23,11 @@
           if(isset($_POST['edit_cat']))
           { 
             $title=$_POST['categories'];
+              $post_query="UPDATE posts SET cat_title='{$title}' WHERE cat_title='$category'";
+               $update_post_query=mysqli_query($connection,$post_query); 
+             if(!$update_post_query){
+        die("query failed" .mysqli_error($connection));                
+        }
             $query="UPDATE category SET cat_title='{$title}' WHERE cat_id=$cat_id";            //for editing a paricular category
             $update_query=mysqli_query($connection,$query); 
              if(!$update_query){

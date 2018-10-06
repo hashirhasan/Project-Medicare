@@ -61,7 +61,7 @@ $mail->AddAddress($user_email, $username);
 
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'VERIFICATION E-MAIL';
+$mail->Subject = 'Password Updation E-MAIL';
 $mail->Body    = "Hii..."." ".$user_firstname." "."your token is"." ".$token." "."<br> 
         
         click on this link to change ur password:<br>

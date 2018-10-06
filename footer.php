@@ -5,6 +5,7 @@
 </head>
 <meta charset="utf-8">
 <title>footer</title>
+    
 <link rel="stylesheet" type="text/css" href="footer.css">
 <link rel="stylesheet" type="text/css" href="footerform.css">
 <body>
@@ -56,8 +57,10 @@
 		</ul>
 		</div>
 		<div class="newsletter">
-			<input type="text" class="search-area"  placeholder="Email" >
-               <input type="button" class="search-button" value="Subscribe">
+            <form action="" method="post">
+			<input type="text" class="search-area" name="mail"  placeholder="Email" >
+               <input type="submit" name="submit" class="search-button" value="Subscribe">
+            </form>
 		</div>
 		<div class="address">
 			<p>497 New Delhi, INDIA 95673<br>
@@ -65,6 +68,18 @@
                silive.com</p>
 		</div>
 </div>
+    
+    <?php
+    if(isset($_POST['submit']))
+    {
+        $user_email=$_POST['mail'];
+       ?> 
+ <?php  include"homepage_mail.php" ?>
+        
+  <?php  }
+    
+    ?>
+    
 </body>
 </html>
 

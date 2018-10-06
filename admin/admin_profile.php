@@ -48,7 +48,7 @@
         
 			</div>
 		</div>
-			<div class="container-detail">
+			<div style="margin-top:5%" class="container-detail">
                <h3>Username <input type="text" placeholder="Username" value="<?php echo $username;?>" name="username" readonly></h3><br>
 	      		<h3>First Name<input type="text" placeholder="First Name"value="<?php echo $user_firstname;?>"  name="user_firstname" readonly></h3>
 	      		<h3>Last Name<input type="text" placeholder="Last Name" value="<?php echo $user_lastname;?>" name="user_lastname" readonly></h3>
@@ -59,7 +59,7 @@
                 
 	</div>
   
-    <a  href="edit_Admin_profile.php" ><button style="position:absolute; margin-left:9.5vw;margin-top:-10vh; padding:20px; width:180px; color:white; text-decoration:none;" class="sav-button"  name="update_profile"  >Edit Profile</button></a>
+    <a  href="edit_Admin_profile.php" ><button style="position:absolute; margin-left:9.5vw;margin-top:-20vh; padding:20px; width:180px; color:white; text-decoration:none;" class="sav-button"  name="update_profile"  >Edit Profile</button></a>
 <?php }
     else{
     header("location:../home.php");

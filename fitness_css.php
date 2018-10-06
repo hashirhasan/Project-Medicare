@@ -47,6 +47,7 @@ body{
 	margin-top: 0;
 	text-align:center;
 	font-family: arial;
+    color:#352722;
 }
 .container div h5{
 	text-align:center;

@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <meta charset="utf-8">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
@@ -86,7 +87,7 @@ header ul{
     height: 17px;
     
     margin-top: 3%;
-   
+   margin-left: 2%;
     padding: 1.5vh 0.8vw 1.7vw 0; 
     background-color: #00569F;
     border-radius: 15px 0 0 15px;
@@ -297,8 +298,13 @@ nav ul li{position: absolute;
 	text-decoration: none;
 	padding: 20px;
 	cursor: pointer;
-/*    background:  #00569F;*/
+    color:  #00569F;
 }
+  
+        nav ul li:hover{
+  color: white;
+}
+
   @media(max-width: 500px){
   nav ul li{
   position:absolute;
@@ -314,22 +320,23 @@ nav ul li{position: absolute;
 }
 
 
-nav ul li:hover{
+nav ul li a:hover{
   color: white;
 }
 
 
 nav ul li ul.sub-nav {
-  position: fixed;
-  top: 13%;
-  left: 82%;
-  width: 12%;
+  position: sticky;
+  margin-top: 20%;
+  margin-left:-45%;
+  width: 200%;
   height: 50px;
   background:  #00569F;
   border-top: 1px solid #3d3f50;
   visibility: hidden;
   opacity: 0;
     box-shadow: 0px 8px 5px 0 rgba(0,0,0,0.5);
+    
 }
 
 nav ul li ul.sub-nav li {
@@ -342,6 +349,7 @@ nav ul li ul.sub-nav li {
   text-decoration: none;
   list-style-type: none;
   text-align: center;
+  
 }
 
 nav ul li ul.sub-nav li:hover {
@@ -461,12 +469,15 @@ nav ul li:hover ul.sub-nav {
 @media(min-width:1299px){
   .open-slide{display:none}
   
-}         
+}  
+        
+
+        
        </style>
 </head>
 <body class="bkg-img">
-   <header class="header">
-        <img class="logo" src="image/medi4.svg">
+   <header id="top1" class="header">
+       <a  href="home.php"><img class="logo" src="image/medi4.svg"></a>
         
     <ul>
         <li><a  href="home.php">Home</a></li>
@@ -563,7 +574,7 @@ echo "<a  href='{$cat_link}'>{$sub}</a>";
        if(isset($_SESSION['user_role'])){
     echo"<nav>";
     echo"<ul>";
-     echo"<li><a style='text-decoration:none;color:white' href='home.php'>{$_SESSION['username']}</a>";
+     echo"<li><a style='text-decoration:none; text-transform:capitalize;' href='home.php'>{$_SESSION['username']}</a>";
        echo"<ul class='sub-nav'>";
         	
            echo"<a style='text-decoration: none;' href='admin/include/logout.php'>";
@@ -580,4 +591,4 @@ echo "<a  href='{$cat_link}'>{$sub}</a>";
  
 
  
-  
+  <a style="z-index:4; " id="top" href="#top1"><i class="fa fa-arrow-up"></i></a>

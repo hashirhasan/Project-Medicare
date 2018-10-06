@@ -72,7 +72,7 @@
                         <tr>  
                        <?php echo" <td>{$cat_id}</td>"; ?>
                         <?php echo"<td>{$cat_title}</td>"; 
-                         echo"<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";  //link for editing       
+                         echo"<td><a href='categories.php?edit={$cat_id}&category={$cat_title}'>Edit</a></td>";  //link for editing       
                         echo"<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this category?');\" href='categories.php?delete={$cat_id}'>Delete</a></td>";    // link for deletion
                             
                             ?>

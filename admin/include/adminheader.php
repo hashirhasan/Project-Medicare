@@ -17,7 +17,9 @@ else if(!isset($_SESSION['user_role']))
 <html>
 <head>
 	<title>index</title>
+     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+ 
 	<style type="text/css">
           *{
                 padding:0;
@@ -137,7 +139,8 @@ text-overflow: ellipsis;
     border: 2px solid black;
 }
 
-
+        
+           text-transform: capitalize
 
 	</style>
 </head>
@@ -165,9 +168,11 @@ text-overflow: ellipsis;
                </ul>
         </li>
         </ul></div>
+     
     <div class="para">
      <div class="admin" >
  
-   <h1 style="text-align:center;">WELCOME TO ADMIN <small style="color:red;">  <?php echo $_SESSION['username']; ?></small></h1><br>
+   <h1 style="text-align:center;">WELCOME TO ADMIN <small  style="text-transform: capitalize;color:red;">  <?php echo $_SESSION['username']; ?></small></h1><br>
             <hr style="width:43.75vw;background-color:blue; position:absolute; margin-left:14.37vw;">
              <br>
+       
