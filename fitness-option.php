@@ -26,7 +26,9 @@ if(isset($_SESSION['user_role']))
 <?php    }
 else
 {  ?>
-  <script>swal("Medicare Says:", "First Please Login!");</script>
+  <script>
+      swal("Medicare Says:", "First Please Login!").then(function(){window.location = "home.php";})
+  </script>
 
       <?php
 

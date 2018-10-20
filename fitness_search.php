@@ -39,7 +39,7 @@
                     $count=mysqli_num_rows($result1);
                     if($count==0){
                        ?>
-  <script> swal ( "Oops" ,  "No Result Found!" ,  "error" );</script>  
+  <script> swal ( "Oops" ,  "No Result Found!" ,  "error" ).then(function(){window.location = "fitness.php";})</script>  
 <?php
                         echo"<h1 style=' color:white;margin-top:17% ;margin-left:40%;'>NO Result Found!!</h1>";
                     }

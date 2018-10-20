@@ -244,7 +244,7 @@ while ($rows = $resultSet->fetch_assoc())
 }
 else{
    ?>
-<script> swal ( "Oops" ,  "No Result Found!" ,  "error" );</script> 
+<script> swal ( "Oops" ,  "No Result Found!" ,  "error" ).then(function(){window.location = "doctors.php";})</script> 
 
 <?php
     echo"<h1 style='margin-top:30% ;margin-left:25%;'>NO Result Found!!</h1>";

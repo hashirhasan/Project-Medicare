@@ -21,6 +21,10 @@
                 $previous_password=$row['user_password'];
             }
         }
+else if(!isset($_SESSION['user_role']))
+{
+    header("Location:../home.php");
+}
 
 
 

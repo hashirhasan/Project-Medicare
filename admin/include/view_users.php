@@ -1,7 +1,7 @@
  <table>
                     <thead>
                     <tr>
-                        <th>Id</th>
+                       
                          <th>User Image</th>
                         <th>Username</th>
                         <th>Firstname</th>
@@ -33,16 +33,19 @@
                             $user_email=$row['user_email'];
                             $user_role=$row['user_role'];
                          echo"<tr>";
-                            echo"<td>{$user_id}</td>";
+                          
                               echo"<td><img style='width:100px;'src='../image/$user_image'></td>";
                             echo"<td>{$username}</td>";
                             echo"<td>{$user_firstname}</td>";
                             echo"<td>{$user_lastname}</td>";
                             echo"<td>{$user_email}</td>";
                              echo"<td>{$user_role}</td>";
+                          
+                            
                             echo"<td><a href='users.php?change_role_to_admin={$user_id}'>Admin</a></td>";
+                            
                           echo"<td>";
-                             if($_SESSION['user_id']!==$user_id)
+                             if($_SESSION['user_id']!==$user_id )
                                    {
                                      echo  "<a href='users.php?change_role_to_subscriber={$user_id}'>Subscriber</a>";
                                        }
@@ -51,7 +54,7 @@
                           
                         
                             echo"<td>";
-                             if($_SESSION['user_id']!==$user_id)
+                             if($_SESSION['user_id']!==$user_id )
                                    {
                                      echo  "<a onClick=\"javascript: return confirm('Are you sure you want to delete this user?');\" href='users.php?delete={$user_id}'>Delete</a>";// link for deletion 
                                        }

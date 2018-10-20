@@ -107,7 +107,9 @@ else
 {
 ?>
 
- <script>swal("Medicare Says:", "First Please Login!");</script> 
+ <script>
+     swal("Medicare Says:", "First Please Login!").then(function(){window.location = "home.php";})
+ </script> 
 <?php } ?>
     </body>
 
