@@ -276,11 +276,11 @@ error_reporting(0);
 
 <form action="doc_signup.php" method="post" onsubmit="return check()" enctype="multipart/form-data">
 
-    <input class="form" type="text" onblur="check2()"  name="doctorname" id="doctorname" placeholder="Doctor Name" title="avoid spaces" required>
+    <input class="form" type="text" onblur="check2()"  name="doctorname" id="doctorname" placeholder="Doctor Name" title="avoid spaces" autocomplete="off" required>
 
   <?php if(isset($error_doctorname)){echo $error_doctorname;} ?>
   <span style="color:red" id="cdoc"></span>
-      <input class="form" type="text" onblur="check1()" name="username" id="username"  placeholder="Username" title="Avoid spaces" required> 
+      <input class="form" type="text" onblur="check1()" name="username" id="username"  placeholder="Username" title="Avoid spaces" autocomplete="off" required> 
 
  <?php if(isset( $error_username)){echo  $error_username;} ?>
 
@@ -292,7 +292,7 @@ error_reporting(0);
 
     
 
-       <input class="form" type="text" onblur="check4()" name="user_email" placeholder="Email" id="user_email" required>  
+       <input class="form" type="text" onblur="check4()" name="user_email" placeholder="Email" id="user_email" autocomplete="off" required>  
 
     <?php if(isset($error_user_email)){echo $error_user_email;}  ?>
 
@@ -302,9 +302,9 @@ error_reporting(0);
 
      <?php if(isset($error_pass)){echo $error_pass;}  ?>
 <span style="color:red" id="cpass"></span>
-     <input class="form" type="text" placeholder="Timings" name="timing" required/>
+     <input class="form" type="text" placeholder="Timings" name="timing" autocomplete="off" required/>
   
-      <input class="form" type="text" placeholder="Address" name="address" required/>
+      <input class="form" type="text" placeholder="Address" name="address" autocomplete="off" required/>
     <td style="font-size:20px;">Specialization</td>
           <select class="form" name="specialization">
             <option>Select</option>
@@ -319,17 +319,17 @@ error_reporting(0);
           </select>
     
     <div class="leftpart">
-      <input class="form" type="text" placeholder="Fees" name="fees" required/>
+      <input class="form" type="text" placeholder="Fees" name="fees" autocomplete="off" required/>
     
       <?php if(isset( $error_fees)){echo  $error_fees;} ?>
     
       
 
-      <input class="form" type="text" placeholder="Expierence" name="exp" required/>
+      <input class="form" type="text" placeholder="Expierence" name="exp" autocomplete="off" required/>
       
-      <input class="form" type="text" placeholder="Qualifications" name="qualifications" required/>
+      <input class="form" type="text" placeholder="Qualifications" name="qualifications" autocomplete="off" required/>
 
-      <input class="form" type="text" placeholder="Services" name="services" required/>
+      <input class="form" type="text" placeholder="Services" name="services" autocomplete="off" required/>
         <h4 style="color:#513C35;">Upload Your Image</h4>
   
         <div class="form"><input type="file" name="photo" accept="image/*" required /></div>
