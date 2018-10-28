@@ -150,22 +150,28 @@ if(isset($_POST['create_user']))
     <?php if(isset( $message)){echo  $message;}  ?>
                <?php if(isset( $message_error)){echo  $message_error;}  ?>
 <form action="signup.php" method="post" onsubmit="return check()" enctype="multipart/form-data">
-     <span style="color:red" id="cusername"></span>
-       <input class="form" type="text" onkeyup="check1()"  name="username" id="username" placeholder="Username" title="Avoid spaces" autocomplete="off"> <span style="color:red" id="err_user"></span> 
+     
+       <input class="form" type="text" onkeyup="check1()"  name="username" id="username" placeholder="Username" title="Avoid spaces" autocomplete="off">
+    <span style="color:red" id="cusername"></span>
+    <span style="color:red" id="err_user"></span> 
  <?php if(isset( $error_username)){echo  $error_username;} ?>
    <?php if(isset( $error_username_valid)){echo  $error_username_valid;} ?>
-    <span style="color:red" id="cfirst"></span>
-    <input class="form" type="text" name="user_firstname" onblur="check2()" id="user_firstname"  placeholder="First Name">
+   
+    <input class="form" type="text" name="user_firstname" onblur="check2()" id="user_firstname"  placeholder="First Name" autocomplete="off">
+     <span style="color:red" id="cfirst"></span>
   <?php if(isset($error_firstname)){echo $error_firstname;} ?>
+    
+       <input class="form" type="text" name="user_lastname" onblur="check3()" id="user_lastname" placeholder="Last Name" autocomplete="off"> 
     <span style="color:red" id="clast"></span>
-       <input class="form" type="text" name="user_lastname" onblur="check3()" id="user_lastname" placeholder="Last Name">  
      <?php if(isset($error_lastname)){echo $error_lastname;} ?>
-    <span style="color:red" id="cemail"></span>
-       <input class="form" type="text" name="user_email" onblur="check4()" id="user_email" placeholder="Email">  
+   
+       <input class="form" type="text" name="user_email" onblur="check4()" id="user_email" placeholder="Email" autocomplete="off">  
+     <span style="color:red" id="cemail"></span>
     <?php if(isset($error_user_email)){echo $error_user_email;}  ?>
     <?php if(isset($error_email_wrong)){echo $error_email_wrong;}  ?>
-    <span style="color:red" id="cpass"></span>
+    
        <input class="form" type="password" name="user_password" onblur="check5()" id="user_password" placeholder="Password"  title="special characters and numbers are required">
+    <span style="color:red" id="cpass"></span>
      <?php if(isset($error_pass)){echo $error_pass;}  ?>
     <button class="button" type="submit"  name="create_user"><span>SIGN UP</span></button>
     </form>
