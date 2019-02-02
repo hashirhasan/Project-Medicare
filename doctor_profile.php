@@ -8,41 +8,45 @@
             $username=$_SESSION['username'];
             $query="SELECT * FROM users WHERE username ='{$username}'";
            
-             $result=mysqli_query($connection,$query);
-           if(!$result){
-               die("query failed". mysqli_error($connection));
-           }
+            if(!$result)
+               {
+                 die("query failed". mysqli_error($connection));
+               }
             while($row=mysqli_fetch_assoc($result))                                   // used for displaying the details of the user
-            {   
-             $user_id=$row['user_id'];
-            $username=$row['username'];
-            $user_email=$row['user_email'];
+             {   
+                $user_id=$row['user_id'];
+                $username=$row['username'];
+                $user_email=$row['user_email'];
             
-           $docquery="SELECT * FROM doctors,users,user_doctor WHERE  users.user_id = $user_id AND user_doctor.user_id = users.user_id AND user_doctor.doc_id = doctors.doc_id";
-           $result2=mysqli_query($connection,$docquery);
-           if(!$result2){
-               die("query failed".mysqli_error($connection));
-           }
-           while($row=mysqli_fetch_assoc($result2)){
-               $docid=$row['doc_id'];
-               $doctorname=$row['doc_name'];
-               $timing=$row['doc_timing'];
-               $address=$row['doc_address'];
-               $fees=$row['doc_fees'];
-               $exp=$row['doc_exp'];
-               $qualifications=$row['doc_qualifications'];
-               $services=$row['doc_services'];
-               $image=$row['doc_img'];
-           
-           $specialistquery="SELECT * FROM specialization,doctors,doctor_specialization WHERE doctor_specialization.doc_id ='$docid'  AND doctor_specialization.doc_id = doctors.doc_id AND doctor_specialization.specialist_id = specialization.specialist_id";
-           $result1=mysqli_query($connection,$specialistquery);
-           if(!$result1){
-               die("query failed".mysqli_error($connection));
-           }
-           while($row=mysqli_fetch_assoc($result1)){
-               $specialistname=$row['specialist_name'];
-           }
-           }
+               $docquery="SELECT * FROM doctors,users,user_doctor WHERE  users.user_id = $user_id AND user_doctor.user_id = users.user_id AND user_doctor.doc_id = doctors.doc_id";
+               $result2=mysqli_query($connection,$docquery);
+               if(!$result2)
+                   {
+                       die("query failed".mysqli_error($connection));
+                   }
+               while($row=mysqli_fetch_assoc($result2))
+                {
+                   $docid=$row['doc_id'];
+                   $doctorname=$row['doc_name'];
+                   $timing=$row['doc_timing'];
+                   $address=$row['doc_address'];
+                   $fees=$row['doc_fees'];
+                   $exp=$row['doc_exp'];
+                   $qualifications=$row['doc_qualifications'];
+                   $services=$row['doc_services'];
+                   $image=$row['doc_img'];
+
+               $specialistquery="SELECT * FROM specialization,doctors,doctor_specialization WHERE doctor_specialization.doc_id ='$docid'  AND doctor_specialization.doc_id = doctors.doc_id AND doctor_specialization.specialist_id = specialization.specialist_id";
+               $result1=mysqli_query($connection,$specialistquery);
+               if(!$result1)
+                   {
+                     die("query failed".mysqli_error($connection));
+                   }
+               while($row=mysqli_fetch_assoc($result1))
+                    {
+                       $specialistname=$row['specialist_name'];
+                    }
+               }
             }
         }
 ?>
@@ -61,7 +65,7 @@
 	<div class="line"></div>
 	<div class="profile">
 		<div class="container">
-			<img src="image/<?php echo $image; ?>">
+			<img src=" image/<?php echo $image; ?> ">
 			</div>
 		</div>
 			<div class="container-detail">
@@ -75,9 +79,7 @@
 	      		<input type="text" placeholder="Experience" value="<?php echo $exp; ?>" name="exp">
 	      		<input type="text" placeholder="Qualification" value="<?php echo $qualifications; ?>" name="qualifications">
 	      		<input style="width: 264px" type="text" placeholder="Services" value="<?php echo $services; ?>" name="services">
-	      		<!-- <input style="width: 264px" type="text" placeholder="Blood Group">
-	      		<input style="width: 264px" type="text" placeholder="Email"> -->
-	      		<!-- <input class="for-button" type="button" value="Change Password?"> -->	
+	      		
 	      		
 	</div>
 		

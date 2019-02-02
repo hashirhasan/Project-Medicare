@@ -44,10 +44,11 @@ if(isset($_POST['login_user']))
       $_SESSION['user_id']= $user_id;
       header("Location:admin");   
   }
-else{
-   $notlogin="<p style='color:red;'>Invalid Match/Password or Username Incorrect</p>";
+else
+   {
+    $notlogin="<p style='color:red;'>Invalid Match/Password or Username Incorrect</p>";
    
-}
+  }
  
 }
     

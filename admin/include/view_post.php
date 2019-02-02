@@ -3,8 +3,7 @@
             padding: 15px;
         }
         
-        
-        
+     
  #appadd {
     white-space: nowrap;
     overflow: hidden;
@@ -65,7 +64,7 @@ table.gridtable td {
                         $query="SELECT * FROM posts";
                         $result=mysqli_query($connection,$query);
                        if(!$result){
-                           die("query failed".mysqli_error());
+                           die("query failed".mysqli_error($connection));
                        }
                         while($row=mysqli_fetch_assoc($result))
                         {   
@@ -83,8 +82,8 @@ table.gridtable td {
                             echo"<td id='appadd'><img style='width:100px;'src='../image/$post_image'></td>";
                             echo"<td id='appadd'>{$post_content}</td>";
                             echo"<td id='appadd' >{$post_tags}</td>";
-                            echo"<td id='appadd'><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";     // link  for editing the                                                                                                       posts
-                            echo"<td id='appadd'><a onClick=\"javascript: return confirm('Are you sure you want to delete this post?');\" href='posts.php?delete={$post_id}'>Delete</a></td>";//link for deletion
+                            echo"<td id='appadd'><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";     // link  for editing the posts                                                                                                       
+                            echo"<td id='appadd'><a onClick=\"javascript: return confirm('Are you sure you want to delete this post?');\" href='posts.php?delete={$post_id}'>Delete</a></td>";       //link for deletion
                              echo"</tr>";
                             
                         }

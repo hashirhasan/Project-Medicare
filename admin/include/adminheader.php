@@ -149,11 +149,11 @@ text-overflow: ellipsis;
     <ul>
         <li><a href="../home.php">Home</a></li>
         <li><a href="categories.php">Categories</a></li>
-         <li><a href="">Posts <i class="fas fa-paste"></i> <i class="fas fa-caret-down"></i></a>
+        <li><a href="">Posts <i class="fas fa-paste"></i> <i class="fas fa-caret-down"></i></a>
             <ul>
-             <li><a href="posts.php">view posts <i class="fas fa-eye"></i></a></li><br>
-                <li><a href="posts.php?source=add_post">add posts <i class="fas fa-plus"></i></a></li>
-               </ul>
+                 <li><a href="posts.php">view posts <i class="fas fa-eye"></i></a></li><br>
+                 <li><a href="posts.php?source=add_post">add posts <i class="fas fa-plus"></i></a></li>
+            </ul>
        </li>
           <li><a href="">Users <i class="fas fa-users"></i>  <i class="fas fa-caret-down"></i></a>
         <ul>
@@ -167,7 +167,8 @@ text-overflow: ellipsis;
                 <li><a href="include/logout.php">Logout <i class="fas fa-lock"></i></a></li>
                </ul>
         </li>
-        </ul></div>
+    </ul>
+    </div>
      
     <div class="para">
      <div class="admin" >

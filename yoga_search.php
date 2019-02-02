@@ -17,12 +17,15 @@ if(isset($_SESSION['user_role']))
         
 <script type="text/javascript">
     function enabled(){
-        if(document.getElementById("mytext").value==="") { 
-            //console.log(document.getElementById("mytext").value);
+        if(document.getElementById("mytext").value==="") 
+        { 
+            
             document.getElementById('start_button').disabled = true; 
-        } else { 
-            document.getElementById('start_button').disabled = false;
-        }
+        } 
+        else
+         { 
+           document.getElementById('start_button').disabled = false;
+         }
     }
 </script>
 <?php }
@@ -37,16 +40,18 @@ else{
  
             if(isset($_POST['submit']))
                 {
-                    $search=$_POST['search'];
-                $query1="SELECT * FROM posts WHERE cat_title='Yoga Aasans'and post_tags LIKE '%$search%' ";
+                 $search=$_POST['search'];
+                 $query1="SELECT * FROM posts WHERE cat_title='Yoga Aasans'and post_tags LIKE '%$search%' ";
                  $result1=mysqli_query($connection,$query1);
-                 if(!$result1){
+                 if(!$result1)
+                  {
                      die("query failed ". mysqli_error($connection));
-                 }
+                  }
                     $count=mysqli_num_rows($result1);
-                    if($count==0){
+                    if($count==0)
+                     {
                        ?>
-  <script> swal ( "Oops" ,  "No Result Found!" ,  "error" );</script>  
+  <script> swal ( "Oops" ,  "No Result Found!" ,  "error" ); </script>  
 <?php
                         echo"<h1 style='margin-top:17% ;margin-left:40%;color:white'>NO Result Found!!</h1>";
                     }

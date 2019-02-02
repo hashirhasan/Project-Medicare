@@ -19,7 +19,7 @@
 }
  
 html {
-  scroll-behavior: smooth;
+ 
   overflow-y: scroll;
 
 }

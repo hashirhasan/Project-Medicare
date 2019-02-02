@@ -20,7 +20,6 @@ $result_count_post=mysqli_query($connection,"SELECT count(*) as total from posts
 <h1>Total Users:<span  style="color:red;"><?php echo $data_user['total']; ?></span></h1>
 </div>
 </div>
-
-    </div>
+</div>
 </body>
 </html>
