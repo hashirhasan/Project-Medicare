@@ -7,7 +7,7 @@
         {
             $username=$_SESSION['username'];
             $query="SELECT * FROM users WHERE username ='{$username}'";
-           
+            $result=mysqli_query($connection,$query);
             if(!$result)
                {
                  die("query failed". mysqli_error($connection));

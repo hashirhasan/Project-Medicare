@@ -21,9 +21,11 @@ $token='asdfghjmnbvkdgepsdfregcftgapscsxfDFGKHYGBKDD23344567546786klqwertyphgkvb
 
 if(isset($_POST['submit']))
 {
+
     $user_email=$_POST['mail'];
     $query="SELECT * FROM users WHERE user_email='$user_email'";
-    $forgot_result=mysqli_query($connection,$query);
+    
+   $forgot_result=mysqli_query($connection,$query);
      if(!$forgot_result){
     die("query failed".mysqli_error($connection));
     }
@@ -37,20 +39,20 @@ if(isset($_POST['submit']))
     if(!$update_result){
     die("query failed".mysqli_error($connection));
     }
-//   error_reporting(0); 
+   error_reporting(0); 
   require ('PHPMailer\PHPMailerAutoload.php');
 //require ("PHPMailer/class.phpmailer.php");
 
 $mail = new PHPMailer;
 $mail->isSMTP();  // Set mailer to use SMTP
 
-$mail->SMTPDebug = 0;                               //  debug output =0
+$mail->SMTPDebug = 1;                               //  debug output =0
 
                                  
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // SMTP authentication
 $mail->Username = 'hasanhashir1314@gmail.com';                 // SMTP username
-$mail->Password = '2531899@';                           // SMTP password
+$mail->Password = '2531899@123';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
@@ -71,7 +73,7 @@ $mail->Body    = "Hii..."." ".$user_firstname." "."your token is"." ".$token." "
         ";
     
 if(!$mail->send()) {
-    $message_error= "<h2 style='color:red;text-shadow: 1px 1px white;'>Please check ur internet connection.</h2>";
+    echo $message_error= "<h2 style='color:red;text-shadow: 1px 1px white;'>Please check ur internet connection.</h2>";
 } else {
    ?>
    <script>
