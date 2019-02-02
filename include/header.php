@@ -17,13 +17,11 @@
 	margin:0;
   box-sizing: border-box;
 }
- 
-html {
- 
-  overflow-y: scroll;
-
-}
-        
+   html{
+            
+            scroll-behavior:smooth;
+             overflow-y: scroll;
+        }      
 .row::after {
   content: "";
   clear: both;
