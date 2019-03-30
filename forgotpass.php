@@ -28,6 +28,7 @@
 if(isset($_GET['email']))                                       
 {    
      $email=$_GET['email'];
+    $token=$_GET['token'];
     
    if(isset($_POST['submit']))
    {

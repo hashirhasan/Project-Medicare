@@ -33,7 +33,7 @@ if(isset($_GET['email']))
     
     if($token_id===$token_check){
         
-    header("location:forgotpass.php?email=$email");
+    header("location:forgotpass.php?email=$email&token=$token_id");
 
 }
 }

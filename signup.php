@@ -39,8 +39,16 @@ if(isset($_POST['create_user']))
     $user_lastname=$_POST['user_lastname'];
     $user_email=$_POST['user_email'];
     $user_image="defaultprofile.jpg";
-    
     $user_password=$_POST['user_password'];
+    $secretkey="6LccApsUAAAAABt5QTeD6YzztJ62yyYXsVp8rS_7";
+    $responsekey=$_POST['g-recaptcha-response'];
+    $url="https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$responsekey";
+    $response=file_get_contents($url);
+    $response=json_decode($response,true);
+   
+    if($response['success']== true)
+    {
+       
     $username_query="SELECT * FROM users WHERE username='$username'";
      $user_email_query="SELECT * FROM users WHERE user_email='$user_email'";
    
@@ -124,12 +132,18 @@ if(isset($_POST['create_user']))
     if(!$result){
     die("query failed". mysqli_error($connection));
     }
-
- 
+        
+    
 }
       
 }
+    else
+{
+   $message_error= "<h3 style='color:red;text-shadow: 1px 1px white;'>First Prove U r not a Robot.</h3>";  
+}
  
+}
+
 ?>
 
 
@@ -169,7 +183,9 @@ if(isset($_POST['create_user']))
        <input class="form" type="password" name="user_password" onblur="check5()" id="user_password" placeholder="Password"  title="special characters and numbers are required">
      <?php if(isset($error_pass)){echo $error_pass;}  ?>
     <button class="button" type="submit"  name="create_user"><span>SIGN UP</span></button>
+     <div class="g-recaptcha" data-sitekey="6LccApsUAAAAAAkUKhG42e22DoKPBslPjnIVqpY2"></div>
     </form>
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         </div>
     </div>
  <script>
@@ -186,14 +202,14 @@ if(isset($_POST['create_user']))
         return false;
     }
         else
-        {
+        {     
             document.getElementById("details").innerHTML="";
             document.getElementById("details").style.visibility = "hidden";
         }
      }
        function check1(){
             var username=document.getElementById("username");
-         var regex1 = /^[A-z0-9@#$%^&*()+?_!-]{3,}$/;
+            var regex1 = /^[A-z0-9@#$%^&*()+?_!-]{3,}$/;
     if(username.value.length>0 && (!regex1.test(username.value)))
         {
              document.getElementById("cusername").style.visibility = "visible";
@@ -261,13 +277,12 @@ if(isset($_POST['create_user']))
       }
       function check4(){
             var user_email=document.getElementById("user_email");
-    
-      var regex4 = /^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/;
+             var regex4 = /^[A-z0-9._-]+@[a-z]+\.[a-z].{2,5}$/;
     if(user_email.value.length>0 && (!regex4.test(user_email.value)))
         {
               document.getElementById("cemail").style.visibility ="visible";
-            document.getElementById("cemail").innerHTML="invalid email";
-            
+              document.getElementById("cemail").innerHTML="invalid email";
+              
         } 
          else
         {
@@ -278,28 +293,22 @@ if(isset($_POST['create_user']))
       }
       function check5(){
            var user_password=document.getElementById("user_password");
-         var regex5 = /^(?=.*[a-z])(?=.*\d)(?=.*[@_#$^&*()+<,>!]).{5,13}$/;
-    if(user_password.value.length>0 && (!regex5.test(user_password.value)))
+           var regex5 = /^(?=.*[a-z])(?=.*\d)(?=.*[@_#$^&*()+<,>!]).{5,13}$/;
+      if(user_password.value.length>0 && (!regex5.test(user_password.value)))
         {
-            document.getElementById("cpass").style.visibility ="visible";
-            document.getElementById("cpass").innerHTML="invalid password";
-            
+              
         }
          else
         {
+            
             document.getElementById("cpass").innerHTML="";
             document.getElementById("cpass").style.visibility = "hidden";
+       
         }
       }
 
 
     </script>   
-    
-    
-    
-    
-    
-    
-    
+  
 </body>
 </html>

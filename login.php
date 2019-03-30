@@ -22,6 +22,12 @@ if(isset($_POST['login_user']))
     
     $query="SELECT * FROM users WHERE username='$enter_username'";
     $result=mysqli_query($connection,$query);
+    if(mysqli_num_rows($result)==0)
+    {
+        $notlogin="<p id='checks' style='color:red;'>no such entry in database</p>";
+    }
+    else
+    {
     while($row=mysqli_fetch_assoc($result))
     {
         $user_id=$row['user_id'];
@@ -46,10 +52,11 @@ if(isset($_POST['login_user']))
   }
 else
    {
-    $notlogin="<p style='color:red;'>Invalid Match/Password or Username Incorrect</p>";
+    $notlogin="<p style='color:red;' id='checks'>Invalid Match/Password or Username Incorrect</p>";
    
   }
  
+}
 }
     
     ?>
@@ -82,10 +89,10 @@ else
         <h4><a href="signup.php" class="line">Sign Up</a></h4>
             <?php if(isset($notlogin)){echo $notlogin;}  ?>
         <form action="" method="post" enctype="multipart/form-data">
-        <input class="form" type="text" name="username"  placeholder="Username" >  
-        <input class="form"  type="password" name="user_password" placeholder="Password"> 
+        <input class="form" type="text" id="text" name="username"  placeholder="Username"  onkeyup="enabled()">  
+        <input class="form"   type="password" id="password" name="user_password" placeholder="Password" > 
            
-        <button class="button" type="submit" name="login_user"><span>LOG IN</span></button><span> <a href = "forgot_mail.php">forgot password ?</a></span>
+        <button class="button" type="submit" id="start_button" name="login_user" disabled><span>LOG IN</span></button><span> <a href = "forgot_mail.php">forgot password ?</a></span>
         <h4 style="color:#513C35; font-faimly:arial;" >Don't Have Account!!<br>Please Signup First</h4>
         </form>
 
@@ -93,7 +100,24 @@ else
         </div>
         </body>
         </html>
-   
+    <script type="text/javascript">
+  function enabled(){
+    if(document.getElementById("text").value==="") { 
+            //console.log(document.getElementById("mytext").value);
+            document.getElementById('start_button').disabled = true; 
+          } else { 
+            document.getElementById('start_button').disabled = false;
+          }
+        }
+        
+        
+        function checks(){
+            if(document.getElementById('text').value!=""){
+                   document.getElementById("checks").innerHTML="";
+            document.getElementById("checks").style.visibility = "hidden";
+            }
+        }
+      </script>
 
 
 
